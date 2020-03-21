@@ -9,7 +9,7 @@
 </head>
 <body>
   <script>
-    let csvToJson = require('convert-csv-to-json');
+    import * as csvToJson from "convert-csv-to-json";
     let fileInputName = 'myInputFile.csv';
     let fileOutputName = 'myOutputFile.json';
     csvToJson.generateJsonFileFromCsv(fileInputName,fileOutputName);
