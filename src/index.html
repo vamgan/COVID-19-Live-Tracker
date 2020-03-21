@@ -1,16 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <script src="https://cdn.rawgit.com/Keyang/node-csvtojson/d41f44aa/browser/csvtojson.min.js"></script>
-  <script>
-    csv({
-        output: "csv"
-    })
-    .fromString("a,b,c\n1,2,3")
-    .then(function(result){
-     
-    })
-    </script> 
+
   <meta charset="utf-8">
   <title>COVID19</title>
   <base href="/">
@@ -19,14 +10,16 @@
 </head>
 <body>
   <script>
+    var requirejs = require('requirejs');
+    const request =require('request');
+    const csv =require('csvtojson');
     csv()
-    .fromStream(request.get('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv'))
+    .fromStream(request.get('https://docs.google.com/spreadsheets/d/1nzXUdaIWC84QipdVGUKTiCSc5xntBbpMpzLm6Si33zk/'))
     .subscribe((json) => {
         return new Promise((resolve,reject) => {
               // long operation for each json e.g. transform / write into database.
           });
       }, onError, onComplete);
-
   </script>
   <app-root></app-root>
 </body>

@@ -19,7 +19,7 @@ import { CurrentComponent } from './insights/current/current.component';
 import { DischargedComponent } from './insights/discharged/discharged.component';
 import { NetworkGraphComponent } from './cases/network-graph/network-graph.component';
 import { SearchComponent } from './cases/search/search.component';
-
+declare var require: any;
 @NgModule({
   declarations: [
     AppComponent,
