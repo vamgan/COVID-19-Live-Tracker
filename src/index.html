@@ -9,18 +9,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <script>
-    var requirejs = require('requirejs');
-    const request =require('request');
-    const csv =require('csvtojson');
-    csv()
-    .fromStream(request.get('https://docs.google.com/spreadsheets/d/1nzXUdaIWC84QipdVGUKTiCSc5xntBbpMpzLm6Si33zk/'))
-    .subscribe((json) => {
-        return new Promise((resolve,reject) => {
-              // long operation for each json e.g. transform / write into database.
-          });
-      }, onError, onComplete);
-  </script>
+
   <app-root></app-root>
 </body>
 </html>
