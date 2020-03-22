@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,22 @@ import { TestCentresComponent } from './test-centres/test-centres.component';
 import { ChartsComponent } from './charts/charts.component';
 import { ChartsModule } from 'ng2-charts';
 import { MyLineChartComponent } from './my-line-chart/my-line-chart.component';
+import { WorldmapComponent } from './worldmap/worldmap.component';
+import { NationalityPieComponent } from './nationality-pie/nationality-pie.component';
+
+const appRoutes: Routes = [
+  { path: 'worldwide.html', component: WorldWideComponent },
+  { path: 'test-centres',      component: TestCentresComponent },
+  {
+    path: 'worldwide.html',
+    component: WorldWideComponent,
+    data: { title: 'Worldwide COVID-19' }
+  },
+  { path: '',
+    redirectTo: '/worldwide.html',
+    pathMatch: 'full'
+  },
+  { path: '**', component: HomeComponent }];
 
 @NgModule({
   declarations: [
@@ -50,16 +66,25 @@ import { MyLineChartComponent } from './my-line-chart/my-line-chart.component';
     HelplineComponent,
     TestCentresComponent,
     ChartsComponent,
-    MyLineChartComponent
+    MyLineChartComponent,
+    WorldmapComponent,
+    NationalityPieComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserModule,
-    ChartsModule
+    ChartsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
+
 export class AppModule { }

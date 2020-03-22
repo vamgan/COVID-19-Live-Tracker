@@ -11,13 +11,13 @@ import {HttpClient} from '@angular/common/http';
 })
 
 export class MyLineChartComponent implements OnInit {
-  IndiaData: any;
-  casesTimeSeries: any;
-  keyValues: any;
-  statewise: any;
+    IndiaData: any;
+    casesTimeSeries: any;
+    keyValues: any;
+    statewise: any;
 
   public lineChartData: ChartDataSets[] = [
-    { data: [], fill: true },
+    { data: [], fill: true , label: 'State wise cases'},
   ];
   public lineChartLabels: Label[] = [];
   public lineChartOptions: ChartOptions = {
@@ -54,12 +54,12 @@ export class MyLineChartComponent implements OnInit {
   public lineChartPlugins = [];
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+   }
 
   ngOnInit() {
     this.http.get('https://api.covid19india.org/data.json')
       .subscribe((response) => {
-        this.IndiaData = response;
         this.casesTimeSeries = response.cases_time_series;
         this.keyValues = response.key_values[0];
         this.statewise = response.statewise;
@@ -70,7 +70,7 @@ export class MyLineChartComponent implements OnInit {
     for ( const data of stateWise) {
       if (data.state !== 'Total') {
         this.lineChartLabels.push(data.state);
-        this.lineChartData[0].data.push(data.recovered);
+        this.lineChartData[0].data.push(data.confirmed);
       }
 
     }
