@@ -8,7 +8,8 @@
        
       </div>
     </div>
-    <div class="number-graph-wrapper">
+    
+    <div class="number-graph-wrapper" *ngIf=IndiaData>
       <div class="number-graph mr-2">
         <div class="card">
           <div class="card-header">
@@ -18,7 +19,7 @@
           </div>
           <div class="card-body status-confirmed">
             <div class="cases-container">
-              <h2 class="case">214</h2><span class="info">1% of total cases in Intensive Care</span>
+              <h2 class="case">{{IndiaData.statewise[0].confirmed}}</h2><span class="info">1% of total cases in Intensive Care</span>
             </div>
             <div id="lineChartContainer">
               <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
@@ -32,12 +33,12 @@
         <div class="card">
           <div class="card-header">
             <div class="card-title">
-              <h6><b>HOSPITALIZED CASES</b></h6>
+              <h6><b>STATES INFECTED</b></h6>
             </div>
           </div>
           <div class="card-body status-hospitalized">
             <div class="cases-container">
-              <h2 class="case">188</h2><span class="info">88% of total cases</span>
+              <h2 class="case">23</h2><span class="info"></span>
             </div>
             <div id="lineChartContainer">
               <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
@@ -60,7 +61,19 @@
             </div>
             <div id="lineChartContainer">
               <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
-                <div></div>
+                <div>
+              
+                    <canvas mdbChart
+                        [chartType]="chartType"
+                        [datasets]="chartDatasets"
+                        [labels]="chartLabels"
+                        [colors]="chartColors"
+                        [options]="chartOptions"
+                        [legend]="true"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)">
+                    </canvas>
+                  </div>
               </div>
             </div>
           </div>
@@ -75,7 +88,7 @@
           </div>
           <div class="card-body status-recovered">
             <div class="cases-container">
-              <h2 class="case">20</h2><span class="info">9% of total cases</span>
+              <h2 class="case">{{IndiaData.statewise[0].recovered}}</h2><span class="info">9% of total cases</span>
             </div>
             <div id="lineChartContainer">
               <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
@@ -94,7 +107,7 @@
           </div>
           <div class="card-body status-died">
             <div class="cases-container">
-              <h2 class="case">4</h2><span class="info">2% of total cases</span>
+              <h2 class="case">{{IndiaData.statewise[0].deaths}}</h2><span class="info">2% of total cases</span>
             </div>
             <div id="lineChartContainer">
               <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
