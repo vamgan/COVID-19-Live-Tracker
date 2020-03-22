@@ -416,7 +416,8 @@ body {
 
 .case {
   margin-right: 5px;
-  margin-bottom: 0
+  margin-bottom: 0;
+  align-content: center
 }
 
 .info {

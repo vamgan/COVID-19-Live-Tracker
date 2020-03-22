@@ -10,11 +10,31 @@ import { Color, Label } from 'ng2-charts';
 export class MyLineChartComponent implements OnInit {
 
   public lineChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
+    { data: [0, 150, 180, 200, 200, 250, 260, 280, 450], fill: false },
   ];
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartLabels: Label[] = [];
   public lineChartOptions: ChartOptions = {
     responsive: true,
+    scales: {
+      yAxes: [{
+          ticks: {
+            display: false,
+              beginAtZero: true,
+              maxTicksLimit: 5,
+          },
+          gridLines: {
+              display: false
+          }
+      }],
+      xAxes: [{
+          gridLines: {
+            display: false
+          },
+          ticks: {
+            display: false
+          }
+      }]
+  }
   };
   public lineChartColors: Color[] = [
     {
@@ -22,9 +42,10 @@ export class MyLineChartComponent implements OnInit {
       backgroundColor: 'rgba(255,0,0,0.3)',
     },
   ];
-  public lineChartLegend = true;
+  public lineChartLegend = false;
   public lineChartType: ChartType = 'line';
   public lineChartPlugins = [];
+
 
   constructor() { }
 
