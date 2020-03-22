@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './charts.component.html',
   styleUrls: ['./charts.component.css']
 })
-export class ChartsComponent implements OnInit {
+export class ChartsComponent {
   public chartType = 'line';
 
     public chartDatasets: Array<any> = [
