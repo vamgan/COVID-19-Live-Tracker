@@ -6,10 +6,10 @@
         <h5>Coronavirus Outbreak in India</h5>
       </div>
       <div class="column col-sm-12 col-3">
-       
+
       </div>
     </div>
-    
+
     <div class="number-graph-wrapper" *ngIf=IndiaData>
       <div class="number-graph mr-2">
         <div class="card">
@@ -20,11 +20,10 @@
           </div>
           <div class="card-body status-confirmed">
             <div class="cases-container">
-              <h2 class="case">{{IndiaData.statewise[0].confirmed}}</h2><span class="info">1% of total cases in Intensive Care</span>
+              <h2 class="case">{{statewise[0].confirmed}}</h2><span class="info">1% of total cases in Intensive Care</span>
             </div>
             <div id="lineChartContainer">
               <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
-                <div><app-my-line-chart></app-my-line-chart></div>
               </div>
             </div>
           </div>
@@ -63,7 +62,7 @@
             <div id="lineChartContainer">
               <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
                 <div>
-              
+
                   </div>
               </div>
             </div>
@@ -79,7 +78,7 @@
           </div>
           <div class="card-body status-recovered">
             <div class="cases-container">
-              <h2 class="case">{{IndiaData.statewise[0].recovered}}</h2><span class="info">9% of total cases</span>
+              <h2 class="case">{{statewise[0].recovered}}</h2><span class="info">9% of total cases</span>
             </div>
             <div id="lineChartContainer">
               <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
@@ -98,7 +97,7 @@
           </div>
           <div class="card-body status-died">
             <div class="cases-container">
-              <h2 class="case">{{IndiaData.statewise[0].deaths}}</h2><span class="info">2% of total cases</span>
+              <h2 class="case">{{statewise[0].deaths}}</h2><span class="info">2% of total cases</span>
             </div>
             <div id="lineChartContainer">
               <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
@@ -128,4 +127,3 @@
         </div>
       </div>
     </div>
-    

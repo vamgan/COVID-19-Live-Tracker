@@ -2,15 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 
+import {HttpClient} from '@angular/common/http';
+
 @Component({
   selector: 'app-my-line-chart',
   templateUrl: './my-line-chart.component.html',
   styleUrls: ['./my-line-chart.component.css']
 })
+
 export class MyLineChartComponent implements OnInit {
+  IndiaData: any;
+  casesTimeSeries: any;
+  keyValues: any;
+  statewise: any;
 
   public lineChartData: ChartDataSets[] = [
-    { data: [0, 150, 180, 200, 200, 250, 260, 280, 450], fill: false },
+    { data: [], fill: true },
   ];
   public lineChartLabels: Label[] = [];
   public lineChartOptions: ChartOptions = {
@@ -18,7 +25,7 @@ export class MyLineChartComponent implements OnInit {
     scales: {
       yAxes: [{
           ticks: {
-            display: false,
+            display: true,
               beginAtZero: true,
               maxTicksLimit: 5,
           },
@@ -28,10 +35,10 @@ export class MyLineChartComponent implements OnInit {
       }],
       xAxes: [{
           gridLines: {
-            display: false
+            display: true
           },
           ticks: {
-            display: false
+            display: true
           }
       }]
   }
@@ -42,14 +49,32 @@ export class MyLineChartComponent implements OnInit {
       backgroundColor: 'rgba(255,0,0,0.3)',
     },
   ];
-  public lineChartLegend = false;
+  public lineChartLegend = true;
   public lineChartType: ChartType = 'line';
   public lineChartPlugins = [];
 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get('https://api.covid19india.org/data.json')
+      .subscribe((response) => {
+        this.IndiaData = response;
+        this.casesTimeSeries = response.cases_time_series;
+        this.keyValues = response.key_values[0];
+        this.statewise = response.statewise;
+        this.getStateName(this.statewise);
+      });
   }
+  public getStateName(stateWise: any): any {
+    for ( const data of stateWise) {
+      if (data.state !== 'Total') {
+        this.lineChartLabels.push(data.state);
+        this.lineChartData[0].data.push(data.recovered);
+      }
+
+    }
+  }
+
 
 }
