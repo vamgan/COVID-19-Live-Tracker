@@ -19,6 +19,9 @@ import { CurrentComponent } from './insights/current/current.component';
 import { DischargedComponent } from './insights/discharged/discharged.component';
 import { NetworkGraphComponent } from './cases/network-graph/network-graph.component';
 import { SearchComponent } from './cases/search/search.component';
+import { WorldwideComponent } from './worldwide/worldwide.component';
+import { HelplineComponent } from './helpline/helpline.component';
+import { TestCentresComponent } from './test-centres/test-centres.component';
 declare var require: any;
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ declare var require: any;
     CurrentComponent,
     DischargedComponent,
     NetworkGraphComponent,
-    SearchComponent
+    SearchComponent,
+    WorldwideComponent,
+    HelplineComponent,
+    TestCentresComponent
   ],
   imports: [
     BrowserModule,
