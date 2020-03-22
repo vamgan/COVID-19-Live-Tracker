@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {HttpClientModule} from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -24,7 +23,10 @@ import { SearchComponent } from './cases/search/search.component';
 import { WorldwideComponent } from './worldwide/worldwide.component';
 import { HelplineComponent } from './helpline/helpline.component';
 import { TestCentresComponent } from './test-centres/test-centres.component';
-declare var require: any;
+import { ChartsComponent } from './charts/charts.component';
+import { ChartsModule } from 'ng2-charts';
+import { MyLineChartComponent } from './my-line-chart/my-line-chart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,12 +48,16 @@ declare var require: any;
     SearchComponent,
     WorldwideComponent,
     HelplineComponent,
-    TestCentresComponent
+    TestCentresComponent,
+    ChartsComponent,
+    MyLineChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

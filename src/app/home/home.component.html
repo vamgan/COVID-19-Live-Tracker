@@ -1,3 +1,4 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <div class="content">
   <div id="dashboard" class="container">
     <div class="columns flex-centered my-2">
@@ -114,10 +115,8 @@
           <div class="card-header">
             <div class="card-title h6">Cumulative Trend</div>
             <div class="card-subtitle text-gray mt-1">30th Jan 2020 to Today</div>
-            
-              
             </div>
-           
+            <app-my-line-chart></app-my-line-chart>
           </div>
           <div class="card-body">
             <div id="timelineChartContainer" class="timelineChartDimensions">
@@ -129,9 +128,4 @@
         </div>
       </div>
     </div>
-    <div class="columns my-2">
-      <div class="column col-sm-12 col-7">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title h6">States and UTs</div>
-          </div>
+    
