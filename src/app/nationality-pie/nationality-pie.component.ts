@@ -51,8 +51,13 @@ nationalityData: any;
      }
   });
   for (const [key, value] of Object.entries(nationalityObj)) {
+    if (key === '') {
+      this.pieChartLabels.push('Unknown');
+      this.pieChartData.push(Number(value));
+    } else {
     this.pieChartLabels.push(key);
     this.pieChartData.push(Number(value));
+    }
   }
    }
  }
