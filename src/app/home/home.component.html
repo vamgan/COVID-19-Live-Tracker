@@ -78,7 +78,7 @@
           </div>
           <div class="card-body status-recovered">
             <div class="cases-container">
-              <h2 class="case">{{statewise[0].recovered}}</h2><span class="info">{{statewise[0].recovered *100 / statewise[0].confirmed}}% of total cases</span>
+              <h2 class="case">{{statewise[0].recovered}}</h2><span class="info">{{statewise[0].recovered *100 / statewise[0].confirmed| number : '1.1-2'}}% of total cases</span>
             </div>
             <div id="lineChartContainer">
               <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
@@ -97,7 +97,7 @@
           </div>
           <div class="card-body status-died">
             <div class="cases-container">
-              <h2 class="case">{{statewise[0].deaths}}</h2><span class="info">{{statewise[0].deaths *100 /statewise[0].confirmed}}% of total cases</span>
+              <h2 class="case">{{statewise[0].deaths}}</h2><span class="info">{{statewise[0].deaths *100 /statewise[0].confirmed| number : '1.1-2'}}% of total cases</span>
             </div>
             <div id="lineChartContainer">
               <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
@@ -130,14 +130,16 @@
     <div class="row">
       <div class="col-sm-4">
       <div class="card">
-        <div class="card-header">
-          <div class="card-title h6">Nationality of people affected in India</div>
-        </div>
+          <div class="card-header d-flex justify-content-between">
+            <h6 class="lh-5 mg-b-0">Nationality of people affected in India</h6>
+            <!-- <a href="" class="tx-13 link-03"><i data-feather="more-horizontal" class="wd-20 ht-20"></i></a> -->
+          </div>
+        
         <div class="card-body pd-y-25"><app-nationality-pie></app-nationality-pie></div>
       </div>
                   </div>
-                  </div>
-              
+                  
+                </div>
             
   </div>
 </div>
