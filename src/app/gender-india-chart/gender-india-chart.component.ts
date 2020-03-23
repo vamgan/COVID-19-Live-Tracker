@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
 import { Label, SingleDataSet, Color } from 'ng2-charts';
-import {HttpClient} from '@angular/common/http';
+
+import {HomeService} from '../home/home.service';
+
 @Component({
   selector: 'app-gender-india-chart',
   templateUrl: './gender-india-chart.component.html',
@@ -17,12 +19,12 @@ export class GenderIndiaChartComponent implements OnInit {
       backgroundColor: ['#66a4fb', '#f2b8ff', '#fec85e', '#4cebb5', '#a5d7fd', '#ff7c8f', '#b2bece', '#a4e063'],
     },
   ];
-  constructor(private http: HttpClient) {
+  constructor(private homeService: HomeService) {
   }
 genderData: any;
 
   ngOnInit() {
-    this.http.get('https://api.covid19india.org/raw_data.json')
+    this.homeService.GetPatientData()
      .subscribe((response) => {
        this.genderData = response.raw_data;
        this.getGender(this.genderData);

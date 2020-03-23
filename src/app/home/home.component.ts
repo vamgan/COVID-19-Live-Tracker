@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+
+import {HomeService} from './home.service';
+import {Response} from '../response';
 
 @Component({
   selector: 'app-home',
@@ -12,14 +14,14 @@ export class HomeComponent implements OnInit {
   keyValues: any;
   statewise: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
-      this.http.get('https://api.covid19india.org/data.json')
-      .subscribe((response) => {
+      this.homeService.GetIndiaData()
+      .subscribe((response: Response) => {
         this.IndiaData = response;
         this.casesTimeSeries = response.cases_time_series;
-        this.keyValues = response.key_values[0];
+        this.keyValues = response.key_values;
         this.statewise = response.statewise;
       });
 

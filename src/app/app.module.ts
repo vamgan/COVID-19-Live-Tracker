@@ -29,20 +29,7 @@ import { MyLineChartComponent } from './my-line-chart/my-line-chart.component';
 import { WorldmapComponent } from './worldmap/worldmap.component';
 import { NationalityPieComponent } from './nationality-pie/nationality-pie.component';
 import { GenderIndiaChartComponent } from './gender-india-chart/gender-india-chart.component';
-
-const appRoutes: Routes = [
-  { path: 'worldwide.html', component: WorldWideComponent },
-  { path: 'test-centres',      component: TestCentresComponent },
-  {
-    path: 'worldwide.html',
-    component: WorldWideComponent,
-    data: { title: 'Worldwide COVID-19' }
-  },
-  { path: '',
-    redirectTo: '/worldwide.html',
-    pathMatch: 'full'
-  },
-  { path: '**', component: HomeComponent }];
+import { AgeGenderIndiaComponent } from './age-gender-india/age-gender-india.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +57,8 @@ const appRoutes: Routes = [
     MyLineChartComponent,
     WorldmapComponent,
     NationalityPieComponent,
-    GenderIndiaChartComponent
+    GenderIndiaChartComponent,
+    AgeGenderIndiaComponent
   ],
   imports: [
     BrowserModule,
@@ -78,10 +66,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserModule,
     ChartsModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    )
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

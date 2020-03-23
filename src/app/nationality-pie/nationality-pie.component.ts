@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label, SingleDataSet, Color } from 'ng2-charts';
 
-import {HttpClient} from '@angular/common/http';
+import {HomeService} from '../home/home.service';
+
 
 
 @Component({
@@ -27,13 +28,13 @@ export class NationalityPieComponent implements OnInit {
   ];
   nationalityObj: any;
 
-  constructor(private http: HttpClient) {
+  constructor(private homeService: HomeService) {
   }
 nationalityData: any;
 
 
  ngOnInit() {
-   this.http.get('https://api.covid19india.org/raw_data.json')
+   this.homeService.GetPatientData()
      .subscribe((response) => {
        this.nationalityData = response.raw_data;
        this.getnationality(this.nationalityData);

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 
-import {HttpClient} from '@angular/common/http';
+import {HomeService} from '../home/home.service';
+import {Response} from '../response';
 
 @Component({
   selector: 'app-my-line-chart',
@@ -54,14 +55,14 @@ export class MyLineChartComponent implements OnInit {
   public lineChartPlugins = [];
 
 
-  constructor(private http: HttpClient) {
+  constructor(private homeService: HomeService) {
    }
 
   ngOnInit() {
-    this.http.get('https://api.covid19india.org/data.json')
-      .subscribe((response) => {
+    this.homeService.GetIndiaData()
+      .subscribe((response: Response) => {
         this.casesTimeSeries = response.cases_time_series;
-        this.keyValues = response.key_values[0];
+        this.keyValues = response.key_values;
         this.statewise = response.statewise;
         this.getStateName(this.statewise);
       });
