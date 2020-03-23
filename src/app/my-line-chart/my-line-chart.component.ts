@@ -50,7 +50,7 @@ export class MyLineChartComponent implements OnInit {
     },
   ];
   public lineChartLegend = true;
-  public lineChartType: ChartType = 'line';
+  public lineChartType: ChartType = 'bar';
   public lineChartPlugins = [];
 
 

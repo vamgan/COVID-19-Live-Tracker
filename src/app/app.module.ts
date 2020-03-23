@@ -28,6 +28,7 @@ import { ChartsModule } from 'ng2-charts';
 import { MyLineChartComponent } from './my-line-chart/my-line-chart.component';
 import { WorldmapComponent } from './worldmap/worldmap.component';
 import { NationalityPieComponent } from './nationality-pie/nationality-pie.component';
+import { GenderIndiaChartComponent } from './gender-india-chart/gender-india-chart.component';
 
 const appRoutes: Routes = [
   { path: 'worldwide.html', component: WorldWideComponent },
@@ -68,7 +69,8 @@ const appRoutes: Routes = [
     ChartsComponent,
     MyLineChartComponent,
     WorldmapComponent,
-    NationalityPieComponent
+    NationalityPieComponent,
+    GenderIndiaChartComponent
   ],
   imports: [
     BrowserModule,
