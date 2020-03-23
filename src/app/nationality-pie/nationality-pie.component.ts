@@ -3,6 +3,7 @@ import { ChartOptions, ChartType } from 'chart.js';
 import { Label, SingleDataSet } from 'ng2-charts';
 
 import {HttpClient} from '@angular/common/http';
+import { count } from 'console';
 
 @Component({
   selector: 'app-nationality-pie',
@@ -15,33 +16,41 @@ export class NationalityPieComponent implements OnInit {
   public pieChartOptions: ChartOptions = {
     responsive: true,
   };
-  public pieChartLabels: Label[] = ['India', 'Italy'];
-  public pieChartData: SingleDataSet = [this.InCount, this.ItCount];
+  public pieChartLabels: Label[] = [];
+  public pieChartData: SingleDataSet = [];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
+  nationalityObj: any;
 
   constructor(private http: HttpClient) {
   }
-nationality: any;
+nationalityData: any;
+country: Array<any> = [];
+count: Array = [];
 
  ngOnInit() {
    this.http.get('https://api.covid19india.org/raw_data.json')
      .subscribe((response) => {
-       this.nationality = response.raw_data;
-       this.getnationality(this.nationality);
+       this.nationalityData = response.raw_data;
+       this.getnationality(this.nationalityData);
      });
  }
- public getnationality(nationality: any): any {
-   for ( const data of nationality) {
-     if (data.nationality === 'India') {
-       this.InCount++;
-     } else if (data.nationality === 'Italy') {
-      this.ItCount++;
 
+ public getnationality(nationalityData: any) {
+  const nationalityObj = {};
+
+  nationalityData.map((obj) => {
+     if (nationalityObj[obj.nationality]) {
+         nationalityObj[obj.nationality] += 1;
+     } else {
+         nationalityObj[obj.nationality] = 1;
      }
-
+  });
+  for (const [key, value] of Object.entries(nationalityObj)) {
+    this.pieChartLabels.push(key);
+    this.count.push(value);
+    this.pieChartData.push(this.count);
+  }
    }
  }
-
-}
