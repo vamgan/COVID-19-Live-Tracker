@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
-import { Label, SingleDataSet } from 'ng2-charts';
+import { Label, SingleDataSet, Color } from 'ng2-charts';
 
 import {HttpClient} from '@angular/common/http';
-import { count } from 'console';
+
 
 @Component({
   selector: 'app-nationality-pie',
@@ -11,8 +11,7 @@ import { count } from 'console';
   styleUrls: ['./nationality-pie.component.css']
 })
 export class NationalityPieComponent implements OnInit {
-  InCount = 0;
-  ItCount = 0;
+
   public pieChartOptions: ChartOptions = {
     responsive: true,
   };
@@ -21,13 +20,17 @@ export class NationalityPieComponent implements OnInit {
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
+  public pieChartColors: Color[] = [
+    {
+      backgroundColor: ['#66a4fb', '#f2b8ff', '#fec85e', '#4cebb5', '#a5d7fd', '#ff7c8f', '#b2bece', '#a4e063'],
+    },
+  ];
   nationalityObj: any;
 
   constructor(private http: HttpClient) {
   }
 nationalityData: any;
-country: Array<any> = [];
-count: Array = [];
+
 
  ngOnInit() {
    this.http.get('https://api.covid19india.org/raw_data.json')
@@ -49,8 +52,7 @@ count: Array = [];
   });
   for (const [key, value] of Object.entries(nationalityObj)) {
     this.pieChartLabels.push(key);
-    this.count.push(value);
-    this.pieChartData.push(this.count);
+    this.pieChartData.push(Number(value));
   }
    }
  }
