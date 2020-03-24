@@ -3458,6 +3458,12 @@ summary.accordion-header::-webkit-details-marker {
   box-shadow: 0 0 0 .1rem #5755d9
 }
 
+@media screen and (max-width: 768px) {
+  .card {
+     margin: 7px;
+  }
+}
+
 .card {
   background: #fff;
   border: .05rem solid #dadee4;
@@ -3465,7 +3471,7 @@ summary.accordion-header::-webkit-details-marker {
   display: flex;
   display: -ms-flexbox;
   -ms-flex-direction: column;
-  flex-direction: column
+  flex-direction: column;
 }
 
 .card .card-body,
