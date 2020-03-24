@@ -3147,7 +3147,7 @@ video.video-responsive::before {
   padding: .4rem
 }
 
-.navbar {
+/* .navbar {
   align-items: stretch;
   display: flex;
   display: -ms-flexbox;
@@ -3184,7 +3184,7 @@ video.video-responsive::before {
 .navbar .navbar-brand {
   font-size: .9rem;
   text-decoration: none
-}
+} */
 
 .accordion input:checked~.accordion-header .icon,
 .accordion[open] .accordion-header .icon {
