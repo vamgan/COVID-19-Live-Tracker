@@ -1,169 +1,131 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <div class="content">
-  <div id="dashboard" class="container">
-    <div class="columns flex-centered my-2">
-      <div class="column col-sm-12 col-9">
-        <h5>Coronavirus Outbreak in India</h5>
-      </div>
-      <div class="column col-sm-12 col-3">
-      </div>
-    </div>
-
-    <div class="number-graph-wrapper" *ngIf=IndiaData>
-      <div class="number-graph mr-2">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title ">
-              <h6><b>CONFIRMED CASES</b></h6>
-            </div>
-          </div>
-          <div class="card-body status-confirmed">
-            <div class="cases-container">
-              <h2 class="case">{{statewise[0].confirmed}}</h2><span class="info"></span>
-            </div>
-            <div id="lineChartContainer">
-              <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
-              </div>
-            </div>
-          </div>
+	<div id="dashboard" class="container">
+		<div class="columns flex-centered my-2">
+			<div class="column col-sm-12 col-9">
+				<h5>Coronavirus Outbreak in India</h5>
+			</div>
+			
+		</div>
+		<div class="number-graph-wrapper" *ngIf=IndiaData>
+			<div class="number-graph mr-2">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title ">
+							<h6>
+								<b>CONFIRMED CASES</b>
+							</h6>
+						</div>
+					</div>
+					<div class="card-body status-confirmed">
+						<div class="cases-container">
+							<h2 class="case">{{statewise[0].confirmed}}</h2>
+							<span class="info"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="number-graph mr-2">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">
+							<h6>
+								<b>STATES INFECTED</b>
+							</h6>
+						</div>
+					</div>
+					<div class="card-body status-hospitalized">
+						<div class="cases-container">
+							<h2 class="case">23</h2>
+							<span class="info"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="number-graph mr-2">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">
+							<h6>
+								<b>RECOVERED CASES</b>
+							</h6>
+						</div>
+					</div>
+					<div class="card-body status-recovered">
+						<div class="cases-container">
+							<h2 class="case">{{statewise[0].recovered}}</h2>
+							<span
+                class="info">{{statewise[0].recovered *100 / statewise[0].confirmed| number : '1.1-2'}}% of total
+                cases</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="number-graph mr-2">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">
+							<h6>
+								<b>DEATHS</b>
+							</h6>
+						</div>
+					</div>
+					<div class="card-body status-died">
+						<div class="cases-container">
+							<h2 class="case">{{statewise[0].deaths}}</h2>
+							<span
+                class="info">{{statewise[0].deaths *100 /statewise[0].confirmed| number : '1.1-2'}}% of total
+                cases</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="columns my-2">
+			<div class="column col-sm-12 col-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title h6">India State wise distribution</div>
+						<div class="card-subtitle text-gray mt-1">30th Jan 2020 to Today</div>
+						<div class="card-body">
+								<app-my-line-chart></app-my-line-chart>
+				
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-4">
+				<div class="card">
+					<div class="card-header">
+						<h6 class="card-title">Nationality of people affected in India</h6>
+					</div>
+					<div class="card-body">
+						<app-nationality-pie></app-nationality-pie>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-4">
+				<div class="card">
+					<div class="card-header">
+						<h6 class="card-title">Age and Gender Distribution</h6>
+					</div>
+					<div class="card-body">
+						<app-age-gender-india></app-age-gender-india>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-4">
+				<div class="card">
+					<div class="card-header">
+          <h6 class="card-title">Gender</h6>
         </div>
-      </div>
-      <div class="number-graph mr-2">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <h6><b>STATES INFECTED</b></h6>
-            </div>
-          </div>
-          <div class="card-body status-hospitalized">
-            <div class="cases-container">
-              <h2 class="case">23</h2><span class="info"></span>
-            </div>
-            <div id="lineChartContainer">
-              <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
-                <div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="number-graph mr-2">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <h6><b>CASES IN INTENSIVE CARE</b></h6>
-            </div>
-          </div>
-          <div class="card-body status-icu">
-            <div class="cases-container">
-              <h2 class="case">2</h2><span class="info">1% of total cases</span>
-            </div>
-            <div id="lineChartContainer">
-              <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
-                <div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <div class="number-graph mr-2">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <h6><b>RECOVERED CASES</b></h6>
-            </div>
-          </div>
-          <div class="card-body status-recovered">
-            <div class="cases-container">
-              <h2 class="case">{{statewise[0].recovered}}</h2><span class="info">{{statewise[0].recovered *100 / statewise[0].confirmed| number : '1.1-2'}}% of total cases</span>
-            </div>
-            <div id="lineChartContainer">
-              <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
-                <div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="number-graph mr-2">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <h6><b>DEATHS</b></h6>
-            </div>
-          </div>
-          <div class="card-body status-died">
-            <div class="cases-container">
-              <h2 class="case">{{statewise[0].deaths}}</h2><span class="info">{{statewise[0].deaths *100 /statewise[0].confirmed| number : '1.1-2'}}% of total cases</span>
-            </div>
-            <div id="lineChartContainer">
-              <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
-                <div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="columns my-2">
-      <div class="column col-sm-12 col-12">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title h6">India State wise distribution</div>
-            <div class="card-subtitle text-gray mt-1">30th Jan 2020 to Today</div>
-            <div class="card-body">
-              <div id="timelineChartContainer" class="timelineChartDimensions">
-                <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
-                  <div>
-                    <app-my-line-chart></app-my-line-chart>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
-      <div class="card">
-          <div class="card-header d-flex justify-content-between">
-            <h6 class="lh-5 mg-b-0">Nationality of people affected in India</h6>
-            <!-- <a href="" class="tx-13 link-03"><i data-feather="more-horizontal" class="wd-20 ht-20"></i></a> -->
-          </div>
-
-        <div class="card-body pd-y-25"><app-nationality-pie></app-nationality-pie></div>
-      </div>
-                  </div>
-
-                  <div class="col-sm-4">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between">
-                          <h6 class="lh-5 mg-b-0">Age and Gender Distribution</h6>
-                          <!-- <a href="" class="tx-13 link-03"><i data-feather="more-horizontal" class="wd-20 ht-20"></i></a> -->
-                        </div>
-
-                      <div class="card-body pd-y-25"><app-age-gender-india></app-age-gender-india></div>
-                    </div>
-                                </div>
-
-
-
-                  <div class="col-sm-4">
-                  <div class="card">
-                      <div class="card-header d-flex justify-content-between">
-                        <h6 class="lh-5 mg-b-0">Gender</h6>
-                        <!-- <a href="" class="tx-13 link-03"><i data-feather="more-horizontal" class="wd-20 ht-20"></i></a> -->
-                      </div>
-
-                    <div class="card-body pd-y-25"><app-gender-india-chart></app-gender-india-chart></div>
-                  </div>
-                              </div>
-
-                            </div>
-
-  </div>
+					<div class="card-body">
+						<app-gender-india-chart></app-gender-india-chart>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-

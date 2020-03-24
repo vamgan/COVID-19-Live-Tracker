@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+
 import { Label } from 'ng2-charts';
 
 import {HomeService} from '../home/home.service';
@@ -48,7 +48,7 @@ export class AgeGenderIndiaComponent implements OnInit {
   public barChartLabels: Label[] = ['1-10', '11-20', '21-30', '31-40', '41-50', '51-60', '61-70', '71-80', '81-100'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
-  public barChartPlugins = [pluginDataLabels];
+  public barChartPlugins = [];
 
   public barChartData: ChartDataSets[] = [
     { data: [], label: 'Male' },
