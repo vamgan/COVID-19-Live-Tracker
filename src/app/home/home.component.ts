@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   casesTimeSeries: any;
   keyValues: any;
   statewise: any;
+  affectedStateCount = 0;
 
   constructor(private homeService: HomeService) { }
 
@@ -23,9 +24,19 @@ export class HomeComponent implements OnInit {
         this.casesTimeSeries = response.cases_time_series;
         this.keyValues = response.key_values;
         this.statewise = response.statewise;
+        this.AffectedState(this.statewise);
       });
 
   }
+
+  public AffectedState(stateWise: any) {
+    for (const data of stateWise) {
+      if (data.confirmed !== '0') {
+        this.affectedStateCount += 1;
+      }
+    }
+  }
+
 
 
 }
