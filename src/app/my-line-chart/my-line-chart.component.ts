@@ -70,9 +70,11 @@ export class MyLineChartComponent implements OnInit {
   public getStateName(stateWise: any): any {
     for ( const data of stateWise) {
       if (data.state !== 'Total') {
+        if (data.confirmed !== '0') {
         this.lineChartLabels.push(data.state);
         this.lineChartData[0].data.push(data.confirmed);
       }
+    }
 
     }
   }

@@ -14,9 +14,9 @@ export class GenderIndiaChartComponent implements OnInit {
   public doughnutChartLabels: Label[] = [];
   public doughnutChartData: SingleDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
-  public pieChartColors: Color[] = [
+  public doughnutChartColors: Color[] = [
     {
-      backgroundColor: ['#66a4fb', '#f2b8ff', '#fec85e', '#4cebb5', '#a5d7fd', '#ff7c8f', '#b2bece', '#a4e063'],
+      backgroundColor: ['#66a4fb', '#f2b8ff', '#fec85e'],
     },
   ];
   constructor(private homeService: HomeService) {
