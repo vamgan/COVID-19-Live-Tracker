@@ -14,6 +14,13 @@ export class GenderIndiaChartComponent implements OnInit {
   public doughnutChartLabels: Label[] = [];
   public doughnutChartData: SingleDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
+  public doughnutChartLegend = [
+    {
+      display: true,
+      position: 'bottom'
+
+    },
+  ];
   public doughnutChartColors: Color[] = [
     {
       backgroundColor: ['#66a4fb', '#f2b8ff', '#fec85e'],
