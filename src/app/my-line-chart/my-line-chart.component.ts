@@ -76,7 +76,7 @@ export class MyLineChartComponent implements OnInit {
           if ( this.countstate < 10) {
             this.lineChartLabels.push(data.state);
             this.lineChartData[0].data.push(data.confirmed);
-            this.countstate = + 1;
+            this.countstate += 1;
           } else {
             break;
           }
