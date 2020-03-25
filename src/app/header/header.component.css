@@ -23,6 +23,10 @@
   font-size : initial;
 }
 
+.navbar-light .navbar-nav .nav-link-active{
+  color: #0168fa !important;
+}
+
 .bg-light {
   background-color: #f8f9fa!important;
 }
