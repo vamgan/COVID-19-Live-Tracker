@@ -1,24 +1,8 @@
 
-  .navbar-light a.navbar-brand {
-    color: #2f65c6;
-    font-size: 25px;
-    font-weight: 500;
-  }
-
-.navbar-light .navbar-nav .nav-link{
-  text-decoration: none;
-  font-size : initial;
-}
-
-.navbar-light .navbar-nav .nav-link-active{
-  color: #0168fa !important;
-}
-
-.bg-light {
-  background-color: #f8f9fa!important;
-}
  .fa-1x {
   font-size: 1.5rem;
+  color:black;
+  border: white;
   }
   .navbar-toggler.toggler-example {
   cursor: pointer;
