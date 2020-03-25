@@ -31,7 +31,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42396821-5"></script>
 
-  
+
 
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -48,17 +48,17 @@
 </head>
 
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light light-blue lighten-4 shadow-sn">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+  <a class="navbar-brand" href="#">COVID19-IN</a>
   <button class="navbar-toggler" type="button" (click)="toogleNavbar()" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="fas fa-bars fa-1x"></span>
   </button>
-  <div class="collapse navbar-collapse" [ngClass]="{'show':navbarOpen}" id="navbarNavAltMarkup">
+  <div class="collapse navbar-collapse justify-content-center" [ngClass]="{'show':navbarOpen}" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+      <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" routerLink="/helpline" routerLinkActive="active">Helpline</a>
+      <a class="nav-item nav-link" routerLink="/testcentre" routerLinkActive="active">TestCentres</a>
+      <a class="nav-item nav-link" routerLink="/sources" routerLinkActive="active">Sources</a>
     </div>
   </div>
 </nav>
