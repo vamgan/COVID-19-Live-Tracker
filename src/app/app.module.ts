@@ -30,6 +30,7 @@ import { WorldmapComponent } from './worldmap/worldmap.component';
 import { NationalityPieComponent } from './nationality-pie/nationality-pie.component';
 import { GenderIndiaChartComponent } from './gender-india-chart/gender-india-chart.component';
 import { AgeGenderIndiaComponent } from './age-gender-india/age-gender-india.component';
+import { SourcesComponent } from './sources/sources.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AgeGenderIndiaComponent } from './age-gender-india/age-gender-india.com
     WorldmapComponent,
     NationalityPieComponent,
     GenderIndiaChartComponent,
-    AgeGenderIndiaComponent
+    AgeGenderIndiaComponent,
+    SourcesComponent
   ],
   imports: [
     BrowserModule,

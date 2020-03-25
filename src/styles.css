@@ -4,11 +4,11 @@
   margin: 5px;
 }
 }
-/* @media (max-width: 840px) {
+@media (max-width: 840px) {
 .col-md-6 {
-  margin: 5px;
+  margin-bottom: 5px;
 }
-} */
+} 
 
 
 #header .navbar {
