@@ -11,3 +11,18 @@
     background: var(--main-bg-color);
     z-index: 1000
   }
+
+  .navbar-light a.navbar-brand {
+    color: #2f65c6;
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+.navbar-light .navbar-nav .nav-link{
+  text-decoration: none;
+  font-size : initial;
+}
+
+.bg-light {
+  background-color: #f8f9fa!important;
+}
