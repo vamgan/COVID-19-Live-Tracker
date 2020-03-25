@@ -1,5 +1,4 @@
-
-  .navbar-light a.navbar-brand {
+.navbar-light .navbar-brand {
     color: #2f65c6;
     font-size: 25px;
     font-weight: 500;
@@ -8,12 +7,4 @@
 .navbar-light .navbar-nav .nav-link{
   text-decoration: none;
   font-size : initial;
-}
-
-.navbar-light .navbar-nav .nav-link-active{
-  color: #0168fa !important;
-}
-
-.bg-light {
-  background-color: #f8f9fa!important;
 }
