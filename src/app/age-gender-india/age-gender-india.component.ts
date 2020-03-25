@@ -4,8 +4,7 @@ import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 
 import {HomeService} from '../home/home.service';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
-import { PassThrough } from 'stream';
+import {Rawdata} from '../rawdata';
 
 @Component({
   selector: 'app-age-gender-india',
@@ -59,7 +58,7 @@ export class AgeGenderIndiaComponent implements OnInit {
 
   ngOnInit() {
     this.homeService.GetPatientData()
-    .subscribe(data => {
+    .subscribe((data: Rawdata) => {
       this.genderData = data.raw_data;
       this.getGenderStats(this.genderData);
     });

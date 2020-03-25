@@ -3,6 +3,7 @@ import { ChartOptions, ChartType } from 'chart.js';
 import { Label, SingleDataSet, Color } from 'ng2-charts';
 
 import {HomeService} from '../home/home.service';
+import {Rawdata} from '../rawdata';
 
 
 
@@ -35,7 +36,7 @@ nationalityData: any;
 
  ngOnInit() {
    this.homeService.GetPatientData()
-     .subscribe((response) => {
+     .subscribe((response: Rawdata) => {
        this.nationalityData = response.raw_data;
        this.getnationality(this.nationalityData);
      });
