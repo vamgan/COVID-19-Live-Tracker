@@ -57,12 +57,12 @@
 </head>
 
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
   <a class="navbar-brand" href="#">COVID19-IN</a>
   <button class="navbar-toggler" type="button" (click)="toogleNavbar()" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" [ngClass]="{'show':navbarOpen}" id="navbarNavAltMarkup">
+  <div class="collapse navbar-collapse justify-content-center" [ngClass]="{'show':navbarOpen}" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" routerLink="/helpline" routerLinkActive="active">Helpline</a>
