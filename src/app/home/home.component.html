@@ -1,10 +1,10 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <div class="container">
   <div class="columns flex-centered my-2">
-    <div class="column col-sm-12 col-7">
+    <div class="column col-sm-12 col-8">
       <h5>Coronavirus Outbreak in India</h5>
     </div>
-    <div class="column col-sm-12 col-4.1" *ngIf=IndiaData>
+    <div class="column col-sm-12 col-4" *ngIf=IndiaData>
       <div class="alert alert-success" role="alert">
         <strong>Last updated on</strong> {{IndiaData.key_values[0].lastupdatedtime}}
       </div>
