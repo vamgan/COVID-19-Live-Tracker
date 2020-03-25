@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +31,8 @@ import { NationalityPieComponent } from './nationality-pie/nationality-pie.compo
 import { GenderIndiaChartComponent } from './gender-india-chart/gender-india-chart.component';
 import { AgeGenderIndiaComponent } from './age-gender-india/age-gender-india.component';
 import { SourcesComponent } from './sources/sources.component';
+// For MDB Angular Free
+import { MDBBootstrapModule, NavbarModule, WavesModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -68,8 +70,13 @@ import { SourcesComponent } from './sources/sources.component';
     HttpClientModule,
     BrowserModule,
     ChartsModule,
-    RouterModule
+    RouterModule,
+    MDBBootstrapModule.forRoot(),
+    NavbarModule,
+    WavesModule.forRoot()
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -11,7 +11,7 @@
 } 
 
 
-#header .navbar {
+/* #header .navbar {
   border-bottom: 1px solid var(--border-color);
   padding: 1em;
   position: fixed;
@@ -23,7 +23,7 @@
   align-items: center;
   background: var(--main-bg-color);
   z-index: 1000
-}
+} */
 
 #header .logo span {
   font-size: 22px;
@@ -40,7 +40,7 @@
   margin-right: 5px
 }
 
-#header .nav-items {
+/* #header .nav-items {
   position: absolute;
   left: 0;
   right: 0;
@@ -87,7 +87,7 @@
   z-index: 1000;
   font-size: .6rem
 }
-
+ */
 #footer a {
   color: #3b4351
 }
@@ -3159,7 +3159,7 @@ video.video-responsive::before {
   padding: .4rem
 }
 
-.navbar {
+/* .navbar {
   align-items: stretch;
   display: flex;
   display: -ms-flexbox;
@@ -3196,7 +3196,44 @@ video.video-responsive::before {
 .navbar .navbar-brand {
   font-size: .9rem;
   text-decoration: none
+}.navbar {
+  align-items: stretch;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-align: stretch;
+  -ms-flex-pack: justify;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: space-between
 }
+
+.navbar .navbar-section {
+  align-items: center;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex: 1 0 0;
+  flex: 1 0 0;
+  -ms-flex-align: center
+}
+
+.navbar .navbar-section:not(:first-child):last-child {
+  -ms-flex-pack: end;
+  justify-content: flex-end
+}
+
+.navbar .navbar-center {
+  align-items: center;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -ms-flex-align: center
+}
+
+.navbar .navbar-brand {
+  font-size: .9rem;
+  text-decoration: none
+} */
 
 .accordion input:checked~.accordion-header .icon,
 .accordion[open] .accordion-header .icon {
@@ -3609,7 +3646,7 @@ summary.accordion-header::-webkit-details-marker {
   margin-top: .8rem
 }
 
-.menu {
+/* .menu {
   background: #fff;
   border-radius: .1rem;
   box-shadow: 0 .05rem .2rem rgba(48, 55, 66, .3);
@@ -3678,7 +3715,7 @@ summary.accordion-header::-webkit-details-marker {
 .menu .menu-badge .label {
   margin-right: .4rem
 }
-
+ */
 .modal {
   align-items: center;
   bottom: 0;
@@ -3769,7 +3806,7 @@ summary.accordion-header::-webkit-details-marker {
   text-align: right
 }
 
-.nav {
+/* .nav {
   display: flex;
   display: -ms-flexbox;
   -ms-flex-direction: column;
@@ -3802,7 +3839,7 @@ summary.accordion-header::-webkit-details-marker {
 .nav .nav {
   margin-bottom: .4rem;
   margin-left: .8rem
-}
+} */
 
 .pagination {
   display: flex;
