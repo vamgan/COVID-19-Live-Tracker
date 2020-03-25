@@ -28,6 +28,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" rel="stylesheet">
   <script src="node_modules/chart.js/Chart.min.js"></script>
   <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42396821-5"></script>
 
@@ -49,15 +50,15 @@
 
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-  <a class="navbar-brand" href="#">COVID19-IN</a>
+  <a class="navbar-brand" routerLink="/home" routerLinkActive="active"><img src="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/india.png" width="30" height="30" alt="">COVID19</a>
   <button class="navbar-toggler" type="button" (click)="toogleNavbar()" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="fas fa-bars fa-1x"></span>
+    <i class="fas fa-bars fa-1x"></i>
   </button>
   <div class="collapse navbar-collapse justify-content-center" [ngClass]="{'show':navbarOpen}" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active">Home </a>
       <a class="nav-item nav-link" routerLink="/helpline" routerLinkActive="active">Helpline</a>
-      <a class="nav-item nav-link" routerLink="/testcentre" routerLinkActive="active">TestCentres</a>
+      <a class="nav-item nav-link" routerLink="/testcentre" routerLinkActive="active">Test Centres</a>
       <a class="nav-item nav-link" routerLink="/sources" routerLinkActive="active">Sources</a>
     </div>
   </div>
