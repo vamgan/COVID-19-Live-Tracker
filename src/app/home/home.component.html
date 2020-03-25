@@ -1,182 +1,189 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <div id="dashboard" class="container">
-    <div class="columns flex-centered my-2">
-      <div class="column col-sm-12 col-8">
-        <h5>Coronavirus Outbreak in India</h5>
-      </div>
-      <div class="column col-sm-12 col-4" *ngIf=IndiaData>
-        <div class="alert alert-success" role="alert">
-          <strong>Last updated on</strong> {{IndiaData.key_values[0].lastupdatedtime}}
-        </div>
+<div class="container">
+  <div class="columns flex-centered my-2">
+    <div class="column col-sm-12 col-7">
+      <h5>Coronavirus Outbreak in India</h5>
+    </div>
+    <div class="column col-sm-12 col-4.1" *ngIf=IndiaData>
+      <div class="alert alert-success" role="alert">
+        <strong>Last updated on</strong> {{IndiaData.key_values[0].lastupdatedtime}}
       </div>
     </div>
-    <div class="number-graph-wrapper" *ngIf=IndiaData>
-      <div class="number-graph mr-2">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title ">
-              <h6>
-                <b>CONFIRMED CASES</b>
-              </h6>
-            </div>
-          </div>
-          <div class="card-body status-confirmed">
-            <div class="cases-container">
-              <h2 class="case">{{statewise[0].confirmed}}</h2>
-              <span class="info">+{{IndiaData.key_values[0].confirmeddelta}} Today</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="number-graph mr-2">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <h6>
-                <b>RECOVERED CASES</b>
-              </h6>
-            </div>
-          </div>
-          <div class="card-body status-recovered">
-            <div class="cases-container">
-              <h2 class="case">{{statewise[0].recovered}}</h2>
-              <span class="info">{{statewise[0].recovered *100 / statewise[0].confirmed| number : '1.1-2'}}% of total
-                cases</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="number-graph mr-2">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <h6>
-                <b>DEATHS</b>
-              </h6>
-            </div>
-          </div>
-          <div class="card-body status-died">
-            <div class="cases-container">
-              <h2 class="case">{{statewise[0].deaths}}</h2>
-              <span class="info">{{statewise[0].deaths *100 /statewise[0].confirmed| number : '1.1-2'}}% of total
-                cases</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="number-graph mr-2">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <h6>
-                <b>People Tested</b>
-              </h6>
-            </div>
-          </div>
-          <div class="card-body status-hospitalized">
-            <div class="cases-container">
-              <h2 class="case">{{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested}}</h2>
-              <span class="info"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="number-graph mr-2">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <h6>
-                <b>People Tested Positive</b>
-              </h6>
-            </div>
-          </div>
-          <div class="card-body status-icu">
-            <div class="cases-container">
-              <h2 class="case">{{IndiaData.tested[IndiaData.tested.length - 1].totalpositivecases}}</h2>
-              <span
-                class="info">{{IndiaData.tested[IndiaData.tested.length - 1].totalpositivecases*100 / IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested |number : '1.1-2'}}%
-                of people Tested</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="columns my-2">
-      <div class="column col-sm-12 col-12">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title h6">Top 10 states affected</div></div>
-          
-            <div class="card-body">
-              <app-my-line-chart></app-my-line-chart>
-            </div>
-          
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-4">
-        <div class="card">
-          <div class="card-header">
-            <h6 class="card-title">Nationality of people affected in India</h6>
-          </div>
-          <div class="card-body">
-            <app-nationality-pie></app-nationality-pie>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-4">
-        <div class="card">
-          <div class="card-header">
-            <h6 class="card-title">Age and Gender Distribution</h6>
-          </div>
-          <div class="card-body">
-            <app-age-gender-india></app-age-gender-india>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-4">
-        <div class="card">
-          <div class="card-header">
-            <h6 class="card-title">Gender</h6>
-          </div>
-          <div class="card-body">
-            <app-gender-india-chart></app-gender-india-chart>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row" style="padding:20px;" *ngIf="statewise">
-      <h6>{{affectedStateCount}} STATES/UTS AFFECTED</h6>
-      <div class="table-responsive">
-        <table class="table table-hover">
-          <thead class="row-highlight">
-            <tr>
-              <th>STATE/UT</th>
-              <th>CONFIRMED</th>
-              <th>ACTIVE</th>
-              <th>RECOVERED</th>
-              <th>DEATHS</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let data of statewise">
-              <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.state}}</td>
-              <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}</td>
-              <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td>
-              <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.recovered}}</td>
-              <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.deaths}}</td>
-            </tr>
-            <tr *ngFor="let data of statewise" class="row-highlight">
-              <td *ngIf="data.state === 'Total'">{{data.state}}</td>
-              <td *ngIf="data.state === 'Total'">{{data.confirmed}}</td>
-              <td *ngIf="data.state === 'Total'">{{data.active}}</td>
-              <td *ngIf="data.state === 'Total'">{{data.recovered}}</td>
-              <td *ngIf="data.state === 'Total'">{{data.deaths}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
   </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-3 ">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title ">
+            <h6>
+              <b>CONFIRMED CASES</b>
+            </h6>
+          </div>
+        </div>
+        <div class="card-body status-confirmed">
+          <div class="cases-container">
+            <h2 class="case">{{statewise[0].confirmed}}</h2>
+            <span class="info" style="color:red">+{{IndiaData.key_values[0].confirmeddelta}} Today</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3 ">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <h6>
+              <b>RECOVERED CASES</b>
+            </h6>
+          </div>
+        </div>
+        <div class="card-body status-recovered">
+          <div class="cases-container">
+            <h2 class="case">{{statewise[0].recovered}}</h2>
+            <span class="info"
+              style="color: green;">{{statewise[0].recovered *100 / statewise[0].confirmed| number : '1.1-2'}}% of total
+              cases</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3 ">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <h6>
+              <b>DEATHS</b>
+            </h6>
+          </div>
+        </div>
+        <div class="card-body status-died">
+          <div class="cases-container">
+            <h2 class="case">{{statewise[0].deaths}}</h2>
+            <span class="info"
+              style="color: darkred;">{{statewise[0].deaths *100 /statewise[0].confirmed| number : '1.1-2'}}% of total
+              cases</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3 ">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <h6>
+              <b>PEOPLE TESTED</b>
+            </h6>
+          </div>
+        </div>
+        <div class="card-body status-hospitalized">
+          <div class="cases-container">
+            <h2 class="case">{{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested}}</h2>
+            <span class="info"
+              style="color: orangered;">+{{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested - IndiaData.tested[IndiaData.tested.length - 2].totalindividualstested}}
+              Today</span>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--     <div class="col-sm-12 col-md-6 col-lg-3 ">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <h6>
+              <b>People Tested Positive</b>
+            </h6>
+          </div>
+        </div>
+        <div class="card-body status-icu">
+          <div class="cases-container">
+            <h2 class="case">{{IndiaData.tested[IndiaData.tested.length - 1].totalpositivecases}}</h2>
+            <span
+              class="info">{{IndiaData.tested[IndiaData.tested.length - 1].totalpositivecases*100 / IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested |number : '1.1-2'}}%
+              of people Tested</span>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+  <div class="columns my-2">
+    <div class="column col-sm-12 col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title h6">Top 10 states affected</div>
+        </div>
+
+        <div class="card-body">
+          <app-my-line-chart></app-my-line-chart>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="card-title">Nationality of people affected in India</h6>
+        </div>
+        <div class="card-body">
+          <app-nationality-pie></app-nationality-pie>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="card-title">Age and Gender Distribution</h6>
+        </div>
+        <div class="card-body">
+          <app-age-gender-india></app-age-gender-india>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="card-title">Gender</h6>
+        </div>
+        <div class="card-body">
+          <app-gender-india-chart></app-gender-india-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding:20px;" *ngIf="statewise">
+    <h6>{{affectedStateCount}} STATES/UTS AFFECTED</h6>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead class="row-highlight">
+          <tr>
+            <th>STATE/UT</th>
+            <th>CONFIRMED</th>
+            <th>ACTIVE</th>
+            <th>RECOVERED</th>
+            <th>DEATHS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of statewise">
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.state}}</td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}</td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.recovered}}</td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.deaths}}</td>
+          </tr>
+          <tr *ngFor="let data of statewise" class="row-highlight">
+            <td *ngIf="data.state === 'Total'">{{data.state}}</td>
+            <td *ngIf="data.state === 'Total'">{{data.confirmed}}</td>
+            <td *ngIf="data.state === 'Total'">{{data.active}}</td>
+            <td *ngIf="data.state === 'Total'">{{data.recovered}}</td>
+            <td *ngIf="data.state === 'Total'">{{data.deaths}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

@@ -1,3 +1,15 @@
+/* Self added styles-Vam */
+@media (max-width: 600px){
+.col-sm-12 {
+  margin: 5px;
+}
+}
+/* @media (max-width: 840px) {
+.col-md-6 {
+  margin: 5px;
+}
+} */
+
 
 #header .navbar {
   border-bottom: 1px solid var(--border-color);
