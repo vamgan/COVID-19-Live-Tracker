@@ -32,6 +32,7 @@ import { GenderIndiaChartComponent } from './gender-india-chart/gender-india-cha
 import { AgeGenderIndiaComponent } from './age-gender-india/age-gender-india.component';
 import { SourcesComponent } from './sources/sources.component';
 import { NgbModule, NgbNavbar } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { NgbModule, NgbNavbar } from '@ng-bootstrap/ng-bootstrap';
     NationalityPieComponent,
     GenderIndiaChartComponent,
     AgeGenderIndiaComponent,
-    SourcesComponent
+    SourcesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
