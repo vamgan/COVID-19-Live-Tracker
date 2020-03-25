@@ -5,6 +5,9 @@
   }
 
 .navbar-light .navbar-nav .nav-link{
-  text-decoration: none;
   font-size : initial;
+}
+
+.navbar a {
+  text-decoration: none;
 }

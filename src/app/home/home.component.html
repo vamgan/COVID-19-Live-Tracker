@@ -38,7 +38,7 @@
             </h6>
           </div>
         </div>
-        <div class="card-body status-recovered">
+        <div class="card-body status-recovered" *ngIf=IndiaData>
           <div class="cases-container">
             <h2 class="case">{{statewise[0].recovered}}</h2>
             <span class="info"
@@ -57,7 +57,7 @@
             </h6>
           </div>
         </div>
-        <div class="card-body status-died">
+        <div class="card-body status-died" *ngIf=IndiaData>
           <div class="cases-container">
             <h2 class="case">{{statewise[0].deaths}}</h2>
             <span class="info"
@@ -76,7 +76,7 @@
             </h6>
           </div>
         </div>
-        <div class="card-body status-hospitalized">
+        <div class="card-body status-hospitalized" *ngIf=IndiaData>
           <div class="cases-container">
             <h2 class="case">{{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested}}</h2>
             <span class="info"
