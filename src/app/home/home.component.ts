@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {HomeService} from './home.service';
 import {Response} from '../response';
+import {Rawdata} from '../rawdata';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,8 @@ export class HomeComponent implements OnInit {
   keyValues: any;
   statewise: any;
   affectedStateCount = 0;
+  rawData: any;
+  countHospitalized = 0;
 
   constructor(private homeService: HomeService) { }
 
@@ -27,12 +30,26 @@ export class HomeComponent implements OnInit {
         this.AffectedState(this.statewise);
       });
 
+      this.homeService.GetPatientData()
+      .subscribe((data: Rawdata) => {
+        this.rawData = data.raw_data;
+        this.CountHospitalized(this.rawData);
+      });
+
   }
 
   public AffectedState(stateWise: any) {
     for (const data of stateWise) {
       if (data.confirmed !== '0') {
         this.affectedStateCount += 1;
+      }
+    }
+  }
+
+  public CountHospitalized(rawData: any) {
+    for (const data of rawData) {
+      if (data.currentstatus === 'Hospitalized') {
+        this.countHospitalized += 1;
       }
     }
   }
