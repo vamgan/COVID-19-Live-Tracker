@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   affectedStateCount = 0;
   rawData: any;
   countHospitalized = 0;
+  districtWise: any;
 
   constructor(private homeService: HomeService) { }
 
@@ -35,6 +36,12 @@ export class HomeComponent implements OnInit {
         this.rawData = data.raw_data;
         this.CountHospitalized(this.rawData);
       });
+
+      this.homeService.GetDistrictData()
+      .subscribe((data)=> {
+        this.districtWise = data;
+      });
+      
 
   }
 
