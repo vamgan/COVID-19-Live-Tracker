@@ -56,10 +56,9 @@ export class HomeComponent implements OnInit {
   }
 
   public GetDistrict(state: any) {
-    let value;
     let keys;
     this.homeService.GetDistrictData()
-      .subscribe((data)=> {
+      .subscribe((data) => {
         this.districtWise = data;
       });
     keys = Object.keys(this.districtWise[state].districtData);
