@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CovidAPI} from '../api.constant';
+
 
 import {HttpClient} from '@angular/common/http';
 @Component({
