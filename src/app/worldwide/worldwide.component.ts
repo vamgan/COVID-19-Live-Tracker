@@ -9,11 +9,14 @@ import {HttpClient} from '@angular/common/http';
 })
 export class WorldwideComponent implements OnInit {
   WorldData: any;
+  CountryData: any;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
       this.http.get('https://corona.lmao.ninja/all')
       .subscribe((WorldData) => this.WorldData = WorldData );
+      this.http.get('https://corona.lmao.ninja/countries')
+      .subscribe((CountryData) => this.CountryData = CountryData );
 
   }
 

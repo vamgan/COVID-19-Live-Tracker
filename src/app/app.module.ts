@@ -17,6 +17,7 @@ import { AgeGenderIndiaComponent } from './age-gender-india/age-gender-india.com
 import { SourcesComponent } from './sources/sources.component';
 import { FooterComponent } from './footer/footer.component';
 import {WorldwideComponent} from './worldwide/worldwide.component';
+import { WorldwidebarComponent } from './worldwidebar/worldwidebar.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {WorldwideComponent} from './worldwide/worldwide.component';
     AgeGenderIndiaComponent,
     SourcesComponent,
     FooterComponent,
-    WorldwideComponent
+    WorldwideComponent,
+    WorldwidebarComponent
   ],
   imports: [
     BrowserModule,
