@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 
-import {HomeService} from '../home/home.service';
-import {Response} from '../response';
+import {HomeService} from '../home.service';
+import {Response} from '../../response';
 
 @Component({
   selector: 'app-my-line-chart',

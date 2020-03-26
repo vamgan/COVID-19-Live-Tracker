@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
 import { Label, SingleDataSet, Color } from 'ng2-charts';
 
-import {HomeService} from '../home/home.service';
-import {Rawdata} from '../rawdata';
+import {HomeService} from '../home.service';
+import {Rawdata} from '../../rawdata';
 
 @Component({
   selector: 'app-gender-india-chart',

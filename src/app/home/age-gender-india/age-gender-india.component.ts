@@ -3,8 +3,8 @@ import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 
 import { Label } from 'ng2-charts';
 
-import {HomeService} from '../home/home.service';
-import {Rawdata} from '../rawdata';
+import {HomeService} from '../home.service';
+import {Rawdata} from '../../rawdata';
 
 @Component({
   selector: 'app-age-gender-india',
