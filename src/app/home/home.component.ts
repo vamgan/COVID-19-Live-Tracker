@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   rawData: any;
   countHospitalized = 0;
   districtWise: any;
+  kerala: [];
 
   constructor(private homeService: HomeService) { }
 
@@ -36,13 +37,7 @@ export class HomeComponent implements OnInit {
         this.rawData = data.raw_data;
         this.CountHospitalized(this.rawData);
       });
-
-      this.homeService.GetDistrictData()
-      .subscribe((data)=> {
-        this.districtWise = data;
-      });
       
-
   }
 
   public AffectedState(stateWise: any) {
@@ -59,6 +54,17 @@ export class HomeComponent implements OnInit {
         this.countHospitalized += 1;
       }
     }
+  }
+
+  public GetDistrict(state: any) {
+    let value;
+    let keys;
+    this.homeService.GetDistrictData()
+      .subscribe((data)=> {
+        this.districtWise = data;
+      });
+    keys = Object.keys(this.districtWise[state].districtData);
+    return keys;
   }
 
 
