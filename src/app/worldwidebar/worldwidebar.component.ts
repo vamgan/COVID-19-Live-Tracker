@@ -24,18 +24,20 @@ export class WorldwidebarComponent implements OnInit {
   constructor(private worldservice: WorldwideService) { }
 
   ngOnInit() {
-    this.worldservice.GetConfirmedData().subscribe((WorldData) => this.WorldData = WorldData);
+    this.worldservice.GetConfirmedData().subscribe((WorldData) => {
+    this.WorldData = WorldData;
     this.getConfirmedCases(this.WorldData);
+    });
   }
+
+
   public getConfirmedCases(WorldData: any) {
-    this.countstate = 0;
-    for (const data of WorldData) {
-      if (this.countstate < 10) {
-        this.barChartLabels.push(data[this.countstate].country);
-        this.barChartData.push(data[this.countstate].cases);
-        this.countstate += 1;
-      }
+    let i = 0;
+    for (i = 0 ; i < 10; i++) {
+        this.barChartLabels.push(WorldData[i].country);
+        this.barChartData.push(WorldData[i].cases);
     }
 
   }
 }
+
