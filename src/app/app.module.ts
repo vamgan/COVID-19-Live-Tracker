@@ -18,6 +18,8 @@ import { SourcesComponent } from './sources/sources.component';
 import { FooterComponent } from './footer/footer.component';
 import {WorldwideComponent} from './worldwide/worldwide.component';
 import { WorldwidebarComponent } from './worldwidebar/worldwidebar.component';
+import { DailyindComponent } from './home/dailyind/dailyind.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { WorldwidebarComponent } from './worldwidebar/worldwidebar.component';
     SourcesComponent,
     FooterComponent,
     WorldwideComponent,
-    WorldwidebarComponent
+    WorldwidebarComponent,
+    DailyindComponent
   ],
   imports: [
     BrowserModule,

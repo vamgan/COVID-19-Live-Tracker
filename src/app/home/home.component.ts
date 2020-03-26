@@ -38,10 +38,11 @@ export class HomeComponent implements OnInit {
       });
 
       this.homeService.GetDistrictData()
-      .subscribe((data)=> {
+      .subscribe((data) => {
         this.districtWise = data;
-      });
-      
+        console.log(this.districtWise[0].districtData);
+      }
+    );
 
   }
 

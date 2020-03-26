@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
-
+import pluginDataLabels from 'chartjs-plugin-datalabels';
 import {HomeService} from '../home.service';
 import {Response} from '../../response';
 
@@ -19,11 +19,18 @@ export class MyLineChartComponent implements OnInit {
     countstate: any;
 
   public lineChartData: ChartDataSets[] = [
-    { data: [], fill: true },
+    { data: [], fill: true,  label: 'Confirmed'},
+    { data: [], label: 'Recovered'}
   ];
   public lineChartLabels: Label[] = [];
   public lineChartOptions: ChartOptions = {
     responsive: true,
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+      }
+    },
     scales: {
       yAxes: [{
           ticks: {
@@ -53,7 +60,7 @@ export class MyLineChartComponent implements OnInit {
   ];
   public lineChartLegend = true;
   public lineChartType: ChartType = 'bar';
-  public lineChartPlugins = [];
+  public lineChartPlugins = [pluginDataLabels];
 
 
   constructor(private homeService: HomeService) {
@@ -75,6 +82,7 @@ export class MyLineChartComponent implements OnInit {
         if (this.countstate < 10) {
             this.lineChartLabels.push(data.state);
             this.lineChartData[0].data.push(data.confirmed);
+            this.lineChartData[1].data.push(data.recovered);
             this.countstate += 1;
           } else {
             break;

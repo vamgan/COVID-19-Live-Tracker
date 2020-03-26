@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
+import pluginDataLabels from 'chartjs-plugin-datalabels';
 import { WorldwideService } from '../worldwide/worldwide.service';
 
 @Component({
@@ -14,12 +15,12 @@ export class WorldwidebarComponent implements OnInit {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
     scales: { xAxes: [{}], yAxes: [{}] },
-    plugins: {
+   /*  plugins: {
       datalabels: {
         anchor: 'end',
         align: 'end',
       }
-    }
+    } */
   };
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';

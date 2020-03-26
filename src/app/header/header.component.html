@@ -9,7 +9,7 @@
     <i class="fas fa-bars"></i>
   </button>
   <div class="collapse navbar-collapse justify-content-center" [ngClass]="{'show':navbarOpen}" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+    <div class="navbar-nav" (click)="toogleNavbar()">
       <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active">Home </a>
       <a class="nav-item nav-link" routerLink="/worldwide" routerLinkActive="active">WorldWide </a>
       <a class="nav-item nav-link" routerLink="/helpline" routerLinkActive="active">Helpline</a>

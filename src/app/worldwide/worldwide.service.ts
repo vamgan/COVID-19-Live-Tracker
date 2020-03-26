@@ -11,7 +11,7 @@ export class WorldwideService {
   constructor(private http: HttpClient) { }
 
   public GetConfirmedData() {
-    return this.http.get('https://corona.lmao.ninja/countries?sort=confirmed')
+    return this.http.get('https://corona.lmao.ninja/countries?sort=cases')
     .pipe(map(response => response));
   }
 
