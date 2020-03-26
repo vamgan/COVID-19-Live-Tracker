@@ -182,7 +182,7 @@
   <div class="row" style="padding:20px;" *ngIf="statewise">
     <h6>{{affectedStateCount}} STATES/UTS AFFECTED</h6>
     <div class="table-responsive">
-      <table class="table table-hover">
+       <table class="table table-hover">
         <thead class="row-highlight">
           <tr>
             <th>STATE/UT</th>
@@ -192,15 +192,26 @@
             <th>DEATHS</th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let data of statewise">
-            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.state}}</td>
+        <tbody *ngFor="let data of statewise">
+          <tr (click)="data.expanded = !data.expanded">
+           <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{ data.expanded ? '&ndash;' : '+'}}{{data.state}}</td>
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}</td>
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td>
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.recovered}}</td>
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.deaths}}</td>
           </tr>
-          <tr *ngFor="let data of statewise" class="row-highlight">
+          <div *ngIf="data.expanded">
+            <th class="row-highlight">DISTRICT</th>
+            <th class="row-highlight">CONFIRMED</th>
+            <tr *ngFor="let data1 of GetDistrict(data.state)" >
+            <td>{{data1}}</td>
+            <td>{{districtWise[data.state].districtData[data1].confirmed}}</td>
+            </tr>
+            </div>
+        </tbody>
+        
+        <tbody>
+           <tr *ngFor="let data of statewise" class="row-highlight">
             <td *ngIf="data.state === 'Total'">{{data.state}}</td>
             <td *ngIf="data.state === 'Total'">{{data.confirmed}}</td>
             <td *ngIf="data.state === 'Total'">{{data.active}}</td>
@@ -208,6 +219,7 @@
             <td *ngIf="data.state === 'Total'">{{data.deaths}}</td>
           </tr>
         </tbody>
-      </table>
+      </table> 
+     
     </div>
   </div>
