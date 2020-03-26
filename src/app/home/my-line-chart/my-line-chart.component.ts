@@ -18,7 +18,9 @@ export class MyLineChartComponent implements OnInit {
     statewise: any;
     countstate: any;
 
-  public lineChartData: ChartDataSets[] = [];
+  public lineChartData: ChartDataSets[] = [
+    { data: [], fill: true },
+  ];
   public lineChartLabels: Label[] = [];
   public lineChartOptions: ChartOptions = {
     responsive: true,
