@@ -2,13 +2,19 @@
   font-size: 22px;
   font-weight: 900;
   
+  
   }
 
 .navbar-light .navbar-nav .nav-link{
   font-size : initial;
 }
 
-.navbar a {
+.navbar-nav {
+
+  font-weight: 900;
+  text-transform: uppercase;
+}
+a{
   text-decoration: none;
 }
 
