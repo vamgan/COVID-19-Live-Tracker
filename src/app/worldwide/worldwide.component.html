@@ -1,0 +1,146 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="../node_modules/chart.js/dist/Chart.bundle.js"></script>
+<script src="../build/Chart.Geo.js"></script>
+<div class="content">
+  <div id="dashboard" class="container">
+    <div class="columns flex-centered my-2">
+      <div class="column col-sm-12 col-9">
+        <h5>Coronavirus Outbreak WorldWide</h5>
+      </div>
+      <div class="column col-sm-12 col-3">
+       
+      </div>
+    </div>
+    
+    <div class="number-graph-wrapper" *ngIf=WorldData>
+      <div class="number-graph mr-2">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title ">
+              <h6><b>CONFIRMED CASES</b></h6>
+            </div>
+          </div>
+          <div class="card-body status-confirmed">
+            <div class="cases-container">
+              <h2 class="case">{{WorldData.cases}}</h2><span class="info"></span>
+            </div>
+            <div id="lineChartContainer">
+              <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="number-graph mr-2">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <h6><b>COUNTRIES INFECTED</b></h6>
+            </div>
+          </div>
+          <div class="card-body status-hospitalized">
+            <div class="cases-container">
+              <h2 class="case">189</h2><span class="info"></span>
+            </div>
+        
+              </div>
+            </div>
+          </div>
+
+      <div class="number-graph mr-2">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <h6><b>RECOVERED CASES</b></h6>
+            </div>
+          </div>
+          <div class="card-body status-recovered">
+            <div class="cases-container">
+              <h2 class="case">{{WorldData.recovered}}</h2><span class="info"></span>
+            </div>
+            <div id="lineChartContainer">
+              <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="number-graph mr-2">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <h6><b>DEATHS</b></h6>
+            </div>
+          </div>
+          <div class="card-body status-died">
+            <div class="cases-container">
+              <h2 class="case">{{WorldData.deaths}}</h2><span class="info"></span>
+            </div>
+            <div id="lineChartContainer">
+              <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns my-2">
+      <div class="column col-sm-12 col-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title h6">Cumulative Trend</div>
+            <div class="card-subtitle text-gray mt-1">30th Jan 2020 to Today</div>
+            <div style="width: 75%;">
+              <canvas id="canvas" style="border: 1px solid black"></canvas>
+            </div>
+            <script>
+              fetch('https://unpkg.com/world-atlas/countries-50m.json').then((r) => r.json()).then((data) => {
+                const countries = ChartGeo.topojson.feature(data, data.objects.countries).features;
+          
+                const chart = new Chart(document.getElementById("canvas").getContext("2d"), {
+                  type: 'choropleth',
+                  data: {
+                    labels: countries.map((d) => d.properties.name),
+                    datasets: [{
+                      label: 'Countries',
+                      backgroundColor: (context) => {
+                        if (context.dataIndex == null) {
+                          return null;
+                        }
+                        const value = context.dataset.data[context.dataIndex];
+                        return new Color('steelblue').lightness(value.value * 100).rgbString();
+                      },
+                      data: countries.map((d) => ({feature: d, value: Math.random()})),
+                    }]
+                  },
+                  options: {
+                    showOutline: true,
+                    showGraticule: true,
+                    legend: {
+                      display: false
+                    },
+                    scale: {
+                      projection: 'mercator'
+                    },
+                    onClick: (evt, elems) => {
+                      console.log(elems.map((elem) => elem.feature.properties.name));
+                    }
+                  }
+                });
+              });
+            </script>
+        
+          </div>
+          <div class="card-body">
+            <div id="timelineChartContainer" class="timelineChartDimensions">
+              <div id="undefined" class="recharts-responsive-container" style="width:100%;height:100%">
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
