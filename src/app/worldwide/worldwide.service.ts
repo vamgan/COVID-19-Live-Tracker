@@ -16,7 +16,7 @@ export class WorldwideService {
   }
 
   public GetRecoveredData() {
-    return this.http.get('https://corona.lmao.ninja/countries?sort=recovered')
+    return this.http.get('https://corona.lmao.ninja/countries?sort=cases')
     .pipe(map(response => response));
   }
 }
