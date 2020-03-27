@@ -83,4 +83,28 @@
       </div>
     </div>
   </div>
+
+  <div class="row" style="margin-top:20px;" *ngIf="CountryData">
+    <h6>COUNTRIES/REGIONS AFFECTED</h6>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead class="row-highlight">
+          <th>COUNTRIES</th>
+          <th>CONFIRMED</th>
+          <th>ACTIVE</th>
+          <th>RECOVERED</th>
+          <th>DEATHS</th>
+        </thead>
+        <tbody *ngFor="let data of CountryData">
+          <tr>
+            <td><img src = "{{data.countryInfo.flag}}" style="width: 30px; height: 25px;">  {{data.country}}</td>
+            <td>{{data.cases}}</td>
+            <td>{{data.active}}</td>
+            <td>{{data.recovered}}</td>
+            <td>{{data.deaths}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
