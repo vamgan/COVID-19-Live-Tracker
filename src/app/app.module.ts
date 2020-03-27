@@ -19,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import {WorldwideComponent} from './worldwide/worldwide.component';
 import { WorldwidebarComponent } from './worldwidebar/worldwidebar.component';
 import { DailyindComponent } from './home/dailyind/dailyind.component';
+import { NewsTickerComponent } from './home/news-ticker/news-ticker.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { DailyindComponent } from './home/dailyind/dailyind.component';
     FooterComponent,
     WorldwideComponent,
     WorldwidebarComponent,
-    DailyindComponent
+    DailyindComponent,
+    NewsTickerComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ import { DailyindComponent } from './home/dailyind/dailyind.component';
     HttpClientModule,
     BrowserModule,
     ChartsModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
