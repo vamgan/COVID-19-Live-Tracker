@@ -41,7 +41,9 @@ export class DailyindComponent implements OnInit {
   }
   public getDailyConfirmed(daily: any) {
     let i = 0;
-    for (i = 30; i++; ) {
+    let a = 0;
+    a = daily.length - 1;
+    for (i = 30; i < a; i++) {
       this.lineChartLabels.push(daily[i].date);
       this.lineChartData[0].data.push(daily[i].totalconfirmed);
       this.lineChartData[1].data.push(daily[i].totalrecovered);
