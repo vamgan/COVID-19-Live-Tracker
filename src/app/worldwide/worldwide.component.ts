@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-
+import {NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClient} from '@angular/common/http';
+
 @Component({
   selector: 'app-worldwide',
   templateUrl: './worldwide.component.html',
