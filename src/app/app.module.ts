@@ -20,7 +20,7 @@ import {WorldwideComponent} from './worldwide/worldwide.component';
 import { WorldwidebarComponent } from './worldwidebar/worldwidebar.component';
 import { DailyindComponent } from './home/dailyind/dailyind.component';
 import { NewsTickerComponent } from './home/news-ticker/news-ticker.component';
-
+import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -48,6 +48,7 @@ import { NewsTickerComponent } from './home/news-ticker/news-ticker.component';
     BrowserModule,
     ChartsModule,
     RouterModule,
+    NgbPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
