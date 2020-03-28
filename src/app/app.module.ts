@@ -21,6 +21,7 @@ import { WorldwidebarComponent } from './worldwidebar/worldwidebar.component';
 import { DailyindComponent } from './home/dailyind/dailyind.component';
 import { NewsTickerComponent } from './home/news-ticker/news-ticker.component';
 import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     ChartsModule,
     RouterModule,
-    NgbPaginationModule
+    NgbPaginationModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

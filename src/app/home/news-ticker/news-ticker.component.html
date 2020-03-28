@@ -1,20 +1,69 @@
-<script>
-  var ticker = document.querySelector(".ticker"),
-    list = document.querySelector(".ticker__list"),
-    clone = list.cloneNode(true);
 
-  ticker.append(clone);
-
-</script>
-<div class="ticker">
-  <div class="ticker__list">
-    <div class="ticker__item"><img src="https://img.clock.co.uk/250x100?text=Item 1&amp;color=f3e5f5" /></div>
-    <div class="ticker__item"><img src="https://img.clock.co.uk/300x100?text=Item 2&amp;color=ede7f6" /></div>
-    <div class="ticker__item"><img src="https://img.clock.co.uk/200x100?text=Item 3&amp;color=ffcdd2" /></div>
-    <div class="ticker__item"><img src="https://img.clock.co.uk/100x100?text=Item 4&amp;color=f8bbd0" /></div>
-    <div class="ticker__item"><img src="https://img.clock.co.uk/350x100?text=Item 5&amp;color=e8eaf6" /></div>
-    <div class="ticker__item"><img src="https://img.clock.co.uk/100x100?text=Item 6&amp;color=e3f2fd" /></div>
-    <div class="ticker__item"><img src="https://img.clock.co.uk/250x100?text=Item 7&amp;color=e1f5fe" /></div>
-    <div class="ticker__item"><img src="https://img.clock.co.uk/150x100?text=Item 8&amp;color=e0f7fa" /></div>
+ <ngx-slick-carousel class="carousel" 
+ #slickModal="slick-carousel" 
+ [config]="slideConfig" 
+ (init)="slickInit($event)"
+ (breakpoint)="breakpoint($event)"
+ (afterChange)="afterChange($event)"
+ (beforeChange)="beforeChange($event)">
+<div ngxSlickItem class="slide">
+  <div class="blog-card" style= "height: 100px; width: 300px; margin: 0px">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://static.getinpix.com/public/images/v1/variants/jpg/m/2020/03_mar/28_sat/img_1585391196255_421.jpg)"></div>
+    </div>
+    <div class="description">
+      <p style="margin:0px; font-size: 12px;">New coronavirus cases confirmed in Karnataka, total reaches 74</p> 
+    </div>
   </div>
 </div>
+<div ngxSlickItem class="slide">
+  <div class="blog-card" style= "height: 100px; width: 300px; margin: 0px">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://static.getinpix.com/public/images/v1/variants/jpg/m/2020/03_mar/28_sat/img_1585391196255_421.jpg)"></div>
+    </div>
+    <div class="description">
+      <p style="margin:0px; font-size: 12px;">New coronavirus cases confirmed in Karnataka, total reaches 74</p> 
+    </div>
+  </div>
+</div>
+<div ngxSlickItem class="slide">
+  <div class="blog-card" style= "height: 100px; width: 300px; margin: 0px">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://static.getinpix.com/public/images/v1/variants/jpg/m/2020/03_mar/28_sat/img_1585391196255_421.jpg)"></div>
+    </div>
+    <div class="description">
+      <p style="margin:0px; font-size: 12px;">New coronavirus cases confirmed in Karnataka, total reaches 74</p> 
+    </div>
+  </div>
+</div>
+<div ngxSlickItem class="slide">
+  <div class="blog-card" style= "height: 100px; width: 300px; margin: 0px">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://static.getinpix.com/public/images/v1/variants/jpg/m/2020/03_mar/28_sat/img_1585391196255_421.jpg)"></div>
+    </div>
+    <div class="description">
+      <p style="margin:0px; font-size: 12px;">New coronavirus cases confirmed in Karnataka, total reaches 74</p> 
+    </div>
+  </div>
+</div>
+<div ngxSlickItem class="slide">
+  <div class="blog-card" style= "height: 100px; width: 300px; margin: 0px">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://static.getinpix.com/public/images/v1/variants/jpg/m/2020/03_mar/28_sat/img_1585391196255_421.jpg)"></div>
+    </div>
+    <div class="description">
+      <p style="margin:0px; font-size: 12px;">New coronavirus cases confirmed in Karnataka, total reaches 74</p> 
+    </div>
+  </div>
+</div>
+<div ngxSlickItem class="slide">
+  <div class="blog-card" style= "height: 100px; width: 300px; margin: 0px">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://static.getinpix.com/public/images/v1/variants/jpg/m/2020/03_mar/28_sat/img_1585391196255_421.jpg)"></div>
+    </div>
+    <div class="description">
+      <p style="margin:0px; font-size: 12px;">New coronavirus cases confirmed in Karnataka, total reaches 74</p> 
+    </div>
+  </div>
+</div>
+</ngx-slick-carousel>
