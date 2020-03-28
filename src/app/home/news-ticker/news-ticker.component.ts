@@ -18,7 +18,7 @@ export class NewsTickerComponent implements OnInit {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: true
+          dots: false
         }
       },
       {
