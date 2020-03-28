@@ -9,10 +9,10 @@
       </div>
     </div>
   </div>
-<div><app-news-ticker></app-news-ticker></div>
+<!-- <div><app-news-ticker></app-news-ticker></div> -->
 
   <div class="row" style="margin-top: 5px;">
-  
+
     <div class="col-sm-12 col-md-6 col-lg-3 ">
       <div class="card">
         <div class="card-header">
@@ -79,10 +79,10 @@
         </div>
         <div class="card-body status-hospitalized" *ngIf=IndiaData>
           <div class="cases-container">
-            <h2 class="case">{{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested}}</h2>
-            <span class="info"
+            <h2 class="case">26798<!-- {{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested}} --></h2>
+            <!-- <span class="info"
               style="color: orangered;">+{{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested - IndiaData.tested[IndiaData.tested.length - 2].totalindividualstested}}
-              Today</span>
+              Today</span> -->
           </div>
         </div>
       </div>
@@ -198,7 +198,7 @@
 <div class="row" style="padding: 10px;" *ngIf="statewise">
   <h6>{{affectedStateCount}} STATES/UTS AFFECTED (Click on states to see detailed city stats)</h6>
   <div class="table-responsive">
-    
+
     <table class="table table-hover">
       <thead class="row-highlight">
         <tr>
@@ -213,7 +213,7 @@
         <tr (click)="data.expanded = !data.expanded">
           <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">
             {{ data.expanded ? '&ndash;' : '+'}}{{data.state}}</td>
-          <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}</td>
+          <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}<span class="info" style="color: red;"> +{{data.delta.confirmed}} today</span></td>
           <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td>
           <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.recovered}}</td>
           <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.deaths}}</td>
@@ -230,11 +230,11 @@
 
       <tbody>
         <tr *ngFor="let data of statewise" class="row-highlight">
-          <td *ngIf="data.state === 'Total'">{{data.state}}</td>
-          <td *ngIf="data.state === 'Total'">{{data.confirmed}}</td>
-          <td *ngIf="data.state === 'Total'">{{data.active}}</td>
-          <td *ngIf="data.state === 'Total'">{{data.recovered}}</td>
-          <td *ngIf="data.state === 'Total'">{{data.deaths}}</td>
+          <td *ngIf="data.state === 'Total'"><b>{{data.state}}</b></td>
+          <td *ngIf="data.state === 'Total'"><b>{{data.confirmed}}<span class="info" style="color: red;"> +{{data.delta.confirmed}} today</span></b></td>
+          <td *ngIf="data.state === 'Total'"><b>{{data.active}}</b></td>
+          <td *ngIf="data.state === 'Total'"><b>{{data.recovered}}</b></td>
+          <td *ngIf="data.state === 'Total'"><b>{{data.deaths}}</b></td>
         </tr>
       </tbody>
     </table>
