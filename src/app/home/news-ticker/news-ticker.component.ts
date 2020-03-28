@@ -49,4 +49,19 @@ export class NewsTickerComponent implements OnInit {
 
   }
 
+  slickInit(e) {
+
+  }
+
+  breakpoint(e) {
+
+  }
+
+  afterChange(e) {
+
+  }
+
+  beforeChange(e) {
+
+  }
 }
