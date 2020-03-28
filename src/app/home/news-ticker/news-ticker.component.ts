@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-news-ticker',
@@ -10,7 +11,7 @@ export class NewsTickerComponent implements OnInit {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 2500,
     responsive: [
       {
         breakpoint: 1024,
@@ -40,10 +41,13 @@ export class NewsTickerComponent implements OnInit {
       // instead of a settings object
     ]
   };
-  constructor() { }
-
+  constructor(private http: HttpClient) { }
+  News: any;
   ngOnInit() {
-
+    this.http.get('https://v2-api.sheety.co/e2ef74c7336cba348997abf1ef8b70b5/covid19Api/news')
+    .subscribe((news) => this.News = news );
+    debugger;
+    
   }
 
 }
