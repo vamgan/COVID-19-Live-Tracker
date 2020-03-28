@@ -95,7 +95,7 @@
           <th>RECOVERED</th>
           <th>DEATHS</th>
         </thead>
-        <tbody *ngFor="let data of CountryData">
+        <tbody *ngFor="let data of CountryData | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
           <tr>
             <td><img src = "{{data.countryInfo.flag}}" style="width: 30px; height: 25px;">  {{data.country}}</td>
             <td>{{data.cases}}</td>
@@ -105,6 +105,9 @@
           </tr>
         </tbody>
       </table>
+      <div class="float-right">
+        <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="CountryData.length" [maxSize]="5"></ngb-pagination>
+      </div>
     </div>
   </div>
 </div>

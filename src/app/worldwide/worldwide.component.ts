@@ -11,6 +11,9 @@ import {HttpClient} from '@angular/common/http';
 export class WorldwideComponent implements OnInit {
   WorldData: any;
   CountryData: any;
+  page = 1;
+  pageSize = 15;
+
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
