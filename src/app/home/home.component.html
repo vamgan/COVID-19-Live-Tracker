@@ -5,16 +5,14 @@
     </div>
     <div class="col-sm-12 col-lg-4" *ngIf=IndiaData style="margin-top: 10px; padding-bottom: 0px;">
       <div class="alert alert-success" role="alert">
-        <strong>Last updated</strong> {{IndiaData.key_values[0].lastupdatedtime}}
+        <strong>Last updated on</strong> {{IndiaData.key_values[0].lastupdatedtime}}
       </div>
     </div>
   </div>
 <div><app-news-ticker></app-news-ticker></div>
 
-  <div class="row">
-
   <div class="row" style="margin-top: 5px;">
-
+  
     <div class="col-sm-12 col-md-6 col-lg-3 ">
       <div class="card">
         <div class="card-header">
@@ -197,10 +195,10 @@
   </div>
 </div>
 
-<div class="row" style="margin-top:20px;" *ngIf="statewise">
+<div class="row" style="padding: 10px;" *ngIf="statewise">
   <h6>{{affectedStateCount}} STATES/UTS AFFECTED (Click on states to see detailed city stats)</h6>
   <div class="table-responsive">
-
+    
     <table class="table table-hover">
       <thead class="row-highlight">
         <tr>
