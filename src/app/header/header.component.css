@@ -8,14 +8,21 @@
 .navbar-light .navbar-nav .nav-link{
   font-size : initial;
 }
+.nav-item{
+  color:black ;
+  font-size: calc(100% + 1vw + 1vh);
+}
 
 .navbar-nav {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   font-weight: 900;
   text-transform: uppercase;
+  font-size: calc(100% + 1vw + 1vh);
 }
 a{
   text-decoration: none;
+  font-size: calc(1vw + 1vh) !important;
+  color:black !important ;
 }
 
 a:focus {
