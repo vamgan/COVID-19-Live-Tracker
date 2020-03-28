@@ -1,0 +1,14 @@
+p {
+    font-family: Lato;
+  }
+  
+  button {
+    background-color: white;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 2px;
+    outline: none;
+  }

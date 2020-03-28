@@ -17,7 +17,7 @@ body {
   -webkit-box-direction: normal;
           flex-direction: row;
           
-  margin: 1rem auto;
+  
   box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.6%;
   background: #fff;
@@ -50,10 +50,10 @@ body {
   left: 0;
   background-size: cover;
   background-position: center;
-  -webkit-transition: -webkit-transform .2s;
+/*   -webkit-transition: -webkit-transform .2s;
   transition: -webkit-transform .2s;
   transition: transform .2s;
-  transition: transform .2s, -webkit-transform .2s;
+  transition: transform .2s, -webkit-transform .2s; */
 }
 .blog-card .details,
 .blog-card .details ul {
@@ -139,6 +139,8 @@ body {
 }
 @media (min-width: 640px) {
   .blog-card {
+    display: -webkit-box;
+    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
             flex-direction: row;
@@ -152,8 +154,8 @@ body {
     flex-basis: 60%;
   }
   .blog-card .description:before {
-    -webkit-transform: skewX(-3deg);
-            transform: skewX(-3deg);
+   -webkit-transform: skewX(-3deg);
+            transform: skewX(-3deg); 
     content: "";
     background: #fff;
     width: 30px;
@@ -165,14 +167,14 @@ body {
   }
   .blog-card.alt {
     -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-            flex-direction: row-reverse;
+    -webkit-box-direction: normal;
+            flex-direction: row;
   }
   .blog-card.alt .description:before {
     left: inherit;
     right: -10px;
-    -webkit-transform: skew(3deg);
-            transform: skew(3deg);
+     -webkit-transform: skew(3deg);
+            transform: skew(3deg); 
   }
   .blog-card.alt .details {
     padding-left: 25px;

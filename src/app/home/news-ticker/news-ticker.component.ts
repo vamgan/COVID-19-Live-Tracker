@@ -46,8 +46,7 @@ export class NewsTickerComponent implements OnInit {
   ngOnInit() {
     this.http.get('https://v2-api.sheety.co/e2ef74c7336cba348997abf1ef8b70b5/covid19Api/news')
     .subscribe((news) => this.News = news );
-    debugger;
-    
+
   }
 
 }
