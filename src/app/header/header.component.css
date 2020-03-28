@@ -1,7 +1,7 @@
 .navbar-light .navbar-brand {
   font-size: 22px;
   font-weight: 900;
-  
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   
   }
 
@@ -10,7 +10,7 @@
 }
 
 .navbar-nav {
-
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   font-weight: 900;
   text-transform: uppercase;
 }
