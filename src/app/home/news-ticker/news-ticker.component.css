@@ -45,7 +45,7 @@ body {
 .blog-card .photo {
   position: relative;
   min-width: 100px;
-  min-height: 100px;
+  min-height: 120px;
   background-size: cover;
   background-position: center;
 /*   -webkit-transition: -webkit-transform .2s;

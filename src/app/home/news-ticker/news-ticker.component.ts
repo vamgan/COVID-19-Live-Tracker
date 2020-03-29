@@ -33,7 +33,8 @@ export class NewsTickerComponent implements OnInit {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          autoplaySpeed: 2000
         }
       }
       // You can unslick at a given breakpoint now by adding:
@@ -44,7 +45,7 @@ export class NewsTickerComponent implements OnInit {
   constructor(private http: HttpClient) { }
   News: any;
   ngOnInit() {
-    this.http.get('https://v2-api.sheety.co/e2ef74c7336cba348997abf1ef8b70b5/covid19Api/news')
+    this.http.get('https://gocovid19.in/news/news?category=Coronavirus')
     .subscribe((news) => this.News = news );
 
   }
