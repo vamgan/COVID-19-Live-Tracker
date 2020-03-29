@@ -84,7 +84,7 @@
     </div>
   </div>
 
-  <div class="row" style="margin-top:20px;" *ngIf="CountryData">
+  <div class="row" style="margin-top:20px;" *ngIf="CountryDataC">
     <h6>COUNTRIES/REGIONS AFFECTED</h6>
     <div class="table-responsive">
       <table class="table table-hover">
@@ -95,7 +95,7 @@
           <th>RECOVERED</th>
           <th>DEATHS</th>
         </thead>
-        <tbody *ngFor="let data of CountryData | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+        <tbody *ngFor="let data of CountryDataC | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
           <tr>
             <td><img src = "{{data.countryInfo.flag}}" style="width: 30px; height: 25px;">  {{data.country}}</td>
             <td>{{data.cases}}</td>
