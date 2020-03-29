@@ -5,6 +5,7 @@ import {HelplineComponent} from './helpline/helpline.component';
 import { TestCentresComponent } from './test-centres/test-centres.component';
 import { SourcesComponent } from './sources/sources.component';
 import {WorldwideComponent} from './worldwide/worldwide.component';
+import { FunzoneComponent } from './funzone/funzone.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'testcentre', component: TestCentresComponent},
   { path: 'sources', component: SourcesComponent},
   { path: 'worldwide', component: WorldwideComponent},
+  { path: 'funzone', component: FunzoneComponent},
   { path: '**', redirectTo: '/home'}
 ];
 

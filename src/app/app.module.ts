@@ -21,7 +21,10 @@ import { WorldwidebarComponent } from './worldwidebar/worldwidebar.component';
 import { DailyindComponent } from './home/dailyind/dailyind.component';
 import { NewsTickerComponent } from './home/news-ticker/news-ticker.component';
 import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbTabsetModule} from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { FunzoneComponent } from './funzone/funzone.component';
+import { RiddleComponent } from './funzone/riddle/riddle.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     WorldwideComponent,
     WorldwidebarComponent,
     DailyindComponent,
-    NewsTickerComponent
+    NewsTickerComponent,
+    FunzoneComponent,
+    RiddleComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,9 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     ChartsModule,
     RouterModule,
     NgbPaginationModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    // tslint:disable-next-line: deprecation
+    NgbTabsetModule
   ],
   providers: [],
   bootstrap: [AppComponent]
