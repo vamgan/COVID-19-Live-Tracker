@@ -95,7 +95,7 @@
           <th>RECOVERED</th>
           <th>DEATHS</th>
         </thead>
-        <tbody *ngFor="let data of CountryData | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+        <tbody *ngFor="let data of CountryDataC | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
           <tr>
             <td><img src = "{{data.countryInfo.flag}}" style="width: 30px; height: 25px;">  {{data.country}}</td>
             <td>{{data.cases}}</td>
