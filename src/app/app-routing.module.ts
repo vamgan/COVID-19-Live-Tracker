@@ -5,6 +5,7 @@ import {HelplineComponent} from './helpline/helpline.component';
 import { TestCentresComponent } from './test-centres/test-centres.component';
 import { SourcesComponent } from './sources/sources.component';
 import {WorldwideComponent} from './worldwide/worldwide.component';
+import { NewsComponent } from './news/news.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path: 'testcentre', component: TestCentresComponent},
   { path: 'sources', component: SourcesComponent},
   { path: 'worldwide', component: WorldwideComponent},
+  { path: 'news', component: NewsComponent},
   { path: '**', redirectTo: '/home'}
+  
 ];
 
 @NgModule({

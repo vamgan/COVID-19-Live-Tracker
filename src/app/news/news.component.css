@@ -1,0 +1,17 @@
+.card {
+    margin: 10px;
+    max-height: 500px;
+    
+    
+}
+.card-img-top{
+    max-height: 200px;
+
+}
+p{
+    font-size: 13px;
+}
+h5{
+    font-size: 15px;
+}
+

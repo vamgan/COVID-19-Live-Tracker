@@ -22,6 +22,7 @@ import { DailyindComponent } from './home/dailyind/dailyind.component';
 import { NewsTickerComponent } from './home/news-ticker/news-ticker.component';
 import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     WorldwideComponent,
     WorldwidebarComponent,
     DailyindComponent,
-    NewsTickerComponent
+    NewsTickerComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
