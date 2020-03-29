@@ -6,6 +6,7 @@ import { TestCentresComponent } from './test-centres/test-centres.component';
 import { SourcesComponent } from './sources/sources.component';
 import {WorldwideComponent} from './worldwide/worldwide.component';
 import { NewsComponent } from './news/news.component';
+import { FunzoneComponent } from './funzone/funzone.component';
 
 
 const routes: Routes = [
@@ -16,8 +17,9 @@ const routes: Routes = [
   { path: 'sources', component: SourcesComponent},
   { path: 'worldwide', component: WorldwideComponent},
   { path: 'news', component: NewsComponent},
+  { path: 'funzone', component: FunzoneComponent},
   { path: '**', redirectTo: '/home'}
-  
+
 ];
 
 @NgModule({
