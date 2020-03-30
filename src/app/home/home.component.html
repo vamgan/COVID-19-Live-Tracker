@@ -9,7 +9,9 @@
       </div>
     </div>
   </div>
-<div><app-news-ticker></app-news-ticker></div>
+  <div>
+    <app-news-ticker></app-news-ticker>
+  </div>
 
   <div class="row" style="margin-top: 5px;">
 
@@ -79,7 +81,9 @@
         </div>
         <div class="card-body status-hospitalized" *ngIf=IndiaData>
           <div class="cases-container">
-            <h2 class="case">26798<!-- {{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested}} --></h2>
+            <h2 class="case">26798
+              <!-- {{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested}} -->
+            </h2>
             <!-- <span class="info"
               style="color: orangered;">+{{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested - IndiaData.tested[IndiaData.tested.length - 2].totalindividualstested}}
               Today</span> -->
@@ -163,81 +167,92 @@
     </div>
   </div>
   <div class="row" style="margin-top: 5px;">
-  <div class="col-sm-12 col-md-12 col-lg-4">
-    <div class="card">
-      <div class="card-header">
-        <h6 class="card-title">Nationality of people affected in India</h6>
-      </div>
-      <div class="card-body">
-        <app-nationality-pie></app-nationality-pie>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-12 col-md-12 col-lg-4">
-    <div class="card">
-      <div class="card-header">
-        <h6 class="card-title">Age and Gender Distribution</h6>
-      </div>
-      <div class="card-body">
-        <app-age-gender-india></app-age-gender-india>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-12 col-md-12 col-lg-4">
-    <div class="card">
-      <div class="card-header">
-        <h6 class="card-title">Gender</h6>
-      </div>
-      <div class="card-body">
-        <app-gender-india-chart></app-gender-india-chart>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row" style="padding: 10px;" *ngIf="statewise">
-  <h6>{{affectedStateCount}} STATES/UTS AFFECTED (Click on states to see detailed city stats)</h6>
-  <div class="table-responsive">
-
-    <table class="table table-hover">
-      <thead class="row-highlight">
-        <tr>
-          <th>STATE/UT</th>
-          <th>CONFIRMED</th>
-          <th>ACTIVE</th>
-          <th>RECOVERED</th>
-          <th>DEATHS</th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let data of statewise">
-        <tr (click)="data.expanded = !data.expanded">
-          <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">
-            {{ data.expanded ? '&ndash;' : '+'}}{{data.state}}</td>
-          <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}<span class="info" style="color: red;"> +{{data.delta.confirmed}} today</span></td>
-          <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td>
-          <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.recovered}}</td>
-          <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.deaths}}</td>
-        </tr>
-        <div *ngIf="data.expanded">
-          <th class="row-highlight">DISTRICT</th>
-          <th class="row-highlight">CONFIRMED</th>
-          <tr *ngFor="let data1 of GetDistrict(data.state)">
-            <td>{{data1}}</td>
-            <td>{{districtWise[data.state].districtData[data1].confirmed}}</td>
-          </tr>
+    <div class="col-sm-12 col-md-12 col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="card-title">Nationality of people affected in India</h6>
         </div>
-      </tbody>
-
-      <tbody>
-        <tr *ngFor="let data of statewise" class="row-highlight">
-          <td *ngIf="data.state === 'Total'"><b>{{data.state}}</b></td>
-          <td *ngIf="data.state === 'Total'"><b>{{data.confirmed}}<span class="info" style="color: red;"> +{{data.delta.confirmed}} today</span></b></td>
-          <td *ngIf="data.state === 'Total'"><b>{{data.active}}</b></td>
-          <td *ngIf="data.state === 'Total'"><b>{{data.recovered}}</b></td>
-          <td *ngIf="data.state === 'Total'"><b>{{data.deaths}}</b></td>
-        </tr>
-      </tbody>
-    </table>
-
+        <div class="card-body">
+          <app-nationality-pie></app-nationality-pie>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="card-title">Age and Gender Distribution</h6>
+        </div>
+        <div class="card-body">
+          <app-age-gender-india></app-age-gender-india>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="card-title">Gender</h6>
+        </div>
+        <div class="card-body">
+          <app-gender-india-chart></app-gender-india-chart>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+
+  <div class="row" style="padding: 10px;" *ngIf="statewise">
+    <h6>{{affectedStateCount}} STATES/UTS AFFECTED (Click on states to see detailed city stats)</h6>
+    <div class="table-responsive">
+
+      <table class="table table-hover">
+        <thead class="row-highlight">
+          <tr>
+            <th>STATE/UT</th>
+            <th>CONFIRMED</th>
+            <th>ACTIVE</th>
+            <th>RECOVERED</th>
+            <th>DEATHS</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let data of statewise">
+          <tr (click)="data.expanded = !data.expanded">
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">
+              {{ data.expanded ? '&ndash;' : '+'}}{{data.state}}</td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}<span class="info"
+                style="color: red;"> +{{data.delta.confirmed}} today</span></td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.recovered}}</td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.deaths}}</td>
+          </tr>
+          <div *ngIf="data.expanded">
+            <th class="row-highlight">DISTRICT</th>
+            <th class="row-highlight">CONFIRMED</th>
+            <tr *ngFor="let data1 of GetDistrict(data.state)">
+              <td>{{data1}}</td>
+              <td>{{districtWise[data.state].districtData[data1].confirmed}}</td>
+            </tr>
+          </div>
+        </tbody>
+
+        <tbody>
+          <tr *ngFor="let data of statewise" class="row-highlight">
+            <td *ngIf="data.state === 'Total'"><b>{{data.state}}</b></td>
+            <td *ngIf="data.state === 'Total'"><b>{{data.confirmed}}<span class="info" style="color: red;">
+                  +{{data.delta.confirmed}} today</span></b></td>
+            <td *ngIf="data.state === 'Total'"><b>{{data.active}}</b></td>
+            <td *ngIf="data.state === 'Total'"><b>{{data.recovered}}</b></td>
+            <td *ngIf="data.state === 'Total'"><b>{{data.deaths}}</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+  <div class="container my-4">
+      <center>
+        <button type="button" class="btn btn-primary" style="margin-right: 10px">Helpline</button>
+        <button type="button" class="btn btn-primary" style="margin-right: 10px">Test Centres</button>
+        <button type="button" class="btn btn-primary" style="margin-right: 10px">Data Source</button>
+      </center>
+    
+  </div>
+
