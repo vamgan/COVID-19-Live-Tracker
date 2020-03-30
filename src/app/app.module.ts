@@ -26,6 +26,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NewsComponent } from './news/news.component';
 import { FunzoneComponent } from './funzone/funzone.component';
 import { RiddleComponent } from './funzone/riddle/riddle.component';
+import { MoviesComponent } from './funzone/movies/movies.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { RiddleComponent } from './funzone/riddle/riddle.component';
     NewsTickerComponent,
     NewsComponent,
     FunzoneComponent,
-    RiddleComponent
+    RiddleComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,

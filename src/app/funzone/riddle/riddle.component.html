@@ -4,8 +4,8 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title"><img src="https://i.pinimg.com/originals/e9/71/f0/e971f0968fccc139486620a523d2f832.png">  {{data.question}}</h5>
-          <button href="#" class="btn btn-success" (click)="showAnswer = !showAnswer">{{showAnswer ? hideAnswerText : showAnswerText}}</button>
-            <p *ngIf="showAnswer">Answer: {{data.answer}}</p>
+          <button class="btn btn-success" (click)="data.status = !data.status">{{data.status ? showAnswerText : hideAnswerText}}</button>
+            <p *ngIf="!data.status" style="margin: 2px;">Answer: {{data.answer}}</p>
         </div>
       </div>
     </div>
