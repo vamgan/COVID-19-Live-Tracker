@@ -1,69 +1,71 @@
 <div class="container" *ngIf="moviesData">
-  <div class="row">
-    <h6>Netflix</h6>
+  <br>
+  <div class="row" style="margin:30px">
+    <br>
     <div class="table-responsive">
+      <h6>Bollywood</h6>
       <table class="table">
         <th>Sr.No.</th>
         <th>Name</th>
-        <tbody *ngFor = "let data of moviesData">
-          <tr >
-            <td>{{data.id}}</td>
-            <td>{{data.netflix}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <h6>Hotstar</h6>
-    <div class="table-responsive">
-      <table class="table">
-        <th>Sr.No.</th>
-        <th>Name</th>
-        <tbody *ngFor = "let data of moviesData">
-          <tr>
-            <td>{{data.id}}</td>
-            <td>{{data.hostar}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <h6>Prime</h6>
-    <div class="table-responsive">
-      <table class="table">
-        <th>Sr.No.</th>
-        <th>Name</th>
-        <tbody *ngFor = "let data of moviesData">
-          <tr>
-            <td>{{data.id}}</td>
-            <td>{{data.prime}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <h6>Hollywood</h6>
-    <div class="table-responsive">
-      <table class="table">
-        <th>Sr.No.</th>
-        <th>Name</th>
-        <tbody *ngFor = "let data of moviesData">
-          <tr>
-            <td>{{data.id}}</td>
-            <td>{{data.moviesh}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <h6>Bollywood</h6>
-    <div class="table-responsive">
-      <table class="table">
-        <th>Sr.No.</th>
-        <th>Name</th>
-        <tbody *ngFor = "let data of moviesData">
+        <tbody *ngFor="let data of moviesData">
           <tr>
             <td>{{data.id}}</td>
             <td>{{data.moviesb}}</td>
           </tr>
         </tbody>
       </table>
-    </div>
+      <br>
+      <h6>Hollywood</h6>
+      <table class="table">
+        <th>Sr.No.</th>
+        <th>Name</th>
+        <tbody *ngFor="let data of moviesData">
+          <tr>
+            <td>{{data.id}}</td>
+            <td>{{data.moviesh}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h6>Netflix</h6>
+      <table class="table">
+        <th>Sr.No.</th>
+        <th>Name</th>
+        <tbody *ngFor="let data of moviesData">
+          <tr>
+            <td>{{data.id}}</td>
+            <td>{{data.netflix}}</td>
+          </tr>
+        </tbody>
+      </table>
+    
+    <br>
+    <h6>Hotstar</h6>
+    <table class="table">
+      <th>Sr.No.</th>
+      <th>Name</th>
+      <tbody *ngFor="let data of moviesData">
+        <tr>
+          <td>{{data.id}}</td>
+          <td>{{data.hostar}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+    <h6>Prime</h6>
+
+    <table class="table">
+      <th>Sr.No.</th>
+      <th>Name</th>
+      <tbody *ngFor="let data of moviesData">
+        <tr>
+          <td>{{data.id}}</td>
+          <td>{{data.prime}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
   </div>
 </div>
