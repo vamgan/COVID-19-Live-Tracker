@@ -75,14 +75,13 @@
         <div class="card-header">
           <div class="card-title">
             <h6>
-              <b>PEOPLE TESTED</b>
+              <b>PEOPLE HOSPITALISED</b>
             </h6>
           </div>
         </div>
         <div class="card-body status-hospitalized" *ngIf=IndiaData>
           <div class="cases-container">
-            <h2 class="case">26798
-              <!-- {{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested}} -->
+            <h2 class="case">{{IndiaData.statewise[0].active}}
             </h2>
             <!-- <span class="info"
               style="color: orangered;">+{{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested - IndiaData.tested[IndiaData.tested.length - 2].totalindividualstested}}
@@ -249,9 +248,9 @@
   </div>
   <div class="container my-4">
       <center>
-        <button type="button" class="btn btn-primary" style="margin-right: 10px">Helpline</button>
-        <button type="button" class="btn btn-primary" style="margin-right: 10px">Test Centres</button>
-        <button type="button" class="btn btn-primary" style="margin-right: 10px">Data Source</button>
+        <button type="button" class="btn btn-primary" routerLink="/helpline" style="margin-right: 10px">Helpline</button>
+        <button type="button" class="btn btn-primary" routerLink="/testcentre" style="margin-right: 10px">Test Centres</button>
+        <button type="button" class="btn btn-primary" routerLink="/sources" style="margin-right: 10px">Data Source</button>
       </center>
     
   </div>
