@@ -45,7 +45,7 @@ export class NewsTickerComponent implements OnInit {
   constructor(private http: HttpClient) { }
   News: any;
   ngOnInit() {
-    this.http.get('https://gocovid19.in/news/news?category=Coronavirus')
+    this.http.get('https://gocovid19.in/api/news?category=Coronavirus')
     .subscribe((news) => this.News = news );
 
   }
