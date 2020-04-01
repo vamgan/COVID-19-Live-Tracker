@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   kerala: [];
   isShow: boolean;
   topPosToStartShowing = 100;
+  stateSort: any;
 
   @HostListener('window:scroll')
   checkScroll() {
@@ -51,6 +52,8 @@ export class HomeComponent implements OnInit {
         this.casesTimeSeries = response.cases_time_series;
         this.keyValues = response.key_values;
         this.statewise = response.statewise;
+        this.stateSort = this.statewise;
+        this.stateSort.sort((a, b) => (b.confirmed - a.confirmed));
         this.AffectedState(this.statewise);
       });
 

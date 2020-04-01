@@ -136,6 +136,53 @@
       </div>
     </div>
   </div>
+  <div class="row" style="padding: 10px;" *ngIf="statewise">
+    <h6>{{affectedStateCount}} STATES/UTS AFFECTED (Click on states to see detailed city stats)</h6>
+    <div class="table-responsive">
+
+      <table class="table table-hover">
+        <thead class="row-highlight">
+          <tr>
+            <th>STATE/UT</th>
+            <th>CONFIRMED</th>
+            <th>ACTIVE</th>
+            <th>RECOVERED</th>
+            <th>DEATHS</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let data of stateSort">
+          <tr (click)="data.expanded = !data.expanded">
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">
+              {{ data.expanded ? '&ndash;' : '+'}}{{data.state}}</td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}<span class="info"
+                style="color: red;"> +{{data.delta.confirmed}} today</span></td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.recovered}}</td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.deaths}}</td>
+          </tr>
+          <div *ngIf="data.expanded">
+            <th class="row-highlight">DISTRICT</th>
+            <th class="row-highlight">CONFIRMED</th>
+            <tr *ngFor="let data1 of GetDistrict(data.state)">
+              <td>{{data1}}</td>
+              <td>{{districtWise[data.state].districtData[data1].confirmed}}</td>
+            </tr>
+          </div>
+        </tbody>
+
+        <tbody>
+          <tr *ngFor="let data of statewise" class="row-highlight">
+            <td *ngIf="data.state === 'Total'"><b>{{data.state}}</b></td>
+            <td *ngIf="data.state === 'Total'"><b>{{data.confirmed}}<span class="info" style="color: red;">
+                  +{{data.delta.confirmed}} today</span></b></td>
+            <td *ngIf="data.state === 'Total'"><b>{{data.active}}</b></td>
+            <td *ngIf="data.state === 'Total'"><b>{{data.recovered}}</b></td>
+            <td *ngIf="data.state === 'Total'"><b>{{data.deaths}}</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <div class="row" style="margin-top: 5px;">
     <div class="col-sm-12 ">
       <div class="card">
@@ -198,53 +245,7 @@
     </div>
   </div>
 
-  <div class="row" style="padding: 10px;" *ngIf="statewise">
-    <h6>{{affectedStateCount}} STATES/UTS AFFECTED (Click on states to see detailed city stats)</h6>
-    <div class="table-responsive">
 
-      <table class="table table-hover">
-        <thead class="row-highlight">
-          <tr>
-            <th>STATE/UT</th>
-            <th>CONFIRMED</th>
-            <th>ACTIVE</th>
-            <th>RECOVERED</th>
-            <th>DEATHS</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let data of statewise">
-          <tr (click)="data.expanded = !data.expanded">
-            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">
-              {{ data.expanded ? '&ndash;' : '+'}}{{data.state}}</td>
-            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}<span class="info"
-                style="color: red;"> +{{data.delta.confirmed}} today</span></td>
-            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td>
-            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.recovered}}</td>
-            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.deaths}}</td>
-          </tr>
-          <div *ngIf="data.expanded">
-            <th class="row-highlight">DISTRICT</th>
-            <th class="row-highlight">CONFIRMED</th>
-            <tr *ngFor="let data1 of GetDistrict(data.state)">
-              <td>{{data1}}</td>
-              <td>{{districtWise[data.state].districtData[data1].confirmed}}</td>
-            </tr>
-          </div>
-        </tbody>
-
-        <tbody>
-          <tr *ngFor="let data of statewise" class="row-highlight">
-            <td *ngIf="data.state === 'Total'"><b>{{data.state}}</b></td>
-            <td *ngIf="data.state === 'Total'"><b>{{data.confirmed}}<span class="info" style="color: red;">
-                  +{{data.delta.confirmed}} today</span></b></td>
-            <td *ngIf="data.state === 'Total'"><b>{{data.active}}</b></td>
-            <td *ngIf="data.state === 'Total'"><b>{{data.recovered}}</b></td>
-            <td *ngIf="data.state === 'Total'"><b>{{data.deaths}}</b></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
   </div>
   <div class="container my-4">
       <center>
@@ -252,6 +253,6 @@
         <button type="button" class="btn btn-primary" routerLink="/testcentre" style="margin-right: 10px">Test Centres</button>
         <button type="button" class="btn btn-primary" routerLink="/sources" style="margin-right: 10px">Data Source</button>
       </center>
-    
+
   </div>
 

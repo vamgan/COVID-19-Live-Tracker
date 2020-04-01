@@ -76,6 +76,7 @@ export class MyLineChartComponent implements OnInit {
       });
   }
   public getStateName(stateWise: any): any {
+    stateWise.sort((a, b) => (b.confirmed - a.confirmed));
     this.countstate = 0;
     for ( const data of stateWise) {
       if (data.state !== 'Total') {
