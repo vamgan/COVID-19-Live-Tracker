@@ -3,9 +3,9 @@
     <div class="col-sm-12 col-lg-8" style="margin-top: 30px;">
       <h5>Coronavirus Outbreak in India Live</h5>
     </div>
-    <div class="col-sm-12 col-lg-4" *ngIf=IndiaData style="margin-top: 10px; padding-bottom: 0px;">
+    <div class="col-sm-12 col-lg-4" *ngIf=statewise style="margin-top: 10px; padding-bottom: 0px;">
       <div class="alert alert-success" role="alert">
-        <strong>Last updated on</strong> {{IndiaData.key_values[0].lastupdatedtime}}
+        <strong>Last updated </strong> {{lastUpdate(statewise[0].lastupdatedtime)}} ago
       </div>
     </div>
   </div>
@@ -24,10 +24,10 @@
             </h6>
           </div>
         </div>
-        <div class="card-body status-confirmed" *ngIf=IndiaData>
+        <div class="card-body status-confirmed" *ngIf=statewise>
           <div class="cases-container">
             <h2 class="case">{{statewise[0].confirmed}}</h2>
-            <span class="info" style="color:red">+{{IndiaData.key_values[0].confirmeddelta}} Today</span>
+            <span class="info" style="color:red">+{{statewise[0].deltaconfirmed}} Today</span>
           </div>
         </div>
       </div>
@@ -155,12 +155,13 @@
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">
               {{ data.expanded ? '&ndash;' : '+'}}{{data.state}}</td>
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}<span class="info"
-                style="color: red;"> +{{data.delta.confirmed}} today</span></td>
+                style="color: red;"> +{{data.deltaconfirmed}} today</span></td>
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td>
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.recovered}}</td>
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.deaths}}</td>
           </tr>
           <div *ngIf="data.expanded">
+            <h6><strong>Last updated </strong> {{lastUpdate(data.lastupdatedtime)}} ago </h6>
             <th class="row-highlight">DISTRICT</th>
             <th class="row-highlight">CONFIRMED</th>
             <tr *ngFor="let data1 of GetDistrict(data.state)">
@@ -174,7 +175,7 @@
           <tr *ngFor="let data of statewise" class="row-highlight">
             <td *ngIf="data.state === 'Total'"><b>{{data.state}}</b></td>
             <td *ngIf="data.state === 'Total'"><b>{{data.confirmed}}<span class="info" style="color: red;">
-                  +{{data.delta.confirmed}} today</span></b></td>
+                  +{{data.deltaconfirmed}} today</span></b></td>
             <td *ngIf="data.state === 'Total'"><b>{{data.active}}</b></td>
             <td *ngIf="data.state === 'Total'"><b>{{data.recovered}}</b></td>
             <td *ngIf="data.state === 'Total'"><b>{{data.deaths}}</b></td>

@@ -3,6 +3,7 @@ import { Component, OnInit , HostListener} from '@angular/core';
 import {HomeService} from './home.service';
 import {Response} from '../response';
 import {Rawdata} from '../rawdata';
+import { formatDistance } from 'date-fns';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
   isShow: boolean;
   topPosToStartShowing = 100;
   stateSort: any;
+  today: Date = new Date();
 
   @HostListener('window:scroll')
   checkScroll() {
@@ -50,8 +52,8 @@ export class HomeComponent implements OnInit {
       .subscribe((response: Response) => {
         this.IndiaData = response;
         this.casesTimeSeries = response.cases_time_series;
-        this.keyValues = response.key_values;
         this.statewise = response.statewise;
+        console.log(this.statewise[0].lastupdatedtime);
         this.stateSort = this.statewise;
         this.stateSort.sort((a, b) => (b.confirmed - a.confirmed));
         this.AffectedState(this.statewise);
@@ -90,4 +92,11 @@ export class HomeComponent implements OnInit {
     return keys;
   }
 
+  public lastUpdate(date) {
+  const day = date.slice(0, 2);
+  const month = date.slice(3, 5);
+  const year = date.slice(6, 10);
+  const time = date.slice(11);
+  return formatDistance(new Date(`${year}-${month}-${day}T${time}+05:30`), this.today);
+  }
 }

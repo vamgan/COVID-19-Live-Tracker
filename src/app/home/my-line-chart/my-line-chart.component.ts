@@ -69,8 +69,6 @@ export class MyLineChartComponent implements OnInit {
   ngOnInit() {
     this.homeService.GetIndiaData()
       .subscribe((response: Response) => {
-        this.casesTimeSeries = response.cases_time_series;
-        this.keyValues = response.key_values;
         this.statewise = response.statewise;
         this.getStateName(this.statewise);
       });
