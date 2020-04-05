@@ -27,6 +27,7 @@ import { NewsComponent } from './news/news.component';
 import { FunzoneComponent } from './funzone/funzone.component';
 import { RiddleComponent } from './funzone/riddle/riddle.component';
 import { MoviesComponent } from './funzone/movies/movies.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { MoviesComponent } from './funzone/movies/movies.component';
     NgbPaginationModule,
     SlickCarouselModule,
     // tslint:disable-next-line: deprecation
-    NgbTabsetModule
+    NgbTabsetModule,
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
