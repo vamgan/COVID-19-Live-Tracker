@@ -4,112 +4,113 @@
       <h5>Coronavirus Outbreak Worldwide</h5>
     </div>
     <div class="column col-sm-12 col-4">
-     <!--  <ion-badge color="success"><strong>Last Updated </strong>{{lastUpdate(WorldData.updated)}} ago</ion-badge> -->
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-3 ">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title ">
-            <h6><b>CONFIRMED CASES</b></h6>
-          </div>
-        </div>
-        <div class="card-body status-confirmed">
-          <div class="cases-container">
-            <h2 class="case">{{WorldData.cases}}</h2>
-            <span class="info" style="color:red">+ {{WorldData.todayCases}} Today</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-3">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">
-            <h6><b>CRITICAL CASES</b></h6>
-          </div>
-        </div>
-        <div class="card-body status-icu">
-          <div class="cases-container">
-            <h2 class="case">{{WorldData.critical}}</h2>
-            <span class="info"></span>
-          </div>
-        </div>
+      <div class="uk-badge uk-animation-fade" style = "color: rgb(22, 255, 22);"><strong>Last Updated </strong>{{lastUpdate(WorldData.updated)}} ago
+      </div> 
       </div>
     </div>
 
-    <div class="col-sm-12 col-md-6 col-lg-3">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">
-            <h6><b>RECOVERED CASES</b></h6>
+    <div class="row" *ngIf="WorldData">
+      <div class="col-sm-12 col-md-6 col-lg-3 ">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title ">
+              <h6><b>CONFIRMED CASES</b></h6>
+            </div>
           </div>
-        </div>
-        <div class="card-body status-recovered">
-          <div class="cases-container">
-            <h2 class="case">{{WorldData.recovered}}</h2>
-            <span class="info"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-3">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">
-            <h6><b>DEATHS</b></h6>
-          </div>
-        </div>
-        <div class="card-body status-died">
-          <div class="cases-container">
-            <h2 class="case">{{WorldData.deaths}}</h2><span class="info">+ {{WorldData.todayDeaths}}</span>
+          <div class="card-body status-confirmed">
+            <div class="cases-container">
+              <h2 class="case">{{WorldData.cases}}</h2>
+              <span class="info" style="color:red">+ {{WorldData.todayCases}} Today</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <h6><b>CRITICAL CASES</b></h6>
+            </div>
+          </div>
+          <div class="card-body status-icu">
+            <div class="cases-container">
+              <h2 class="case">{{WorldData.critical}}</h2>
+              <span class="info"></span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="row" style="margin-top: 5px;">
-    <div class="col-sm-12 col-12">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title h6">Top 10 Countries</div>
-          <div class="card-subtitle text-gray mt-1">30th Jan 2020 to Today</div>
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <h6><b>RECOVERED CASES</b></h6>
+            </div>
+          </div>
+          <div class="card-body status-recovered">
+            <div class="cases-container">
+              <h2 class="case">{{WorldData.recovered}}</h2>
+              <span class="info"></span>
+            </div>
+          </div>
         </div>
-        <div class="card-body">
-          <app-worldwidebar></app-worldwidebar>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <h6><b>DEATHS</b></h6>
+            </div>
+          </div>
+          <div class="card-body status-died">
+            <div class="cases-container">
+              <h2 class="case">{{WorldData.deaths}}</h2><span class="info">+ {{WorldData.todayDeaths}}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="row" style="margin-top:20px;" *ngIf="CountryDataC">
-    <h6>COUNTRIES/REGIONS AFFECTED</h6>
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead class="row-highlight">
-          <th>COUNTRIES</th>
-          <th>CONFIRMED</th>
-          <th>ACTIVE</th>
-          <th>RECOVERED</th>
-          <th>DEATHS</th>
-        </thead>
-        <tbody *ngFor="let data of CountryDataC | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
-          <tr>
-            <td><img src="{{data.countryInfo.flag}}" style="width: 30px; height: 25px;"> {{data.country}}</td>
-            <td>{{data.cases}}</td>
-            <td>{{data.active}}</td>
-            <td>{{data.recovered}}</td>
-            <td>{{data.deaths}}</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="float-right">
-        <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="CountryData.length" [maxSize]="5">
-        </ngb-pagination>
+    <div class="row" style="margin-top: 5px;">
+      <div class="col-sm-12 col-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title h6">Top 10 Countries</div>
+            <div class="card-subtitle text-gray mt-1">30th Jan 2020 to Today</div>
+          </div>
+          <div class="card-body">
+            <app-worldwidebar></app-worldwidebar>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:20px;" *ngIf="CountryDataC">
+      <h6>COUNTRIES/REGIONS AFFECTED</h6>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="row-highlight">
+            <th>COUNTRIES</th>
+            <th>CONFIRMED</th>
+            <th>ACTIVE</th>
+            <th>RECOVERED</th>
+            <th>DEATHS</th>
+          </thead>
+          <tbody *ngFor="let data of CountryDataC | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+            <tr>
+              <td><img src="{{data.countryInfo.flag}}" style="width: 30px; height: 25px;"> {{data.country}}</td>
+              <td>{{data.cases}}</td>
+              <td>{{data.active}}</td>
+              <td>{{data.recovered}}</td>
+              <td>{{data.deaths}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="float-right" *ngIf="CountryData">
+          <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="CountryData.length" [maxSize]="5">
+          </ngb-pagination>
+        </div>
       </div>
     </div>
   </div>
-</div>

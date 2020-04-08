@@ -38,6 +38,7 @@
     "slick-carousel": "^1.8.1",
     "tslib": "^1.10.0",
     "ui-bootstrap4": "^3.0.6",
+    "uikit": "^3.3.7",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
@@ -60,7 +61,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "^3.8.3",
-    "@ionic/angular-toolkit": "latest"
+    "typescript": "^3.8.3"
   }
 }

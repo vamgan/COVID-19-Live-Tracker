@@ -4,14 +4,12 @@
       <h5>Coronavirus Outbreak in India Live</h5>
     </div>
     <div class="col-sm-12 col-lg-4" *ngIf=statewise style="margin-top: 10px; padding-bottom: 0px;">
-      <!-- <ion-badge color="success">
+      <div class="alert alert-success">
         <strong>Last updated </strong> {{lastUpdate(statewise[0].lastupdatedtime)}} ago
-      </ion-badge> -->
+      </div>
     </div>
   </div>
-  <div>
-    <app-news-ticker></app-news-ticker>
-  </div>
+
 
   <div class="row" style="margin-top: 5px;">
 
@@ -136,24 +134,24 @@
       </div>
     </div>
   </div>
-  <div class="row" style="padding: 10px;" *ngIf="statewise">
+  <div class="row" style="padding: 10px; " *ngIf="statewise">
     <h6>{{affectedStateCount}} STATES/UTS AFFECTED (Click on states to see detailed city stats)</h6>
     <div class="table-responsive">
 
       <table class="table table-hover">
-        <thead class="row-highlight">
+        <thead>
           <tr>
-            <th>STATE/UT</th>
-            <th>CONFIRMED</th>
-            <th>ACTIVE</th>
-            <th>RECOVERED</th>
-            <th>DEATHS</th>
+            <th >STATE/UT</th>
+            <th >CONFIRMED</th>
+            <th >ACTIVE</th>
+            <th >RECOVERED</th>
+            <th >DEATHS</th>
           </tr>
         </thead>
         <tbody *ngFor="let data of stateSort">
           <tr (click)="data.expanded = !data.expanded">
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">
-              {{ data.expanded ? '&ndash;' : '+'}}{{data.state}}</td>
+              {{ data.expanded ? '&ndash;' : '+ '}}{{data.state}}</td>
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}<span class="info"
                 style="color: red;"> +{{data.deltaconfirmed}} today</span></td>
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td>
@@ -162,8 +160,8 @@
           </tr>
           <div *ngIf="data.expanded">
             <h6><strong>Last updated </strong> {{lastUpdate(data.lastupdatedtime)}} ago </h6>
-            <th class="row-highlight">DISTRICT</th>
-            <th class="row-highlight">CONFIRMED</th>
+            <th>DISTRICT</th>
+            <th>CONFIRMED</th>
             <tr *ngFor="let data1 of GetDistrict(data.state)">
               <td>{{data1}}</td>
               <td>{{districtWise[data.state].districtData[data1].confirmed}}</td>
@@ -172,7 +170,7 @@
         </tbody>
 
         <tbody>
-          <tr *ngFor="let data of statewise" class="row-highlight">
+          <tr *ngFor="let data of statewise">
             <td *ngIf="data.state === 'Total'"><b>{{data.state}}</b></td>
             <td *ngIf="data.state === 'Total'"><b>{{data.confirmed}}<span class="info" style="color: red;">
                   +{{data.deltaconfirmed}} today</span></b></td>
@@ -247,13 +245,16 @@
   </div>
 
 
-  </div>
-  <div class="container my-4">
-      <center>
-        <button type="button" class="btn btn-primary" routerLink="/helpline" style="margin-right: 10px">Helpline</button>
-        <button type="button" class="btn btn-primary" routerLink="/testcentre" style="margin-right: 10px">Test Centres</button>
-        <button type="button" class="btn btn-primary" routerLink="/sources" style="margin-right: 10px">Data Source</button>
-      </center>
+</div>
+<div class="container my-4">
+  <div class="row justify-contentss-center justify-content-sm-center">
+
+    <button type="button" class="btn-sm btn-primary" routerLink="/helpline" style="margin-right: 10px">Helpline</button>
+    <button type="button" class="btn-sm btn-primary" routerLink="/testcentre" style="margin-right: 10px">Test
+      Centres</button>
+    <button type="button" class="btn-sm btn-primary" routerLink="/sources" style="margin-right: 10px">Data
+      Source</button>
+   
 
   </div>
-
+</div>
