@@ -5,7 +5,7 @@
  (init)="slickInit($event)"
  (breakpoint)="breakpoint($event)"
  (afterChange)="afterChange($event)"
- (beforeChange)="beforeChange($event)">
+ (beforeChange)="beforeChange($event)" *ngIf = "News">
 <div ngxSlickItem class="slide" *ngFor="let data of News.data" routerLink="/news">
   <div class="blog-card" style="height: 120px; margin-right: 10px;">
     <div class="meta">

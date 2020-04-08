@@ -29,6 +29,7 @@ import { RiddleComponent } from './funzone/riddle/riddle.component';
 import { MoviesComponent } from './funzone/movies/movies.component';
 import { IonicModule } from '@ionic/angular';
 
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { fromUnixTime, formatDistance, getUnixTime } from 'date-fns';
 import {NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClient} from '@angular/common/http';
 import {WorldwideService} from './worldwide.service';
@@ -26,6 +26,10 @@ export class WorldwideComponent implements OnInit {
       this.worldService.GetConfirmedData()
       .subscribe(data => this.CountryDataC = data );
 
+  }
+  public lastUpdate(data) {
+    const convert =  fromUnixTime(data / 1000);
+    return formatDistance(convert, new Date());
   }
 
 }

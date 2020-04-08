@@ -1,5 +1,4 @@
 import { Component, OnInit , HostListener} from '@angular/core';
-
 import {HomeService} from './home.service';
 import {Response} from '../response';
 import {Rawdata} from '../rawdata';
