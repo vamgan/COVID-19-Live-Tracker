@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="columns flex-centered my-2">
-    <div class="column col-sm-12 col-8">
-      <h5>Coronavirus Outbreak Worldwide</h5>
+  <div class="row" style="margin-bottom: 0px;">
+    <div class="col-sm-12 col-lg-8" style="margin-top: 30px;">
+      <h5>Coronavirus Outbreak Worldwide Live</h5>
     </div>
-    <div class="column col-sm-12 col-4">
-      <div class="uk-badge uk-animation-fade" style = "color: rgb(22, 255, 22);"><strong>Last Updated </strong>{{lastUpdate(WorldData.updated)}} ago
+    <div class="col-sm-12 col-lg-4 " style="margin-top: 10px; padding-bottom: 0px;">
+      <div class="alert alert-success"><strong>Last Updated </strong>{{lastUpdate(WorldData.updated)}} ago
       </div> 
       </div>
     </div>
@@ -65,7 +65,7 @@
           </div>
           <div class="card-body status-died">
             <div class="cases-container">
-              <h2 class="case">{{WorldData.deaths}}</h2><span class="info">+ {{WorldData.todayDeaths}}</span>
+              <h2 class="case">{{WorldData.deaths}}</h2><span class="info" style="color:darkred">+ {{WorldData.todayDeaths}} Today</span>
             </div>
           </div>
         </div>

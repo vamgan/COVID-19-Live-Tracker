@@ -1,5 +1,7 @@
 /* Self added styles-Vam */
-
+.card-header{
+  background-color: white;
+}
 status-confirmed {
   color: #6495ed
 }

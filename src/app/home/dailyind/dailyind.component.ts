@@ -17,6 +17,19 @@ export class DailyindComponent implements OnInit {
   public lineChartLabels: Label[] = [];
   public lineChartOptions: ChartOptions = {
     responsive: true,
+    scales: {
+      xAxes: [{
+        gridLines: {
+          display: false
+        }
+    }],
+    yAxes: [{
+      gridLines: {
+        display: false,
+        drawBorder: false,
+      }
+  }]
+    }
   };
   public lineChartColors: Color[] = [
     {

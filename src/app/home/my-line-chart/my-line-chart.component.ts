@@ -39,12 +39,13 @@ export class MyLineChartComponent implements OnInit {
               maxTicksLimit: 5,
           },
           gridLines: {
-              display: false
+              display: false,
+              drawBorder: false,
           }
       }],
       xAxes: [{
           gridLines: {
-            display: true
+            display: false
           },
           ticks: {
             display: true
