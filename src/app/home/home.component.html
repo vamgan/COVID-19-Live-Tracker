@@ -26,7 +26,7 @@
           <div class="cases-container">
             <h2 class="case">{{statewise[0].confirmed}}</h2>
             <span class="info" style="color:red">+{{statewise[0].deltaconfirmed}} Today</span>
-            
+
           </div>
         </div>
       </div>
@@ -74,17 +74,17 @@
         <div class="card-header">
           <div class="card-title">
             <h6>
-              <b>PEOPLE HOSPITALISED</b>
+              <b>Samples Tested</b>
             </h6>
           </div>
         </div>
         <div class="card-body status-hospitalized" *ngIf=IndiaData>
           <div class="cases-container">
-            <h2 class="case">{{IndiaData.statewise[0].active}}
+            <h2 class="case">{{IndiaData.tested[IndiaData.tested.length-1].totalsamplestested}}
             </h2>
-            <!-- <span class="info"
-              style="color: orangered;">+{{IndiaData.tested[IndiaData.tested.length - 1].totalindividualstested - IndiaData.tested[IndiaData.tested.length - 2].totalindividualstested}}
-              Today</span> -->
+            <span class="info"
+              style="color: orangered;">+{{IndiaData.tested[IndiaData.tested.length-1].samplereportedtoday}}
+              Today</span>
           </div>
         </div>
       </div>
@@ -113,7 +113,9 @@
     <div class="col-md-12 col-lg-6 col-sm-12">
       <div class="card">
         <div class="card-header">
-          <h6 class="card-title">Daily Analysis of India</h6>
+          <h5 class="card-title">Daily Analysis of India</h5>
+
+          <h12 class="card-subtitle">Click on labels to interact with the charts</h12>
         </div>
         <div class="card-body">
           <app-dailyind></app-dailyind>
@@ -126,6 +128,7 @@
       <div class="card">
         <div class="card-header">
           <div class="card-title h6">Top 10 states Confirmed vs Recovered</div>
+          <h12 class="card-subtitle">Click on labels to interact with the charts</h12>
         </div>
 
         <div class="card-body">
@@ -139,14 +142,14 @@
     <h6>{{affectedStateCount}} STATES/UTS AFFECTED (Click on states to see detailed city stats)</h6>
     <div class="table-responsive">
 
-      <table class="table table-hover">
+      <table class="table table-hover table-fixed text-nowrap ">
         <thead>
           <tr>
-            <th >STATE/UT</th>
-            <th >CONFIRMED</th>
-            <th >ACTIVE</th>
-            <th >RECOVERED</th>
-            <th >DEATHS</th>
+            <th style="width: 40px;">STATE/UT</th>
+            <th>CONFIRMED</th>
+            <th>ACTIVE</th>
+            <th>RECOVERED</th>
+            <th>DEATHS</th>
           </tr>
         </thead>
         <tbody *ngFor="let data of stateSort">
@@ -156,8 +159,10 @@
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}<span class="info"
                 style="color: red;"> +{{data.deltaconfirmed}} today</span></td>
             <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td>
-            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.recovered}}</td>
-            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.deaths}}</td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.recovered}}<span class="info"
+                style="color: green;"> +{{data.deltarecovered}} today</span></td>
+            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.deaths}}<span class="info"
+                style="color: red;"> +{{data.deltadeaths}} today</span></td>
           </tr>
           <div *ngIf="data.expanded">
             <h6><strong>Last updated </strong> {{lastUpdate(data.lastupdatedtime)}} ago </h6>
@@ -255,7 +260,7 @@
       Centres</button>
     <button type="button" class="btn-sm btn-primary" routerLink="/sources" style="margin-right: 10px">Data
       Source</button>
-   
+
 
   </div>
 </div>

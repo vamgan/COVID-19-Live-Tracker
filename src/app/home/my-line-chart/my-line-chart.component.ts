@@ -20,7 +20,8 @@ export class MyLineChartComponent implements OnInit {
 
   public lineChartData: ChartDataSets[] = [
     { data: [], fill: true,  label: 'Confirmed'},
-    { data: [], label: 'Recovered'}
+    { data: [], label: 'Recovered'},
+    { data: [], label: 'Deaths', type: 'line'}
   ];
   public lineChartLabels: Label[] = [];
   public lineChartOptions: ChartOptions = {
@@ -61,7 +62,7 @@ export class MyLineChartComponent implements OnInit {
   ];
   public lineChartLegend = true;
   public lineChartType: ChartType = 'bar';
-  public lineChartPlugins = [pluginDataLabels];
+  public lineChartPlugins = [];
 
 
   constructor(private homeService: HomeService) {
@@ -83,6 +84,7 @@ export class MyLineChartComponent implements OnInit {
             this.lineChartLabels.push(data.state);
             this.lineChartData[0].data.push(data.confirmed);
             this.lineChartData[1].data.push(data.recovered);
+            this.lineChartData[2].data.push(data.deaths);
             this.countstate += 1;
           } else {
             break;

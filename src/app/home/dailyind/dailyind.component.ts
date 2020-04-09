@@ -12,7 +12,8 @@ export class DailyindComponent implements OnInit {
   casesTimeSeries: any;
   public lineChartData: ChartDataSets[] = [
     { data: [], label: 'Confirmed' },
-    { data: [], label: 'Recovered'}
+    { data: [], label: 'Recovered'},
+    { data: [], label: 'Deaths', type: 'line', order: 2 }
   ];
   public lineChartLabels: Label[] = [];
   public lineChartOptions: ChartOptions = {
@@ -60,6 +61,7 @@ export class DailyindComponent implements OnInit {
       this.lineChartLabels.push(daily.cases_time_series[i].date);
       this.lineChartData[0].data.push(daily.cases_time_series[i].dailyconfirmed);
       this.lineChartData[1].data.push(daily.cases_time_series[i].dailyrecovered);
+      this.lineChartData[2].data.push(daily.cases_time_series[i].dailydeceased);
     }
 
 }

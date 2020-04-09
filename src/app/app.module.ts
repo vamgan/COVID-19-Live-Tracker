@@ -27,6 +27,7 @@ import { NewsComponent } from './news/news.component';
 import { FunzoneComponent } from './funzone/funzone.component';
 import { RiddleComponent } from './funzone/riddle/riddle.component';
 import { MoviesComponent } from './funzone/movies/movies.component';
+import { TestedchartComponent } from './home/testedchart/testedchart.component';
 /* import { IonicModule } from '@ionic/angular'; */
 
 
@@ -51,7 +52,8 @@ import { MoviesComponent } from './funzone/movies/movies.component';
     NewsComponent,
     FunzoneComponent,
     RiddleComponent,
-    MoviesComponent
+    MoviesComponent,
+    TestedchartComponent
   ],
   imports: [
     BrowserModule,
