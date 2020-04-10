@@ -141,6 +141,7 @@
       </div>
     </div>
   </div>
+  <input class="form-control" placeholder="Find States" type="text" (keyup) = "updateFilter($event)"/>
   <div class="row" style="padding: 10px; " *ngIf="statewise">
     <h6>{{affectedStateCount}} STATES/UTS AFFECTED (Click on states to see detailed city stats)</h6>
     <div class="table-responsive">
@@ -179,7 +180,7 @@
         </tbody>
 
         <tbody>
-          <tr *ngFor="let data of statewise">
+          <tr *ngFor="let data of stateSort">
             <td *ngIf="data.state === 'Total'"><b>{{data.state}}</b></td>
             <td *ngIf="data.state === 'Total'"><b>{{data.confirmed}}<span class="info" style="color: red;">
                   +{{data.deltaconfirmed}} today</span></b></td>
