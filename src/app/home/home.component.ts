@@ -71,6 +71,7 @@ export class HomeComponent implements OnInit {
         this.districtWise = data;
       });
     keys = Object.keys(this.districtWise[state].districtData);
+    keys.sort((a, b) => (this.districtWise[state].districtData[b].confirmed - this.districtWise[state].districtData[a].confirmed));
     return keys;
   }
 
