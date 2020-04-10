@@ -30,6 +30,8 @@
     "chartjs-chart-geo": "^1.1.4",
     "chartjs-plugin-datalabels": "^0.7.0",
     "date-fns": "^2.11.1",
+    "highcharts": "^8.0.4",
+    "highcharts-angular": "^2.4.0",
     "jquery": "^3.4.1",
     "ng2-charts": "^2.3.0",
     "ngx-slick-carousel": "^0.5.0",

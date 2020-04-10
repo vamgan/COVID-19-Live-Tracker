@@ -1,3 +1,6 @@
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.js"></script>
 <div class="container">
   <div class="row" style="margin-bottom: 0px;">
     <div class="col-sm-12 col-lg-8" style="margin-top: 30px;">
@@ -9,7 +12,7 @@
       </div>
     </div>
   </div>
-
+  <app-news-ticker></app-news-ticker>
 
   <div class="row" style="margin-top: 5px;">
 
@@ -113,9 +116,9 @@
     <div class="col-md-12 col-lg-6 col-sm-12">
       <div class="card">
         <div class="card-header">
-          <h5 class="card-title">Daily Analysis of India</h5>
+          <div class="card-title">Daily Analysis of India</div>
 
-          <h12 class="card-subtitle">Click on labels to interact with the charts</h12>
+          <div class="card-subtitle text-gray mt-1">Click on labels to interact with the charts</div>
         </div>
         <div class="card-body">
           <app-dailyind></app-dailyind>
@@ -127,8 +130,8 @@
     <div class="col-md-12 col-lg-6 col-sm-12">
       <div class="card">
         <div class="card-header">
-          <div class="card-title h6">Top 10 states Confirmed vs Recovered</div>
-          <h12 class="card-subtitle">Click on labels to interact with the charts</h12>
+          <div class="card-title">Top 10 states</div>
+          <div class="card-subtitle text-gray mt-1">Click on labels to interact with the charts</div>
         </div>
 
         <div class="card-body">
@@ -141,7 +144,7 @@
   <div class="row" style="padding: 10px; " *ngIf="statewise">
     <h6>{{affectedStateCount}} STATES/UTS AFFECTED (Click on states to see detailed city stats)</h6>
     <div class="table-responsive">
-
+      
       <table class="table table-hover table-fixed text-nowrap ">
         <thead>
           <tr>
@@ -249,7 +252,6 @@
       </div>
     </div>
   </div>
-
 
 </div>
 <div class="container my-4">

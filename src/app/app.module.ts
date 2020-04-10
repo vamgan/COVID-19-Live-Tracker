@@ -20,7 +20,7 @@ import {WorldwideComponent} from './worldwide/worldwide.component';
 import { WorldwidebarComponent } from './worldwidebar/worldwidebar.component';
 import { DailyindComponent } from './home/dailyind/dailyind.component';
 import { NewsTickerComponent } from './home/news-ticker/news-ticker.component';
-import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbPaginationModule, NgbToastModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgbTabsetModule} from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NewsComponent } from './news/news.component';
@@ -28,7 +28,7 @@ import { FunzoneComponent } from './funzone/funzone.component';
 import { RiddleComponent } from './funzone/riddle/riddle.component';
 import { MoviesComponent } from './funzone/movies/movies.component';
 import { TestedchartComponent } from './home/testedchart/testedchart.component';
-/* import { IonicModule } from '@ionic/angular'; */
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 @NgModule({
@@ -53,7 +53,7 @@ import { TestedchartComponent } from './home/testedchart/testedchart.component';
     FunzoneComponent,
     RiddleComponent,
     MoviesComponent,
-    TestedchartComponent
+    TestedchartComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +64,10 @@ import { TestedchartComponent } from './home/testedchart/testedchart.component';
     RouterModule,
     NgbPaginationModule,
     SlickCarouselModule,
-    NgbTabsetModule
+    NgbTabsetModule,
+    HighchartsChartModule,
+    NgbToastModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,7 @@
 /* Self added styles-Vam */
 .card-header{
   background-color: white;
+  align-items: center;
 }
 status-confirmed {
   color: #6495ed

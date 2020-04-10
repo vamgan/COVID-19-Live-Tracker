@@ -3,7 +3,13 @@ import {HomeService} from './home.service';
 import {Response} from '../response';
 import {Rawdata} from '../rawdata';
 import { formatDistance } from 'date-fns';
+import * as Highcharts from 'highcharts/highmaps';
+import { Injectable } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -24,15 +30,27 @@ export class HomeComponent implements OnInit {
   stateSort: any;
   today: Date = new Date();
 
-  constructor(private homeService: HomeService) { }
-
+  constructor(private homeService: HomeService, private meta: Meta) {
+    meta.addTags([
+      {name: 'description', content: 'Data Visualisation and Live Tracker for the COVID-19 virus outbreak in India & Worldwide'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {name: 'robots', content: 'INDEX, FOLLOW'},
+      {name: 'author', content: 'Vam & Astha'},
+      // tslint:disable-next-line:max-line-length
+      {name: 'keywords', content: 'COVID-19, India, Live updates, Corona Virus Live updates, Dashboard, Coronavirus India Updates, coronavirus india latest news, coronavirus india, Coronavirus In India, Coronavirus cases in India, coronavirus, COVID-19 India, Corona'},
+      {name: 'date', content: '2018-06-02', scheme: 'YYYY-MM-DD'},
+      {httpEquiv: 'Content-Type', content: 'text/html'},
+      {property: 'og:title', content: 'COVID-19 outbreak in India'},
+      {property: 'og:type', content: 'website'},
+      {charset: 'UTF-8'}
+   ], true);
+  }
   ngOnInit() {
       this.homeService.GetIndiaData()
       .subscribe((response: Response) => {
         this.IndiaData = response;
         this.casesTimeSeries = response.cases_time_series;
         this.statewise = response.statewise;
-        console.log(this.statewise[0].lastupdatedtime);
         this.stateSort = this.statewise;
         this.stateSort.sort((a, b) => (b.confirmed - a.confirmed));
         this.AffectedState(this.statewise);

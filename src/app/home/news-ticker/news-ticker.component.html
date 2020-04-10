@@ -1,20 +1,14 @@
-
- <ngx-slick-carousel class="carousel" 
- #slickModal="slick-carousel" 
- [config]="slideConfig" 
- (init)="slickInit($event)"
- (breakpoint)="breakpoint($event)"
- (afterChange)="afterChange($event)"
- (beforeChange)="beforeChange($event)" *ngIf = "News">
-<div ngxSlickItem class="slide" *ngFor="let data of News.data" routerLink="/news">
-  <div class="blog-card" style="height: 120px; margin-right: 10px;">
-    <div class="meta">
-      <div class="photo" style="background-image: url({{data.imageUrl}})"></div>
-    </div>
-    <div class="description">
-      <p style="margin:0px; font-size: 12px;">{{data.title}}</p> 
+<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+  (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)"
+  *ngIf="News">
+  <div ngxSlickItem class="slide" *ngFor="let data of updatesobj">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><b>{{lastUpdate(data.timestamp)}} ago</b></div>
+      </div>
+      <div class="card-body">
+        <div class="card-text">{{data.update}}</div>
+      </div>
     </div>
   </div>
-</div>
-
 </ngx-slick-carousel>
