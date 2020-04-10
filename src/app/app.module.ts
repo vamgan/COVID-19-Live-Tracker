@@ -29,6 +29,7 @@ import { RiddleComponent } from './funzone/riddle/riddle.component';
 import { MoviesComponent } from './funzone/movies/movies.component';
 import { TestedchartComponent } from './home/testedchart/testedchart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { MapComponent } from './home/map/map.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
     RiddleComponent,
     MoviesComponent,
     TestedchartComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
