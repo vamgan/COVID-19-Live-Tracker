@@ -28,6 +28,7 @@ import { FunzoneComponent } from './funzone/funzone.component';
 import { RiddleComponent } from './funzone/riddle/riddle.component';
 import { MoviesComponent } from './funzone/movies/movies.component';
 import { TestedchartComponent } from './home/testedchart/testedchart.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 /* import { IonicModule } from '@ionic/angular'; */
 
 
@@ -64,7 +65,9 @@ import { TestedchartComponent } from './home/testedchart/testedchart.component';
     RouterModule,
     NgbPaginationModule,
     SlickCarouselModule,
-    NgbTabsetModule
+    // tslint:disable-next-line: deprecation
+    NgbTabsetModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent],

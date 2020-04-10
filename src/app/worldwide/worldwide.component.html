@@ -5,7 +5,7 @@
     </div>
     <div class="col-sm-12 col-lg-4 " style="margin-top: 10px; padding-bottom: 0px;">
       <div class="alert alert-success"><strong>Last Updated </strong>{{lastUpdate(WorldData.updated)}} ago
-      </div> 
+      </div>
       </div>
     </div>
 
@@ -85,7 +85,7 @@
         </div>
       </div>
     </div>
-
+    <input class="form-control" placeholder="Find Countries" type="text" (keyup) = "updateFilter($event)"/>
     <div class="row" style="margin-top:20px;" *ngIf="CountryDataC">
       <h6>COUNTRIES/REGIONS AFFECTED</h6>
       <div class="table-responsive">

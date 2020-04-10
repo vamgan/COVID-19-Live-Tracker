@@ -15,6 +15,8 @@ export class WorldwideComponent implements OnInit {
   CountryDataC: any;
   page = 1;
   pageSize = 15;
+  temp: any;
+  value: any;
 
   constructor(private http: HttpClient, private worldService: WorldwideService) { }
 
@@ -24,12 +26,32 @@ export class WorldwideComponent implements OnInit {
       this.http.get('https://corona.lmao.ninja/countries')
       .subscribe((CountryData) => this.CountryData = CountryData );
       this.worldService.GetConfirmedData()
-      .subscribe(data => this.CountryDataC = data );
+      .subscribe(data => {
+        this.CountryDataC = data;
+        this.temp = data;
+      });
 
   }
   public lastUpdate(data) {
     const convert =  fromUnixTime(data / 1000);
     return formatDistance(convert, new Date());
+  }
+
+  public updateFilter(val: any) {
+    const value = val.srcElement.value.toString().toLowerCase().trim();
+    const key = 'country';
+    this.CountryDataC = this.temp.filter(item => {
+        if (
+          (item[key] &&
+            item[key]
+              .toString()
+              .toLowerCase()
+              .indexOf(value) !== -1) ||
+          !value
+        ) {
+          return true;
+        }
+    });
   }
 
 }
