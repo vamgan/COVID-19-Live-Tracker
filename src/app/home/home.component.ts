@@ -31,7 +31,8 @@ export class HomeComponent implements OnInit {
   today: Date = new Date();
   rows: any;
   temp: any;
-
+  page = 1;
+  pageSize = 10;
   constructor(private homeService: HomeService, private meta: Meta) {
     meta.addTags([
       {name: 'description', content: 'Data Visualisation and Live Tracker for the COVID-19 virus outbreak in India & Worldwide'},

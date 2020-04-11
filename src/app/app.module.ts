@@ -30,9 +30,6 @@ import { MoviesComponent } from './funzone/movies/movies.component';
 import { TestedchartComponent } from './home/testedchart/testedchart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MapComponent } from './home/map/map.component';
-import * as more from 'highcharts/highcharts-more.src';
-import * as exporting from 'highcharts/modules/exporting.src';
-import * as highmaps from 'highcharts/modules/map.src';
 
 @NgModule({
   declarations: [

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-testedchart',
@@ -10,9 +11,10 @@ import { Color, Label } from 'ng2-charts';
 export class TestedchartComponent implements OnInit {
 
   public lineChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
+    { data: [], label: 'People tested Today' },
+    { data: [], label: 'People tested  Positive Today' }
   ];
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartLabels: Label[] = [];
   public lineChartOptions: ChartOptions = {
     responsive: true,
   };
@@ -26,9 +28,25 @@ export class TestedchartComponent implements OnInit {
   public lineChartType: ChartType = 'line';
   public lineChartPlugins = [];
 
-  constructor() { }
-
+  constructor(private http: HttpClient) { }
+  tested: any;
   ngOnInit() {
+    this.http.get('https://api.covid19india.org/data.json')
+      .subscribe((tested) => {
+        this.tested = tested;
+        this.TestedData(this.tested);
+      });
+  }
+  public TestedData(data) {
+    for ( const i of data.tested) {
+      if (i.positivecasesfromsamplesreported !== '') {
+        this.lineChartData[0].data.push(i.samplereportedtoday);
+        this.lineChartData[1].data.push(i.positivecasesfromsamplesreported);
+        const day = i.updatetimestamp.slice(0, 5);
+        this.lineChartLabels.push(day);
+      }
+    }
+
   }
 
 }
