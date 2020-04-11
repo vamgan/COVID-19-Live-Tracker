@@ -72,10 +72,22 @@ export class MapComponent implements OnInit {
       this.stateData.push([(data1.state).toLowerCase(), parseInt(data1.confirmed)]);
      }
     }
+
     this.chartOptions.series.push({
       mapData: India,
           data: this.stateData,
+          Animation: true,
           name: 'Confirmed Cases',
+          tooltip: {
+            // tslint:disable-next-line:object-literal-shorthand
+            /* formatter: function() {
+              // tslint:disable-next-line:no-var-keyword
+              var s = this.key + '<br/>';
+              s += 'Deaths' + this.point.statewise.deaths + '<br/>';
+              s += 'Recovered' + this.point.statewise.recovered;
+              return s;
+            } */
+          },
           states: {
               hover: {
                   color: '#a5d7fd'
