@@ -71,7 +71,9 @@
         </div>
       </div>
     </div>
-
+    <div>
+      <app-worldmap></app-worldmap>
+    </div>
     <div class="row" style="margin-top: 5px;">
       <div class="col-sm-12 col-12">
         <div class="card">
@@ -85,7 +87,7 @@
         </div>
       </div>
     </div>
-   
+
     <div class="row" style="margin-top:20px;" *ngIf="CountryDataC">
       <h6>COUNTRIES/REGIONS AFFECTED</h6>
       <input class="form-control" placeholder="Find Countries" type="text" (keyup) = "updateFilter($event)" style="padding: 10px;"/>

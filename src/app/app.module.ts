@@ -30,6 +30,7 @@ import { MoviesComponent } from './funzone/movies/movies.component';
 import { TestedchartComponent } from './home/testedchart/testedchart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MapComponent } from './home/map/map.component';
+import { WorldmapComponent } from './worldwide/worldmap/worldmap.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { MapComponent } from './home/map/map.component';
     MoviesComponent,
     TestedchartComponent,
     MapComponent,
+    WorldmapComponent,
   ],
   imports: [
     BrowserModule,
