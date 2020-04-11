@@ -3,8 +3,9 @@ declare var require: any;
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import MapModule from 'highcharts/modules/map';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {HomeService} from '../home.service';
+import {Response} from '../../response';
 const India = require('@highcharts/map-collection/countries/in/custom/in-all-disputed.geo.json');
 MapModule(Highcharts);
 
@@ -13,7 +14,10 @@ MapModule(Highcharts);
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent  {
+export class MapComponent implements OnInit {
+  statewise: any;
+  stateData = [];
+  value = [];
   title = 'app';
   chart;
   updateFromInput = false;
@@ -38,55 +42,46 @@ export class MapComponent  {
       },
       colorAxis: {
           min: 0,
-          minColor:'#fff4f0',
+          minColor: '#fff4f0',
           maxColor: '#c41a1d'
       },
-      series: [{
-          mapData: India,
-          data: [
-            ['lakshadweep', 0],
-            ['west bengal', 0],
-            ['odisha', 0],
-            ['sikkim',0],
-            ['daman and diu',0],
-            ['puducherry',0],
-            ['dadara and nagar havelli',0],
-            ['bihar', 0],
-            ['chhattisgarh', 0],
-            ['tamil nadu', 0],
-            ['madhya pradesh', 0],
-            ['gujarat', 0],
-            ['goa', 0],
-            ['meghalaya',0],
-            ['nagaland', 0],
-            ['manipur', 0],
-            ['arunanchal pradesh', 0],
-            ['andaman and nicobar',0],
-            ['mizoram', 0],
-            ['tripura', 0],
-            ['jharkhand', 0],
-            ['telangana',0],
-            ['nct of delhi', 0],
-            ['haryana', 0],
-            ['chandigarh', 0],
-            ['himachal pradesh', 0],
-            ['jammu and kashmir', 0],
-            ['kerala', 0],
-            ['karnataka', 0],
-            ['maharashtra', 0],
-            ['assam', 0],
-            ['andhra pradesh', 0],
-            ['punjab', 0],
-            ['rajasthan', 0],
-            ['uttar pradesh', 0],
-            ['uttarakhand', 0]
-        ],
+      series: [],
+  };
+
+  constructor(private homeService: HomeService) {
+    const self = this;
+    this.chartCallback = chart => {
+      self.chart = chart;
+    };
+  }
+
+  ngOnInit() {
+    this.homeService.GetIndiaData()
+      .subscribe((response: Response) => {
+        this.statewise = response.statewise,
+        this.setMapData(this.statewise);
+      });
+  }
+
+
+  public setMapData(statewise) {
+    for (const data1 of statewise) {
+     // tslint:disable-next-line: radix
+     if (data1.state !== 'Total') {
+      // tslint:disable-next-line: radix
+      this.stateData.push([(data1.state).toLowerCase(), parseInt(data1.confirmed)]);
+     }
+    }
+    this.chartOptions.series.push({
+      mapData: India,
+          data: this.stateData,
           name: 'Confirmed Cases',
           states: {
               hover: {
                   color: '#a5d7fd'
               }
           }
-      }],
-  };
+    });
+    this.updateFromInput = true;
+  }
 }
