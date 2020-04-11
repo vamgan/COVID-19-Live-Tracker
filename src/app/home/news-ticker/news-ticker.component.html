@@ -2,7 +2,7 @@
   (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)"
   *ngIf="News">
   <div ngxSlickItem class="slide" *ngFor="let data of updatesobj" style="width: 300px; height: 90px">
-    <div class="alert alert-info">{{data.update}} {{lastUpdate(data.timestamp)}} ago</div>
+    <div class="alert alert-info">{{data.update}} <b>{{lastUpdate(data.timestamp)}} ago</b></div>
   </div>
 
 </ngx-slick-carousel>

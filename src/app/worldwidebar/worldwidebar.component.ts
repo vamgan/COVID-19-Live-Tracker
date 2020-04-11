@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
-import pluginDataLabels from 'chartjs-plugin-datalabels';
 import { WorldwideService } from '../worldwide/worldwide.service';
 
 @Component({
