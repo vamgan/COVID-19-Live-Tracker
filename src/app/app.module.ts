@@ -30,10 +30,8 @@ import { MoviesComponent } from './funzone/movies/movies.component';
 import { TestedchartComponent } from './home/testedchart/testedchart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MapComponent } from './home/map/map.component';
-import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
-import * as more from 'highcharts/highcharts-more.src';
-import * as exporting from 'highcharts/modules/exporting.src';
-import * as highmaps from 'highcharts/modules/map.src';
+
+
 
 @NgModule({
   declarations: [
@@ -74,9 +72,7 @@ import * as highmaps from 'highcharts/modules/map.src';
     NgbToastModule
 
   ],
-  providers: [{ provide: HIGHCHARTS_MODULES, useFactory: () => [more, exporting] },
-  { provide: HIGHCHARTS_MODULES, useFactory: () => [highmaps] }
-],
+  providers: [],
   bootstrap: [AppComponent],
   schemas: [
     NO_ERRORS_SCHEMA
