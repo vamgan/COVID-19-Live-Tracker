@@ -69,24 +69,24 @@ export class MapComponent implements OnInit {
      // tslint:disable-next-line: radix
      if (data1.state !== 'Total') {
       // tslint:disable-next-line: radix
-      this.stateData.push([(data1.state).toLowerCase(), parseInt(data1.confirmed)]);
+      this.stateData.push([(data1.state).toLowerCase(), parseInt(data1.confirmed), parseInt(data1.deaths)]);
      }
     }
 
     this.chartOptions.series.push({
       mapData: India,
           data: this.stateData,
+          keys: ['hc-key', 'value', 'deaths'],
+          joinBy: ['hc-key'],
           Animation: true,
           name: 'Confirmed Cases',
           tooltip: {
             // tslint:disable-next-line:object-literal-shorthand
-            /* formatter: function() {
-              // tslint:disable-next-line:no-var-keyword
-              var s = this.key + '<br/>';
-              s += 'Deaths' + this.point.statewise.deaths + '<br/>';
-              s += 'Recovered' + this.point.statewise.recovered;
+             formatter: function() {
+              let s = this.key + '<br/>';
+              s += 'Deaths' + this.point.value;
               return s;
-            } */
+            }
           },
           states: {
               hover: {
