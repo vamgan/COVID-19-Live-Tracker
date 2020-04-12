@@ -170,14 +170,14 @@
         </thead>
         <tbody *ngFor="let data of stateSort | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
           <tr (click)="data.expanded = !data.expanded">
-            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">
+            <td *ngIf="data.state !== 'Total'">
               {{ data.expanded ? '&ndash;' : '+ '}}{{data.state}}</td>
-            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.confirmed}}<span class="info"
+            <td *ngIf="data.state !== 'Total'">{{data.confirmed}}<span class="info"
                 style="color: red;"> +{{data.deltaconfirmed}} today</span></td>
             <!-- <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td> -->
-            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.recovered}}<span class="info"
+            <td *ngIf="data.state !== 'Total'">{{data.recovered}}<span class="info"
                 style="color: green;"> +{{data.deltarecovered}} today</span></td>
-            <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.deaths}}<span class="info"
+            <td *ngIf="data.state !== 'Total'">{{data.deaths}}<span class="info"
                 style="color: red;"> +{{data.deltadeaths}} today</span></td>
           </tr>
           <div *ngIf="data.expanded">
