@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gocovid19-1dbcb": {
+      "hosting": {
+        "COVID19": [
+          "gocovid19-1dbcb"
+        ]
+      }
+    }
+  }
+}

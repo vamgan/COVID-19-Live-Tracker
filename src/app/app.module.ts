@@ -31,6 +31,14 @@ import { TestedchartComponent } from './home/testedchart/testedchart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MapComponent } from './home/map/map.component';
 import { WorldmapComponent } from './worldwide/worldmap/worldmap.component';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { AsyncPipe } from '@angular/common';
+import { environment } from '../environments/environment';
+import { MumbaihComponent } from './mumbaih/mumbaih.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -57,6 +65,7 @@ import { WorldmapComponent } from './worldwide/worldmap/worldmap.component';
     TestedchartComponent,
     MapComponent,
     WorldmapComponent,
+    MumbaihComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +79,14 @@ import { WorldmapComponent } from './worldwide/worldmap/worldmap.component';
     // tslint:disable-next-line: deprecation
     NgbTabsetModule,
     HighchartsChartModule,
-    NgbToastModule
+    NgbToastModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAc0ZpV5nu3YNdB7plKGbQT-bTY_AhGHQg'
+    })
 
   ],
   providers: [],
