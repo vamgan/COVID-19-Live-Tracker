@@ -31,6 +31,7 @@ import { TestedchartComponent } from './home/testedchart/testedchart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MapComponent } from './home/map/map.component';
 import { WorldmapComponent } from './worldwide/worldmap/worldmap.component';
+import { EssentialsComponent } from './essentials/essentials.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { WorldmapComponent } from './worldwide/worldmap/worldmap.component';
     TestedchartComponent,
     MapComponent,
     WorldmapComponent,
+    EssentialsComponent,
   ],
   imports: [
     BrowserModule,
