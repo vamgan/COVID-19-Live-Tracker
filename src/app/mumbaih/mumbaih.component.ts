@@ -1,52 +1,14 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 const mumbai = require('../../assets/Mumbai.json');
 
-/* function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-  const p = 0.017453292519943295; // Math.PI / 180
-  const c = Math.cos;
-  const a = 0.5 - c((lat2 - lat1) * p) / 2 +
-    c(lat1 * p) * c(lat2 * p) *
-    (1 - c((lon2 - lon1) * p)) / 2;
-
-  return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
-}
-
-function deg2rad(deg) {
-  return deg * (Math.PI / 180);
-}
-function displayInfo(position) {
-  // tslint:disable-next-line:variable-name
-  const arrayallobj = [];
-  const referencelat = parseFloat(position.coords.latitude);
-  const referencelong = parseFloat(position.coords.longitude);
-  let i = 0;
-  for (i = 0; i < mumbai.length; i++) {
-    const pointvalue = mumbai[i].fields.location.replace('(', '').replace(')', '').trim().split(',');
-    const pointlat = parseFloat(pointvalue[0]);
-    const pointlong = parseFloat(pointvalue[1]);
-
-
-
-    let dist = getDistanceFromLatLonInKm(referencelat, referencelong, pointlat, pointlong);
-    let dist = parseFloat(dist).toFixed(2);
-
-
-    arrayallobj.push([mumbai[i].fields.address, dist]);
-
-
-
-  }
-  arrayallobj.sort(Comparator);
-
-}
- */
 @Component({
   selector: 'app-mumbaih',
   templateUrl: './mumbaih.component.html',
   styleUrls: ['./mumbaih.component.css']
 })
 export class MumbaihComponent implements AfterViewInit {
- pinlatlong = [
+  tableobj = [];
+  pinlatlong = [
     [400001, 18.6291, 72.8919],
     [400002, 17.0509, 73.291],
     [400003, 18.95, 72.8333],
@@ -202,11 +164,44 @@ export class MumbaihComponent implements AfterViewInit {
           this.long = +position.coords.longitude;
           this.lati = +position.coords.latitude;
           this.map.setCenter(new google.maps.LatLng(this.lati, this.long));
+          this.getTable(this.lati, this.long);
         }
-        });
-      } else {
+      });
+    } else {
       alert('Location not supported on your browser');
     }
+  }
+  public getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+    const p = 0.017453292519943295; // Math.PI / 180
+    const c = Math.cos;
+    const a = 0.5 - c((lat2 - lat1) * p) / 2 +
+      c(lat1 * p) * c(lat2 * p) *
+      (1 - c((lon2 - lon1) * p)) / 2;
+    return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+  }
+  public getTable(lati, long) {
+    this.tableobj = [];
+    for (const data of mumbai) {
+      const pointvalue = data.fields.location.replace('(', '').replace(')', '').trim().split(',');
+      const pointlat = parseFloat(pointvalue[0]);
+      const pointlong = parseFloat(pointvalue[1]);
+      const dist = this.getDistanceFromLatLonInKm(lati, long, pointlat, pointlong);
+      this.tableobj.push({
+        address: data.fields.address,
+        distance: dist
+      });
+    }
+    this.tableobj.sort((a, b) => ( a.distance - b.distance));
+  }
+
+  public onSelectPincode(data) {
+    const value = data.srcElement.value;
+    for (const data1 of this.pinlatlong) {
+      if (data1[0] === Number(value) ) {
+        this.getTable(data1[1], data1[2]);
+      }
+    }
+
   }
 
 }
