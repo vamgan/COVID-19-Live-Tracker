@@ -1,6 +1,45 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 const mumbai = require('../../assets/Mumbai.json');
 
+/* function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+  const p = 0.017453292519943295; // Math.PI / 180
+  const c = Math.cos;
+  const a = 0.5 - c((lat2 - lat1) * p) / 2 +
+    c(lat1 * p) * c(lat2 * p) *
+    (1 - c((lon2 - lon1) * p)) / 2;
+
+  return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI / 180);
+}
+function displayInfo(position) {
+  // tslint:disable-next-line:variable-name
+  const arrayallobj = [];
+  const referencelat = parseFloat(position.coords.latitude);
+  const referencelong = parseFloat(position.coords.longitude);
+  let i = 0;
+  for (i = 0; i < mumbai.length; i++) {
+    const pointvalue = mumbai[i].fields.location.replace('(', '').replace(')', '').trim().split(',');
+    const pointlat = parseFloat(pointvalue[0]);
+    const pointlong = parseFloat(pointvalue[1]);
+
+
+
+    let dist = getDistanceFromLatLonInKm(referencelat, referencelong, pointlat, pointlong);
+    let dist = parseFloat(dist).toFixed(2);
+
+
+    arrayallobj.push([mumbai[i].fields.address, dist]);
+
+
+
+  }
+  arrayallobj.sort(Comparator);
+
+}
+ */
 @Component({
   selector: 'app-mumbaih',
   templateUrl: './mumbaih.component.html',
@@ -107,20 +146,12 @@ export class MumbaihComponent implements AfterViewInit {
   markers = [];
   coordinates = new google.maps.LatLng(this.lat, this.lng);
   constructor() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position: Position) => {
-        if (position) {
-          this.long = +position.coords.longitude;
-          this.lati = +position.coords.latitude;
-          this.map.setCenter(new google.maps.LatLng(this.lati, this.long));
-        } else {
-          alert('Location not supported on your browser');
-        }
-      });
-    }
+    this.getLocation();
+
   }
 
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
+  @ViewChild('myModal', { static: false }) model: ElementRef;
 
   mapOptions: google.maps.MapOptions = {
     center: this.coordinates,
@@ -133,19 +164,6 @@ export class MumbaihComponent implements AfterViewInit {
   });
 
   ngAfterViewInit() {
-    const self = this;
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position: Position) => {
-        if (position) {
-          self.long = +position.coords.longitude;
-          self.lati = +position.coords.latitude;
-         // self.lat = this.lati;
-         // self.lng = this.long;
-         // this.getUserLocation(this.lat, this.lng);
-        }
-      });
-    }
-    console.log()
     this.mapInitializer();
     this.populateMarker(mumbai);
   }
@@ -165,20 +183,30 @@ export class MumbaihComponent implements AfterViewInit {
           lat: Number(test[0]),
           lng: Number(test[1])
         },
+        title: d.fields.address,
         map: this.map
       });
       const infoWindow = new google.maps.InfoWindow({
-        content: marker.getTitle()
+        content: d.fields.htmlalladdress
       });
       this.marker.addListener('click', () => {
         infoWindow.open(marker.getMap(), marker);
       });
       this.marker.setMap(this.map);
-      /*this.markers.push({
-        position: new google.maps.LatLng(d.location),
-        map: this.map,
-        title: d.address
-      });*/
     }
   }
+  public getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position: Position) => {
+        if (position) {
+          this.long = +position.coords.longitude;
+          this.lati = +position.coords.latitude;
+          this.map.setCenter(new google.maps.LatLng(this.lati, this.long));
+        }
+        });
+      } else {
+      alert('Location not supported on your browser');
+    }
+  }
+
 }
