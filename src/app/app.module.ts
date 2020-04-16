@@ -32,6 +32,9 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { MapComponent } from './home/map/map.component';
 import { WorldmapComponent } from './worldwide/worldmap/worldmap.component';
 import { EssentialsComponent } from './essentials/essentials.component';
+import { AsyncPipe } from '@angular/common';
+import { environment } from '../environments/environment';
+import { MumbaihComponent } from './mumbaih/mumbaih.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,7 @@ import { EssentialsComponent } from './essentials/essentials.component';
     MapComponent,
     WorldmapComponent,
     EssentialsComponent,
+    MumbaihComponent,
   ],
   imports: [
     BrowserModule,
