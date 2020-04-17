@@ -76,6 +76,8 @@ import { MumbaihComponent } from './mumbaih/mumbaih.component';
     // tslint:disable-next-line: deprecation
     NgbTabsetModule,
     HighchartsChartModule,
+    NgbToastModule,
+   /*  AngularFireModule.initializeApp(environment.firebase), */
     NgbToastModule
 
   ],

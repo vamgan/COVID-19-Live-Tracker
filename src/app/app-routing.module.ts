@@ -7,6 +7,7 @@ import { SourcesComponent } from './sources/sources.component';
 import {WorldwideComponent} from './worldwide/worldwide.component';
 import { NewsComponent } from './news/news.component';
 import { FunzoneComponent } from './funzone/funzone.component';
+import { MumbaihComponent } from './mumbaih/mumbaih.component';
 import { EssentialsComponent } from './essentials/essentials.component';
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'worldwide', component: WorldwideComponent},
   { path: 'news', component: NewsComponent},
   { path: 'funzone', component: FunzoneComponent},
+  { path: 'mumbaih', component: MumbaihComponent},
   { path: 'essentials', component: EssentialsComponent},
   { path: '**', redirectTo: '/home'}
 

@@ -8,6 +8,8 @@ const mumbai = require('../../assets/Mumbai.json');
 })
 export class MumbaihComponent implements AfterViewInit {
   tableobj = [];
+  page = 1;
+  pageSize = 10;
   pinlatlong = [
     [400001, 18.6291, 72.8919],
     [400002, 17.0509, 73.291],
