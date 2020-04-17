@@ -31,14 +31,10 @@ import { TestedchartComponent } from './home/testedchart/testedchart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MapComponent } from './home/map/map.component';
 import { WorldmapComponent } from './worldwide/worldmap/worldmap.component';
-import { AngularFireMessagingModule } from '@angular/fire/messaging';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireModule } from '@angular/fire';
+import { EssentialsComponent } from './essentials/essentials.component';
 import { AsyncPipe } from '@angular/common';
 import { environment } from '../environments/environment';
 import { MumbaihComponent } from './mumbaih/mumbaih.component';
-import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -65,6 +61,7 @@ import { AgmCoreModule } from '@agm/core';
     TestedchartComponent,
     MapComponent,
     WorldmapComponent,
+    EssentialsComponent,
     MumbaihComponent,
   ],
   imports: [
@@ -80,10 +77,8 @@ import { AgmCoreModule } from '@agm/core';
     NgbTabsetModule,
     HighchartsChartModule,
     NgbToastModule,
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    AngularFireMessagingModule,
    /*  AngularFireModule.initializeApp(environment.firebase), */
+    NgbToastModule
 
   ],
   providers: [],
