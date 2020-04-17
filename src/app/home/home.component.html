@@ -3,10 +3,13 @@
 <script src="https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.js"></script>
 <div class="container">
   <div class="row" style="margin-bottom: 0px;">
-    <div class="col-sm-12 col-lg-8" style="margin-top: 30px;">
+    <div class="col-sm-12 col-lg-4" style="margin-top: 30px;">
       <h5>Coronavirus Outbreak in India Live</h5>
     </div>
-    <div class="col-sm-12 col-lg-4" *ngIf=statewise style="margin-top: 10px; padding-bottom: 0px;">
+    <div class="col-sm-12 col-lg-4" style="margin-top: 30px;">
+      <div class="alert alert-danger" routerLink = "/mumbaih"><b>Click here for Mumbai Hotspots</b></div>
+    </div>
+    <div class="col-sm-12 col-lg-4" *ngIf=statewise style="margin-top: 30px;">
       <div class="alert alert-success">
         <strong>Last updated </strong> {{lastUpdate(statewise[0].lastupdatedtime)}} ago
       </div>
@@ -241,10 +244,10 @@
     <div class="col-sm-12 col-md-12 col-lg-4">
       <div class="card">
         <div class="card-header">
-          <h6 class="card-title">Nationality of people affected in India</h6>
+          <h6 class="card-title">Testing Analysis</h6>
         </div>
         <div class="card-body">
-          <app-nationality-pie></app-nationality-pie>
+          <app-testedchart></app-testedchart>
         </div>
       </div>
     </div>

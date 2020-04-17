@@ -83,10 +83,7 @@ import { AgmCoreModule } from '@agm/core';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireMessagingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAc0ZpV5nu3YNdB7plKGbQT-bTY_AhGHQg'
-    })
+   /*  AngularFireModule.initializeApp(environment.firebase), */
 
   ],
   providers: [],

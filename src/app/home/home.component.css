@@ -45,3 +45,21 @@ td{
   white-space: nowrap; 
   ;
 }
+.button {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  border: 0;
+  text-transform: uppercase;
+  background: rgb(255, 186, 186);
+  color: red;
+  cursor: pointer;
+  font-weight: 900;
+  border-radius: 5px;
+  transition: background 0.2s ease-in-out;
+  margin-bottom: 0.5rem;
+  margin-top: 0.25rem;
+  outline: none;
+  font-size: 0.75rem;
+  text-decoration: none;
+}

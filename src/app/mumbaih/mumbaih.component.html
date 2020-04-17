@@ -8,24 +8,30 @@
         <div #mapContainer id="map"></div>
       </div>
     </div>
-  </div>
-  <div class="container" *ngIf="pinlatlong">
-    <select style="margin: 10px;" class="browser-default custom-select" (change)="onSelectPincode($event)">
-      <option *ngFor="let option of pinlatlong">{{option[0]}}</option>
-    </select>
-    <table class="table table-responsive" id="myTable">
-      <thead>
-        <tr>
-          <th>Address</th>
-          <th>Distance</th>
-        </tr>
-        <tr *ngFor="let item of tableobj">
-          <td>{{item.address}}</td>
-          <td>{{item.distance | number : '1.1-2'}} km</td>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+
+    <div class="col-12">
+      <select style="margin: 10px;" class="browser-default custom-select" (change)="onSelectPincode($event)"
+        *ngIf="pinlatlong">
+        <option *ngFor="let option of pinlatlong">{{option[0]}}</option>
+      </select>
+      <table class="table table-responsive" id="myTable">
+        <thead>
+          <tr>
+            <th>Address</th>
+            <th>Distance</th>
+          </tr>
+          <tr *ngFor="let item of tableobj | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+            <td>{{item.address}}</td>
+            <td>{{item.distance | number : '1.1-2'}} km</td>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <div style="margin: 20px" *ngIf="tableobj">
+        <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="tableobj.length" [maxSize]="5">
+        </ngb-pagination>
+      </div>
+    </div>
   </div>
 </div>
