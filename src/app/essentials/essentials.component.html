@@ -1,24 +1,51 @@
 <div class="row" *ngIf="essentialData">
   <select (change)="OnStateSelect($event)">
-    <option>All States</option>
+    <option value = "">All States</option>
     <option *ngFor = "let option of states">{{option}}</option>
   </select>
   <select (change)= "OnCitySelect($event)">
-    <option>All Cities</option>
+    <option value = "">All Cities</option>
     <option *ngFor ="let option of cities">{{option}}</option>
   </select>
-  <select>
-    <option>All Categories</option>
+  <select (change)= "OnCategorySelect($event)">
+    <option value = "">All Categories</option>
     <option *ngFor ="let option of categories">{{option}}</option>
   </select>
 </div>
-<div class="row">
+<div class="row" *ngIf="stateSelected">
   <table class="table">
     <th>City</th>
     <th>Category</th>
     <th>Organization</th>
     <th>Description</th>
     <th>Phone</th>
+    <tbody *ngIf = "stateSelected && citySelected && categorySelected">
+      <tr *ngFor = "let value of essentialData.resources; let i = index">
+        <td *ngIf="value.category === categorySelected">{{value.city}}</td>
+        <td *ngIf="value.category === categorySelected">{{value.category}}</td>
+        <td *ngIf="value.category === categorySelected">{{value.nameoftheorganisation}}</td>
+        <td *ngIf="value.category === categorySelected">{{value.descriptionandorserviceprovided}}</td>
+        <td *ngIf="value.category === categorySelected">{{value.phonenumber}}</td>
+      </tr>
+    </tbody>
+    <tbody *ngIf = "stateSelected && citySelected && !categorySelected">
+      <tr *ngFor = "let value of essentialData.resources; let i = index">
+        <td *ngIf="value.city === citySelected">{{value.city}}</td>
+        <td *ngIf="value.city === citySelected">{{value.category}}</td>
+        <td *ngIf="value.city === citySelected">{{value.nameoftheorganisation}}</td>
+        <td *ngIf="value.city === citySelected">{{value.descriptionandorserviceprovided}}</td>
+        <td *ngIf="value.city === citySelected">{{value.phonenumber}}</td>
+      </tr>
+    </tbody>
+    <tbody *ngIf = "stateSelected && !citySelected">
+      <tr *ngFor = "let value of essentialData.resources; let i = index">
+        <td *ngIf="value.state === stateSelected">{{value.city}}</td>
+        <td *ngIf="value.state === stateSelected">{{value.category}}</td>
+        <td *ngIf="value.state === stateSelected">{{value.nameoftheorganisation}}</td>
+        <td *ngIf="value.state === stateSelected">{{value.descriptionandorserviceprovided}}</td>
+        <td *ngIf="value.state === stateSelected">{{value.phonenumber}}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
 

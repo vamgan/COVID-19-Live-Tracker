@@ -16,6 +16,7 @@ export class EssentialsComponent implements OnInit {
   length: any;
   stateSelected: any;
   citySelected: any;
+  categorySelected: any;
 
   constructor(private http: HttpClient) { }
 
@@ -70,5 +71,9 @@ export class EssentialsComponent implements OnInit {
       }
     }
 
+  }
+
+  public OnCategorySelect(data: any) {
+    this.categorySelected = data.srcElement.value;
   }
 }
