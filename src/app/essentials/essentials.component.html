@@ -21,11 +21,11 @@
     <th>Phone</th>
     <tbody *ngIf = "stateSelected && citySelected && categorySelected">
       <tr *ngFor = "let value of essentialData.resources; let i = index">
-        <td *ngIf="value.category === categorySelected">{{value.city}}</td>
-        <td *ngIf="value.category === categorySelected">{{value.category}}</td>
-        <td *ngIf="value.category === categorySelected">{{value.nameoftheorganisation}}</td>
-        <td *ngIf="value.category === categorySelected">{{value.descriptionandorserviceprovided}}</td>
-        <td *ngIf="value.category === categorySelected">{{value.phonenumber}}</td>
+        <td *ngIf="value.category === categorySelected && value.city === citySelected">{{value.city}}</td>
+        <td *ngIf="value.category === categorySelected && value.city === citySelected">{{value.category}}</td>
+        <td *ngIf="value.category === categorySelected && value.city === citySelected">{{value.nameoftheorganisation}}</td>
+        <td *ngIf="value.category === categorySelected && value.city === citySelected">{{value.descriptionandorserviceprovided}}</td>
+        <td *ngIf="value.category === categorySelected && value.city === citySelected">{{value.phonenumber}}</td>
       </tr>
     </tbody>
     <tbody *ngIf = "stateSelected && citySelected && !categorySelected">
