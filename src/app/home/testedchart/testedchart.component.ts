@@ -11,8 +11,8 @@ import { HttpClient } from '@angular/common/http';
 export class TestedchartComponent implements OnInit {
 
   public lineChartData: ChartDataSets[] = [
-    { data: [], label: 'People tested Today' },
-    { data: [], label: 'People tested  Positive Today' }
+    { data: [], label: 'People tested  Positive Today' },
+    { data: [], label: 'People tested Today' }
   ];
   public lineChartLabels: Label[] = [];
   public lineChartOptions: ChartOptions = {
@@ -40,8 +40,8 @@ export class TestedchartComponent implements OnInit {
   public TestedData(data) {
     for ( const i of data.tested) {
       if (i.positivecasesfromsamplesreported !== '') {
-        this.lineChartData[0].data.push(i.samplereportedtoday);
-        this.lineChartData[1].data.push(i.positivecasesfromsamplesreported);
+        this.lineChartData[1].data.push(i.samplereportedtoday);
+        this.lineChartData[0].data.push(i.positivecasesfromsamplesreported);
         const day = i.updatetimestamp.slice(0, 5);
         this.lineChartLabels.push(day);
       }
