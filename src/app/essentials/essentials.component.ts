@@ -44,6 +44,8 @@ export class EssentialsComponent implements OnInit {
     this.cities = [];
     this.categories = [];
     this.stateSelected = data.srcElement.value;
+    this.citySelected = '';
+    this.categorySelected = '';
     let i;
     let value;
     for ( i = 0; i < this.length; i++ ) {
@@ -62,6 +64,7 @@ export class EssentialsComponent implements OnInit {
   public OnCitySelect(data: any) {
     this.categories = [];
     this.citySelected = data.srcElement.value;
+    this.categorySelected = '';
     let i;
     let value;
     for ( i = 0; i < this.length; i++) {
