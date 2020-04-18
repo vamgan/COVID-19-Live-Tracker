@@ -35,6 +35,10 @@
     "firebase": "^7.14.0",
     "highcharts": "^8.0.4",
     "highcharts-angular": "^2.4.0",
+    "https": "^1.0.0",
+    "ip-geolocation-api-javascript-sdk": "^1.0.7",
+    "ip-geolocation-api-sdk-typescript": "^1.0.5",
+    "ipapi.co": "^0.3.0",
     "jquery": "^3.4.1",
     "ng2-charts": "^2.3.0",
     "ngx-slick-carousel": "^0.5.0",
@@ -44,6 +48,7 @@
     "tslib": "^1.10.0",
     "ui-bootstrap4": "^3.0.6",
     "uikit": "^3.3.7",
+    "xmlhttprequest": "^1.8.0",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {

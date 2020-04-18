@@ -108,10 +108,11 @@ export class MumbaihComponent implements AfterViewInit {
   lati: number;
   map: google.maps.Map;
   markers = [];
+  region: any;
+
   coordinates = new google.maps.LatLng(this.lat, this.lng);
   constructor() {
     this.getLocation();
-
   }
 
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;

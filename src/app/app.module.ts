@@ -35,6 +35,7 @@ import { EssentialsComponent } from './essentials/essentials.component';
 import { AsyncPipe } from '@angular/common';
 import { environment } from '../environments/environment';
 import { MumbaihComponent } from './mumbaih/mumbaih.component';
+import { StatestatsComponent } from './statestats/statestats.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { MumbaihComponent } from './mumbaih/mumbaih.component';
     WorldmapComponent,
     EssentialsComponent,
     MumbaihComponent,
+    StatestatsComponent,
   ],
   imports: [
     BrowserModule,

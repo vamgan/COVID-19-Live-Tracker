@@ -3,9 +3,9 @@ import {HomeService} from './home.service';
 import {Response} from '../response';
 import {Rawdata} from '../rawdata';
 import { formatDistance } from 'date-fns';
-import * as Highcharts from 'highcharts/highmaps';
 import { Injectable } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
   temp: any;
   page = 1;
   pageSize = 10;
+
   constructor(private homeService: HomeService, private meta: Meta) {
     meta.addTags([
       {name: 'description', content: 'Data Visualisation and Live Tracker for the COVID-19 virus outbreak in India & Worldwide'},
@@ -66,6 +67,8 @@ export class HomeComponent implements OnInit {
         this.rawData = data.raw_data;
         this.CountHospitalized(this.rawData);
       });
+
+
     }
 
   public AffectedState(stateWise: any) {
@@ -102,6 +105,8 @@ export class HomeComponent implements OnInit {
   const time = date.slice(11);
   return formatDistance(new Date(`${year}-${month}-${day}T${time}+05:30`), this.today);
   }
+
+
 
   public updateFilter(val: any) {
     const value = val.srcElement.value.toString().toLowerCase().trim();

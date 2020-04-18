@@ -53,7 +53,7 @@ export class WorldmapComponent implements OnInit {
 
   ngOnInit() {
     this.http
-      .get('https://corona.lmao.ninja/countries')
+      .get('https://corona.lmao.ninja/v2/countries')
       .subscribe((CountryData) => {
         (this.CountryData = CountryData), this.setMapData(this.CountryData);
       });

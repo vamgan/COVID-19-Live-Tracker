@@ -24,4 +24,7 @@ export class HomeService {
     return this.http.get('https://api.covid19india.org/state_district_wise.json')
     .pipe(map(response => response));
   }
+  public getIPAddress() {
+    return this.http.get('http://api.ipify.org/?format=json');
+  }
 }
