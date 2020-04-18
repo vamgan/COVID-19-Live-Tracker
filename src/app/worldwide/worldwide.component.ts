@@ -21,9 +21,9 @@ export class WorldwideComponent implements OnInit {
   constructor(private http: HttpClient, private worldService: WorldwideService) { }
 
   ngOnInit() {
-      this.http.get('https://corona.lmao.ninja/all')
+      this.http.get('https://corona.lmao.ninja/v2/all')
       .subscribe((WorldData) => this.WorldData = WorldData );
-      this.http.get('https://corona.lmao.ninja/countries')
+      this.http.get('https://corona.lmao.ninja/v2/countries')
       .subscribe((CountryData) => this.CountryData = CountryData );
       this.worldService.GetConfirmedData()
       .subscribe(data => {

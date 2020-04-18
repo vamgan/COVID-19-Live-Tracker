@@ -8,12 +8,18 @@
         <div #mapContainer id="map"></div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-6 col-sm-12">
+        <select style="margin: 10px;" class="browser-default custom-select" (change)="onSelectPincode($event)"
+          *ngIf="pinlatlong">
+          <option *ngFor="let option of pinlatlong">{{option[0]}}</option>
+        </select>
+      </div>
+      <div class="col-6 col-sm-12">
+        <button style="margin: 10px;" type="button" class="btn-sm btn-light" onclick="getLocation($event)">Allow
+          Location</button>
+      </div>
 
-    <div class="col-12">
-      <select style="margin: 10px;" class="browser-default custom-select" (change)="onSelectPincode($event)"
-        *ngIf="pinlatlong">
-        <option *ngFor="let option of pinlatlong">{{option[0]}}</option>
-      </select>
       <table class="table table-responsive-sm table-responsive-md" id="myTable">
         <thead>
           <tr>

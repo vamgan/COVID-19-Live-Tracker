@@ -11,12 +11,12 @@ export class WorldwideService {
   constructor(private http: HttpClient) { }
 
   public GetConfirmedData() {
-    return this.http.get('https://corona.lmao.ninja/countries?sort=cases')
+    return this.http.get('https://corona.lmao.ninja/v2/countries?sort=cases')
     .pipe(map(response => response));
   }
 
   public GetRecoveredData() {
-    return this.http.get('https://corona.lmao.ninja/countries?sort=cases')
+    return this.http.get('https://corona.lmao.ninja/v2/countries?sort=cases')
     .pipe(map(response => response));
   }
 }
