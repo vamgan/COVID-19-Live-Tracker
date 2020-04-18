@@ -189,7 +189,8 @@
             <th>CONFIRMED</th>
             <tr *ngFor="let data1 of GetDistrict(data.state)">
               <td>{{data1}}</td>
-              <td>{{districtWise[data.state].districtData[data1].confirmed}}</td>
+              <td>{{districtWise[data.state].districtData[data1].confirmed}}<span class="info"
+                style="color: red;" *ngIf = "districtWise[data.state].districtData[data1].delta.confirmed !== 0" > +{{districtWise[data.state].districtData[data1].delta.confirmed}} today</span></td>
             </tr>
           </div>
         </tbody>
