@@ -19,7 +19,7 @@ export class TopdistrictComponent implements OnInit {
   public barChartPlugins = [];
 
   public barChartData: ChartDataSets[] = [
-    { data: [], label: '' }
+    { data: [], label: 'Confirmed' }
   ];
   countstate = 0;
   DistrictData: any;
