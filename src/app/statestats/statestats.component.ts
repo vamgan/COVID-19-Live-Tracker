@@ -44,7 +44,6 @@ public UserState(userdata: any) {
   for ( const data of this.statewise) {
     if ( data.state === userdata) {
       this.userstate = data;
-      console.log(this.userstate);
     }
   }
 

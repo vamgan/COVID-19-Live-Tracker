@@ -2,8 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": ["node", "googlemaps"],
-    "typeRoots": [ "../node_modules/@types" ]
+    "types": ["node", "googlemaps", "mapbox-gl"],
+    "typeRoots": [ "../node_modules/@types" ],
+    "esModuleInterop": true
   },
   "files": [
     "src/main.ts",

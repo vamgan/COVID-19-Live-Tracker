@@ -155,7 +155,7 @@
 
       </div>
     </div>
-    <div class="col-md-12 col-lg-6 col-sm-12">
+    <div class="col-md-6 col-lg-6 col-sm-12">
       <h6>{{affectedStateCount}} STATES/UTS AFFECTED (Click on states to see detailed city stats)</h6>
       <input class="form-control" placeholder="Find States" type="text" (keyup)="updateFilter($event)"
         style="margin-bottom: 10px;" />
@@ -174,15 +174,15 @@
             <td *ngIf="data.state !== 'Total'">
               {{ data.expanded ? '&ndash;' : '+ '}}{{data.state}}</td>
             <td *ngIf="data.state !== 'Total'">{{data.confirmed}}<span class="info"
-                style="color: red;"> +{{data.deltaconfirmed}} today</span></td>
+                style="color: red;"> +{{data.deltaconfirmed}}</span></td>
             <!-- <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td> -->
             <td *ngIf="data.state !== 'Total'">{{data.recovered}}<span class="info"
-                style="color: green;"> +{{data.deltarecovered}} today</span></td>
+                style="color: green;"> +{{data.deltarecovered}}</span></td>
             <td *ngIf="data.state !== 'Total'">{{data.deaths}}<span class="info"
-                style="color: red;"> +{{data.deltadeaths}} today</span></td>
+                style="color: red;"> +{{data.deltadeaths}}</span></td>
           </tr>
           <div *ngIf="data.expanded">
-            <h6 style="color: darkgreen;"><strong>Last updated </strong> {{lastUpdate(data.lastupdatedtime)}} ago </h6>
+            <h6 style="color: darkgreen; font-size: 0.75rem;"><strong>Last updated </strong> {{lastUpdate(data.lastupdatedtime)}} ago </h6>
             <th>DISTRICT</th>
             <th>CONFIRMED</th>
             <tr *ngFor="let data1 of GetDistrict(data.state)">
@@ -197,7 +197,7 @@
           <tr *ngFor="let data of stateSort">
             <td *ngIf="data.state === 'Total'"><b>{{data.state}}</b></td>
             <td *ngIf="data.state === 'Total'"><b>{{data.confirmed}}<span class="info" style="color: red;">
-                  +{{data.deltaconfirmed}} today</span></b></td>
+                  +{{data.deltaconfirmed}}</span></b></td>
             <!-- <td *ngIf="data.state === 'Total'"><b>{{data.active}}</b></td> -->
             <td *ngIf="data.state === 'Total'"><b>{{data.recovered}}</b></td>
             <td *ngIf="data.state === 'Total'"><b>{{data.deaths}}</b></td>
