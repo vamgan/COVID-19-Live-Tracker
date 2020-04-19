@@ -36,6 +36,7 @@ import { AsyncPipe } from '@angular/common';
 import { environment } from '../environments/environment';
 import { MumbaihComponent } from './mumbaih/mumbaih.component';
 import { StatestatsComponent } from './statestats/statestats.component';
+import { StatemapComponent } from './home/statemap/statemap.component';
 import { MapboxComponent } from './mapbox/mapbox.component';
 import { TopdistrictComponent } from './topdistrict/topdistrict.component';
 
@@ -67,6 +68,7 @@ import { TopdistrictComponent } from './topdistrict/topdistrict.component';
     EssentialsComponent,
     MumbaihComponent,
     StatestatsComponent,
+    StatemapComponent,
     MapboxComponent,
     TopdistrictComponent,
   ],
