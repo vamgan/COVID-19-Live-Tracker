@@ -38,13 +38,12 @@ body {
   background: #f3f8fa;
 }
 
-td{
-  max-width: 150px;
+ td{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; 
-  ;
-}
+
+} 
 .button {
   display: flex;
   flex-direction: row;
@@ -62,4 +61,40 @@ td{
   outline: none;
   font-size: 0.75rem;
   text-decoration: none;
+}
+
+table {
+  align-self: center;
+}
+table thead {
+  text-align: left;
+  font-size: 0.75rem;
+}
+table thead th {
+  padding: 0.5rem;
+}
+
+
+table tbody {
+  max-width: 10rem;
+}
+
+
+table tbody td {
+
+  font-size: 0.9rem;
+
+}
+
+table tbody td a {
+  height: 1px;
+}
+
+
+
+
+@media (max-width: 769px) {
+  table td {
+    max-width: 6.75rem;
+ }
 }

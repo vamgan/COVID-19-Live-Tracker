@@ -37,6 +37,8 @@ import { environment } from '../environments/environment';
 import { MumbaihComponent } from './mumbaih/mumbaih.component';
 import { StatestatsComponent } from './statestats/statestats.component';
 import { StatemapComponent } from './home/statemap/statemap.component';
+import { MapboxComponent } from './mapbox/mapbox.component';
+import { TopdistrictComponent } from './topdistrict/topdistrict.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import { StatemapComponent } from './home/statemap/statemap.component';
     MumbaihComponent,
     StatestatsComponent,
     StatemapComponent,
+    MapboxComponent,
+    TopdistrictComponent,
   ],
   imports: [
     BrowserModule,
