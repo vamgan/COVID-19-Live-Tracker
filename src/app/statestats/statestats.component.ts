@@ -32,11 +32,12 @@ public getIP() {
 }
 
 public getUserState(ip: any) {
-  this.urlapi = 'https://api.ipgeolocation.io/ipgeo?apiKey=132affc6cf06440ea8ff38ff782bf242&ip=' + ip;
+  this.urlapi = 'https://ipapi.co/ipAddress/json/';
+  this.urlapi = this.urlapi.replace('ipAddress', ip);
   this.http.get(this.urlapi)
   .subscribe((UserData) => {
     this.UserData = UserData;
-    this.UserState(this.UserData.state_prov);
+    this.UserState(this.UserData.region);
   });
 }
 
