@@ -4,7 +4,7 @@
       <h5>Coronavirus Outbreak in India Live</h5>
     </div>
     <div class="col-sm-12 col-lg-4" style="margin-top: 30px;">
-      <div class="alert alert-danger" routerLink = "/mumbaih"><b>Click here for Mumbai Hotspots</b></div>
+      <div class="alert alert-warning" routerLink = "/state"><b>Click here for detailed {{UserData.region}} stats</b></div>
     </div>
     <div class="col-sm-12 col-lg-4" *ngIf=statewise style="margin-top: 30px;">
       <div class="alert alert-success">
@@ -30,6 +30,26 @@
             <h2 class="case">{{statewise[0].confirmed}}</h2>
             <span class="info" style="color:red">+{{statewise[0].deltaconfirmed}} Today</span>
 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3 ">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <h6>
+              <b>ACTIVE CASES</b>
+            </h6>
+          </div>
+        </div>
+        <div class="card-body status-hospitalized" *ngIf=IndiaData>
+          <div class="cases-container">
+            <h2 class="case">{{statewise[0].active}}
+            </h2>
+            <!-- <span class="info"
+              style="color: orangered;">+{{IndiaData.tested[IndiaData.tested.length-1].samplereportedtoday}}
+              Today</span> -->
           </div>
         </div>
       </div>
@@ -72,26 +92,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-6 col-lg-3 ">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">
-            <h6>
-              <b>SAMPLES TESTED</b>
-            </h6>
-          </div>
-        </div>
-        <div class="card-body status-hospitalized" *ngIf=IndiaData>
-          <div class="cases-container">
-            <h2 class="case">{{IndiaData.tested[IndiaData.tested.length-1].totalsamplestested}}
-            </h2>
-            <span class="info"
-              style="color: orangered;">+{{IndiaData.tested[IndiaData.tested.length-1].samplereportedtoday}}
-              Today</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <!--     <div class="col-sm-12 col-md-6 col-lg-3 ">
       <div class="card">
         <div class="card-header">
@@ -112,7 +113,6 @@
       </div>
     </div> -->
   </div>
-  <app-statestats></app-statestats>
   <div class="row" style="margin-top: 5px;">
     <div class="col-md-6 col-lg-6 col-sm-12">
       <div class="card">

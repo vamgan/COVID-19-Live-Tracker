@@ -1,14 +1,13 @@
 <div class="container">
   <div class="row" style="margin-top: 20px;">
-    <div class="col-12">
+   <!-- <div class="col-12">
       <div class="card">
         <div class="card-header">
           Mumbai Hotspots
         </div>
-        <app-mapbox></app-mapbox>
       </div>
     </div>
-    <div class="row">
+    <div class="row"> -->
       <div class="col-6 col-sm-12">
         <select style="margin: 10px;" class="browser-default custom-select" (change)="onSelectPincode($event)"
           *ngIf="pinlatlong">
@@ -40,4 +39,5 @@
       </div>
     </div>
   </div>
-</div>
+  <div #mapContainer id="map"></div>
+

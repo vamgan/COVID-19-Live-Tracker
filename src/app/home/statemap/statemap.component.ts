@@ -82,7 +82,9 @@ export class StatemapComponent implements OnInit {
           minColor: '#fff4f0',
           maxColor: '#c41a1d'
       },
-      series: [],
+      series: [{
+        mapData: goa,
+      }],
   };
   ipAddress: any;
   urlapi: string;

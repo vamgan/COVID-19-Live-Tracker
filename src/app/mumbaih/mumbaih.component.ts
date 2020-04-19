@@ -111,7 +111,6 @@ export class MumbaihComponent implements AfterViewInit {
   coordinates = new google.maps.LatLng(this.lat, this.lng);
   constructor() {
     this.getLocation();
-
   }
 
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
@@ -170,7 +169,7 @@ export class MumbaihComponent implements AfterViewInit {
         }
       });
     } else {
-      alert('Location not supported on your browser');
+      alert('Please Allow Location');
     }
   }
   public getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {

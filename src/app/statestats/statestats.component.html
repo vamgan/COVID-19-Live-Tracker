@@ -1,83 +1,126 @@
-<div class="row" style="margin-top: 5px;" *ngIf='userstate'>
+<div class="container">
+  <div class="row" style="margin-bottom: 0px;">
+    <div class="col-sm-12 col-lg-4" style="margin-top: 30px;">
+      <h5>Coronavirus Outbreak in {{userstate.state}}</h5>
+    </div>
+    <div class="col-sm-12 col-lg-4" style="margin-top: 30px;"  *ngIf = "userstate.state === 'Maharashtra'">
+      <div class="alert alert-danger" routerLink = "/mumbaih"><b>Click here for Mumbai Hotspots</b></div>
+    </div>
+    <div class="col-sm-12 col-lg-4" *ngIf=statewise style="margin-top: 30px;">
+      <div class="alert alert-success">
+        <strong>Last updated </strong> {{lastUpdate(userstate.lastupdatedtime)}}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 5px;" *ngIf='userstate'>
 
-  <div class="col-sm-12 col-md-6 col-lg-3 ">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title ">
-          <h6>
-            <b>CONFIRMED CASES</b>
-          </h6>
+    <div class="col-sm-12 col-md-6 col-lg-3 ">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title ">
+            <h6>
+              <b>CONFIRMED CASES</b>
+            </h6>
+          </div>
+        </div>
+        <div class="card-body status-confirmed">
+          <div class="cases-container">
+            <h2 class="case">{{userstate.confirmed}}</h2>
+            <span class="info" style="color:red">+{{userstate.deltaconfirmed}} Today</span>
+
+          </div>
         </div>
       </div>
-      <div class="card-body status-confirmed">
-        <div class="cases-container">
-          <h2 class="case">{{userstate.confirmed}}</h2>
-          <span class="info" style="color:red">+{{userstate.deltaconfirmed}} Today</span>
-
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3 ">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <h6>
+              <b>ACTIVE CASSES</b>
+            </h6>
+          </div>
+        </div>
+        <div class="card-body status-hospitalized">
+          <div class="cases-container">
+            <h2 class="case">{{userstate.active}}
+            </h2>
+            <span class="info" style="color: orangered;"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3 ">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <h6>
+              <b>RECOVERED CASES</b>
+            </h6>
+          </div>
+        </div>
+        <div class="card-body status-recovered">
+          <div class="cases-container">
+            <h2 class="case">{{userstate.recovered}}</h2>
+            <span class="info"
+              style="color: green;">{{userstate.recovered *100 / userstate.confirmed| number : '1.1-2'}}%
+              of total
+              cases</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3 ">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <h6>
+              <b>DEATHS</b>
+            </h6>
+          </div>
+        </div>
+        <div class="card-body status-icu">
+          <div class="cases-container">
+            <h2 class="case">{{userstate.deaths}}</h2>
+            <span class="info" style="color: darkred;">{{userstate.deaths *100 /userstate.confirmed| number : '1.1-2'}}%
+              of total
+              cases</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-12 col-md-6 col-lg-3 ">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">
-          <h6>
-            <b>ACTIVE CASSES</b>
-          </h6>
+  <div class="row" style="margin-top: 5px;">
+    <div class="col-md-6 col-lg-6 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Top 10 Cities</div>
+          <div class="card-subtitle text-gray mt-1">Click on labels to interact with the charts</div>
         </div>
-      </div>
-      <div class="card-body status-hospitalized">
-        <div class="cases-container">
-          <h2 class="case">{{userstate.active}}
-          </h2>
-          <span class="info" style="color: orangered;"></span>
+        <div class="card-body">
+          <app-topdistrict [UserState]="UserData.region"></app-topdistrict>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-sm-12 col-md-6 col-lg-3 ">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">
-          <h6>
-            <b>RECOVERED CASES</b>
-          </h6>
-        </div>
-      </div>
-      <div class="card-body status-recovered">
-        <div class="cases-container">
-          <h2 class="case">{{userstate.recovered}}</h2>
-          <span class="info" style="color: green;">{{userstate.recovered *100 / userstate.confirmed| number : '1.1-2'}}%
-            of total
-            cases</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-12 col-md-6 col-lg-3 ">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">
-          <h6>
-            <b>DEATHS</b>
-          </h6>
-        </div>
-      </div>
-      <div class="card-body status-icu">
-        <div class="cases-container">
-          <h2 class="case">{{userstate.deaths}}</h2>
-          <span class="info" style="color: darkred;">{{userstate.deaths *100 /userstate.confirmed| number : '1.1-2'}}%
-            of total
-            cases</span>
-        </div>
+    <div class="col-md-6 col-lg-6 col-sm-12">
+      <table class="table">
+        <tr>
+          <th>CITY</th>
+          <th>CONFIRMED</th>
+        <tr>
+        </tr>
+        <tbody *ngFor="let data of district | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+          <tr>
+            <td>{{data.district}}</td>
+            <td>{{data.confirmed}}<span class="info" style="color: red;"> +{{data.delta.confirmed}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="float-right float-sm-right" *ngIf="district">
+        <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="district.length" [maxSize]="5">
+        </ngb-pagination>
       </div>
     </div>
   </div>
-
-
-  <app-statemap [UserState]="UserData.region"></app-statemap>
-
 
 </div>
-<app-topdistrict [UserState]="UserData.region"></app-topdistrict>
