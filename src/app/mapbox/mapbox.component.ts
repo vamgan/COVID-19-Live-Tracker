@@ -1,4 +1,4 @@
-import { environment } from '../../environments/environment';
+/* import { environment } from '../../environments/environment';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import * as L from 'leaflet';
@@ -49,3 +49,4 @@ ngAfterViewInit() {
 }
 }
 
+ */
