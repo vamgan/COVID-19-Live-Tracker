@@ -39,6 +39,7 @@ import { StatestatsComponent } from './statestats/statestats.component';
 import { StatemapComponent } from './home/statemap/statemap.component';
 /* import { MapboxComponent } from './mapbox/mapbox.component'; */
 import { TopdistrictComponent } from './topdistrict/topdistrict.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { TopdistrictComponent } from './topdistrict/topdistrict.component';
     HighchartsChartModule,
     NgbToastModule,
    /*  AngularFireModule.initializeApp(environment.firebase), */
-    NgbToastModule
+    NgbToastModule,
+   ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [],
