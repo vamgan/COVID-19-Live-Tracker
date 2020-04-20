@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-lg-4" style="margin-top: 30px;">
       <h5>Coronavirus Outbreak in India Live</h5>
     </div>
-    <div class="col-sm-12 col-lg-4" style="margin-top: 30px;">
+    <div class="col-sm-12 col-lg-4" style="margin-top: 30px;" *ngIf="UserData">
       <div class="alert alert-warning" routerLink = "/state"><b>Click here for detailed {{UserData.region}} stats</b></div>
     </div>
     <div class="col-sm-12 col-lg-4" *ngIf=statewise style="margin-top: 30px;">
@@ -92,7 +92,7 @@
         </div>
       </div>
     </div>
-    
+
     <!--     <div class="col-sm-12 col-md-6 col-lg-3 ">
       <div class="card">
         <div class="card-header">
@@ -174,12 +174,12 @@
             <td *ngIf="data.state !== 'Total'">
               {{ data.expanded ? '&ndash;' : '+ '}}{{data.state}}</td>
             <td *ngIf="data.state !== 'Total'">{{data.confirmed}}<span class="info"
-                style="color: red;"> +{{data.deltaconfirmed}}</span></td>
+                style="color: red;" *ngIf = "data.deltaconfirmed !== '0'"> +{{data.deltaconfirmed}}</span></td>
             <!-- <td *ngIf="data.state !== 'Total' && data.confirmed !== '0'">{{data.active}}</td> -->
             <td *ngIf="data.state !== 'Total'">{{data.recovered}}<span class="info"
-                style="color: green;"> +{{data.deltarecovered}}</span></td>
+                style="color: green;" *ngIf = "data.deltarecovered !== '0'"> +{{data.deltarecovered}}</span></td>
             <td *ngIf="data.state !== 'Total'">{{data.deaths}}<span class="info"
-                style="color: red;"> +{{data.deltadeaths}}</span></td>
+                style="color: red;" *ngIf = "data.deltadeaths !== '0'"> +{{data.deltadeaths}}</span></td>
           </tr>
           <div *ngIf="data.expanded">
             <h6 style="color: darkgreen; font-size: 0.75rem;"><strong>Last updated </strong> {{lastUpdate(data.lastupdatedtime)}} ago </h6>

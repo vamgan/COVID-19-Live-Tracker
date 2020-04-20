@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-lg-8" style="margin-top: 30px;">
       <h5>Coronavirus Outbreak Worldwide Live</h5>
     </div>
-    <div class="col-sm-12 col-lg-4 " style="margin-top: 10px; padding-bottom: 0px;">
+    <div class="col-sm-12 col-lg-4 " style="margin-top: 10px; padding-bottom: 0px;" *ngIf="WorldData">
       <div class="alert alert-success"><strong>Last Updated </strong>{{lastUpdate(WorldData.updated)}} ago
       </div>
       </div>

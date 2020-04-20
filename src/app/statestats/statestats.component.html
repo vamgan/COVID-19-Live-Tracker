@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="userstate">
   <div class="row" style="margin-bottom: 0px;">
     <div class="col-sm-12 col-lg-4" style="margin-top: 30px;">
       <h5>Coronavirus Outbreak in {{userstate.state}}</h5>
@@ -110,7 +110,7 @@
         <tbody *ngFor="let data of district | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
           <tr>
             <td>{{data.district}}</td>
-            <td>{{data.confirmed}}<span class="info" style="color: red;"> +{{data.delta.confirmed}}</span></td>
+            <td>{{data.confirmed}}<span class="info" style="color: red;" *ngIf="data.delta.confirmed !== 0"> +{{data.delta.confirmed}}</span></td>
           </tr>
         </tbody>
       </table>
