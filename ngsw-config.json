@@ -7,7 +7,8 @@
         "https://ipapi.co/ipAddress/json/",
         "https://api.covid19india.org/**",
         "https://corona.lmao.ninja/**",
-        "https://api.ipify.org/**"
+        "https://api.ipify.org/**",
+        "https://gocovid19.in/api/**"
       ],
       "cacheConfig": {
         "strategy": "freshness",
