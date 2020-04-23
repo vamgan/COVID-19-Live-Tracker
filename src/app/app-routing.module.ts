@@ -10,10 +10,11 @@ import { FunzoneComponent } from './funzone/funzone.component';
 import { MumbaihComponent } from './mumbaih/mumbaih.component';
 import { EssentialsComponent } from './essentials/essentials.component';
 import { StatestatsComponent } from './statestats/statestats.component';
+import { HometabComponent } from './hometab/hometab.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/hometab', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
   { path: 'helpline', component: HelplineComponent},
   { path: 'testcentre', component: TestCentresComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'mumbaih', component: MumbaihComponent},
   { path: 'essentials', component: EssentialsComponent},
   { path: 'state', component: StatestatsComponent },
-  { path: '**', redirectTo: '/home'}
+  { path: 'hometab', component: HometabComponent},
+  { path: '**', redirectTo: '/hometab'}
 
 ];
 

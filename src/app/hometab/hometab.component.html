@@ -1,0 +1,22 @@
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs justify-content-center" style="margin-top: 10px;">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink style="font-size: 0.85rem"><b>India 🇮🇳</b></a>
+      <ng-template ngbNavContent>
+       <app-home></app-home>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2" *ngIf = "UserData">
+      <a ngbNavLink style="font-size: 0.85rem"><b>{{UserData.region}}</b></a>
+      <ng-template ngbNavContent>
+        <app-statestats></app-statestats>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <a ngbNavLink style="font-size: 0.85rem"><b>World 🌍</b></a>
+      <ng-template ngbNavContent>
+        <app-worldwide></app-worldwide>
+      </ng-template>
+    </li>
+  </ul>
+  
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>

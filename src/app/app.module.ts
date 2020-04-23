@@ -20,7 +20,7 @@ import { WorldwideComponent } from './worldwide/worldwide.component';
 import { WorldwidebarComponent } from './worldwidebar/worldwidebar.component';
 import { DailyindComponent } from './home/dailyind/dailyind.component';
 import { NewsTickerComponent } from './home/news-ticker/news-ticker.component';
-import { NgbPaginationModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbPaginationModule, NgbToastModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NewsComponent } from './news/news.component';
@@ -40,6 +40,7 @@ import { StatemapComponent } from './home/statemap/statemap.component';
 /* import { MapboxComponent } from './mapbox/mapbox.component'; */
 import { TopdistrictComponent } from './topdistrict/topdistrict.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HometabComponent } from './hometab/hometab.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     StatemapComponent,
     /* MapboxComponent, */
     TopdistrictComponent,
+    HometabComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +87,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     // tslint:disable-next-line: deprecation
     NgbTabsetModule,
     HighchartsChartModule,
+    NgbNavModule,
     NgbToastModule,
    /*  AngularFireModule.initializeApp(environment.firebase), */
     NgbToastModule,

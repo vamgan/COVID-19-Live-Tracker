@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row" style="margin-bottom: 0px;">
-    <div class="col-sm-12 col-lg-4" style="margin-top: 30px;">
+    <div class="col-sm-12 col-lg-8" style="margin-top: 10px;">
       <h5>Coronavirus Outbreak in India Live</h5>
     </div>
-    <div class="col-sm-12 col-lg-4" style="margin-top: 30px;" *ngIf="UserData">
+    <!-- <div class="col-sm-12 col-lg-4" style="margin-top: 30px;" *ngIf="UserData">
       <div class="alert alert-warning" routerLink = "/state"><b>Click here for detailed {{UserData.region}} stats</b></div>
-    </div>
-    <div class="col-sm-12 col-lg-4" *ngIf=statewise style="margin-top: 30px;">
+    </div> -->
+    <div class="col-sm-12 col-lg-4" *ngIf=statewise style="margin-top: 10px;">
       <div class="alert alert-success">
         <strong>Last updated </strong> {{lastUpdate(statewise[0].lastupdatedtime)}} ago
       </div>

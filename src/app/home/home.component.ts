@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
   UserData: any;
 
   constructor(private homeService: HomeService, private meta: Meta,  private http: HttpClient) {
-    this.getIP();
     meta.addTags([
       {name: 'description', content: 'Data Visualisation and Live Tracker for the COVID-19 virus outbreak in India & Worldwide'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
@@ -129,19 +128,5 @@ export class HomeComponent implements OnInit {
         }
     });
   }
-  public getIP() {
-    this.homeService.getIPAddress().subscribe((res: any) => {
-      this.ipAddress = res.ip;
-      this.getUserState(this.ipAddress);
-    });
-  }
 
-  public getUserState(ip: any) {
-    this.urlapi = 'https://ipapi.co/ipAddress/json/';
-    this.urlapi = this.urlapi.replace('ipAddress', ip);
-    this.http.get(this.urlapi)
-      .subscribe((UserData) => {
-        this.UserData = UserData;
-      });
-  }
 }
