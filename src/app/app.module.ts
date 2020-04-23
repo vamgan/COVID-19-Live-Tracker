@@ -23,7 +23,6 @@ import { NewsTickerComponent } from './home/news-ticker/news-ticker.component';
 import { NgbPaginationModule, NgbToastModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { NewsComponent } from './news/news.component';
 import { FunzoneComponent } from './funzone/funzone.component';
 import { RiddleComponent } from './funzone/riddle/riddle.component';
 import { MoviesComponent } from './funzone/movies/movies.component';
@@ -60,7 +59,6 @@ import { HometabComponent } from './hometab/hometab.component';
     WorldwidebarComponent,
     DailyindComponent,
     NewsTickerComponent,
-    NewsComponent,
     FunzoneComponent,
     RiddleComponent,
     MoviesComponent,
