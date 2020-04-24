@@ -2,7 +2,7 @@
   font-size: 22px;
   font-weight: 900;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-  
+
   }
 
 .navbar-light .navbar-nav .nav-link{
@@ -65,7 +65,7 @@ a:focus {
   to {
       background: rgba(108,117,125,.0627451)
   }
-} 
+}
 
 .Navbar .navbar-left {
   margin-left: 2rem;
@@ -119,4 +119,8 @@ a:focus {
 }
 a:focus {
   box-shadow: none;
+}
+
+.noti {
+  font-size: 1rem !important;
 }

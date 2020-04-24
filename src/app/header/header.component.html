@@ -21,13 +21,18 @@
 
 <div class="Navbar shadow-sm" style="animation-delay: 0.5s;transition: all 0.3s ease-in-out 0s;"><img
     class="fadeInUp logo" alt="India COVID-19 outbreak" src="..\..\assets\favicon.svg">
-  <div class="navbar-left"><a routerLink="/hometab"><span class="fadeInUp"
-        style="animation-delay: 0.2s;">Home</span></a><a routerLink="/state" routerLinkActive="active"><span
-        style="animation-delay: 0.4s;">State Stats</span></a><a routerLink="/essentials" routerLinkActive="active"><span
-        class="fadeInUp " style="animation-delay: 0.4s;">Essentials</span></a></div>
+  <div class="navbar-left">
+    <a routerLink="/hometab"><span class="fadeInUp" style="animation-delay: 0.2s;">Home</span></a>
+    <a routerLink="/state" routerLinkActive="active"><span style="animation-delay: 0.4s;">State Stats</span></a>
+    <a routerLink="/essentials" routerLinkActive="active"><span class="fadeInUp " style="animation-delay: 0.4s;">Essentials</span></a>
+    <a *ngIf="showNoti" (click)="onNotiClick()"><i class="far fa-bell noti"></i></a>
+    <a *ngIf="!showNoti" (click)="onNotiClick()"><i class="far fa-bell-slash noti"></i>
+    </a>
+  </div>
 </div>
-
-
-
-
+<div class="container" *ngIf="!showNoti">
+  <div class="alert alert-primary" *ngFor = "let data of newsObj">
+    <span >{{data.update}}<b>{{lastUpdate(data.timestamp)}} ago</b></span>
+  </div>
+</div>
 </html>
