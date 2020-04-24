@@ -49,21 +49,21 @@ a:focus {
 
 @-webkit-keyframes u0f28bae0 {
   0% {
-      background: transparent
+    background: transparent
   }
 
   to {
-      background: rgba(108,117,125,.0627451)
+    background: rgba(108, 117, 125, .0627451)
   }
 }
 
 @keyframes u0f28bae0 {
   0% {
-      background: transparent
+    background: transparent
   }
 
   to {
-      background: rgba(108,117,125,.0627451)
+    background: rgba(108, 117, 125, .0627451)
   }
 }
 
@@ -73,9 +73,19 @@ a:focus {
   align-self: center
 }
 
+.Navbar .navbar-right {
+  color: #6c757d;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 1.8rem;
+  transition: all 0s ease-in-out;
+  width: 2rem;
+}
+
 .Navbar .navbar-left a {
   display: inline-block;
-  font-family:-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif ;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   text-decoration: none;
   margin-right: 2rem;
@@ -86,7 +96,8 @@ a:focus {
   display: inline-block
 }
 
-.Navbar .focused,.Navbar .navbar-left a span:hover {
+.Navbar .focused,
+.Navbar .navbar-left a span:hover {
   color: #6f42c1
 }
 
@@ -97,26 +108,30 @@ a:focus {
   margin-left: 5rem;
   cursor: pointer
 }
+
 .div .a {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (max-width: 769px){
-  .Navbar a {
-    font-size: .75rem!important;
-    margin-right: .75rem!important
-}
 
-.Navbar img {
+
+@media (max-width: 769px) {
+  .Navbar a {
+    font-size: .75rem !important;
+    margin-right: .75rem !important
+  }
+
+  .Navbar img {
     width: 2rem;
     height: 2rem;
     margin-left: 1rem;
     margin-right: -1rem;
     cursor: pointer
-}
+  }
 
 
 }
+
 a:focus {
   box-shadow: none;
 }

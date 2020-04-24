@@ -25,8 +25,11 @@
     <a routerLink="/hometab"><span class="fadeInUp" style="animation-delay: 0.2s;">Home</span></a>
     <a routerLink="/state" routerLinkActive="active"><span style="animation-delay: 0.4s;">State Stats</span></a>
     <a routerLink="/essentials" routerLinkActive="active"><span class="fadeInUp " style="animation-delay: 0.4s;">Essentials</span></a>
-    <a *ngIf="showNoti" (click)="onNotiClick()"><i class="far fa-bell noti"></i></a>
-    <a *ngIf="!showNoti" (click)="onNotiClick()"><i class="far fa-bell-slash noti"></i>
+  </div>
+  <div class="navbar-right">
+    
+    <a *ngIf="showNoti" (click)="onNotiClick()"><span><i class="far fa-bell noti"></i></span></a>
+    <a *ngIf="!showNoti" (click)="onNotiClick()"><span><i class="far fa-bell-slash noti"></i></span>
     </a>
   </div>
 </div>
