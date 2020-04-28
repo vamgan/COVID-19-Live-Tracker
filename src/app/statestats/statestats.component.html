@@ -109,8 +109,8 @@
         </tr>
         <tbody *ngFor="let data of district | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
           <tr>
-            <td>{{data.district}}</td>
-            <td>{{data.confirmed}}<span class="info" style="color: red;" *ngIf="data.delta.confirmed !== 0"> +{{data.delta.confirmed}}</span></td>
+            <td *ngIf="data.district !== 'Unknown'">{{data.district}}</td>
+            <td *ngIf="data.district !== 'Unknown'">{{data.confirmed}}<span class="info" style="color: red;" *ngIf="data.delta.confirmed !== 0"> +{{data.delta.confirmed}}</span></td>
           </tr>
         </tbody>
       </table>
