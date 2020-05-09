@@ -1,6 +1,6 @@
 # COVID19 Tracker - Angular
 <p align="center">
-<img src=https://ibb.co/VBD1LPY">
+<a href="https://ibb.co/VBD1LPY"><img src="https://i.ibb.co/q19SDPY/gocovid19in.png" alt="gocovid19.in" border="0"></a>
 </p>
 
 
