@@ -1,4 +1,4 @@
-# COVID19 Tracker - Angular
+# COVID-19 Tracker - Angular
 ## Desktop
 <p align="center">
 <a href="https://gocovid19.in"><img src="https://i.ibb.co/q19SDPY/gocovid19in.png" alt="gocovid19.in" border="0"></a>
