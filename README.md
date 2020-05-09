@@ -9,7 +9,9 @@
 ```
 npm i && npm start
 ```
-
+## Data Source
+- https://api.covid19india.org/ (India Database)
+- https://corona.lmao.ninja/ (Worldwide Database)
 ## Maintainers
 
 - [Vamil Gandhi](https://github.com/vamgan)
