@@ -14,6 +14,15 @@
 ```
 npm i && npm start
 ```
+
+## Features
+- India Live Tracker and Analytical Charts
+- Worlwide Live Trackerand Analytical Charts
+- User State Detection (Only for India)
+- Detailed State Analysis
+- Push Notifications
+- Offline Capability in PWA
+
 ## Data Source
 - https://api.covid19india.org/ (India Database)
 - https://corona.lmao.ninja/ (Worldwide Database)
