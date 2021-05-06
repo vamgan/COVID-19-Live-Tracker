@@ -35,7 +35,7 @@
     "chartjs-plugin-datalabels": "^0.7.0",
     "date-fns": "^2.11.1",
     "firebase": "^7.14.0",
-    "highcharts": "^8.0.4",
+    "highcharts": "^9.0.0",
     "highcharts-angular": "^2.4.0",
     "https": "^1.0.0",
     "ipapi.co": "^0.3.0",
