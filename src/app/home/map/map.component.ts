@@ -2,12 +2,12 @@ declare var require: any;
 
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import MapModule from 'highcharts/modules/map';
 import { Observable } from 'rxjs';
 import {HomeService} from '../home.service';
 import {Response} from '../../response';
+const HC_map = require('highcharts/modules/map');
 const India = require('@highcharts/map-collection/countries/in/custom/in-all-disputed.geo.json');
-MapModule(Highcharts);
+HC_map(Highcharts);
 
 @Component({
   selector: 'app-map',

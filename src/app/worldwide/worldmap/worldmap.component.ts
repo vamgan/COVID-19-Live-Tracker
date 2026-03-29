@@ -2,10 +2,10 @@ declare var require: any;
 
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import MapModule from 'highcharts/modules/map';
 import { HttpClient } from '@angular/common/http';
+const HC_map = require('highcharts/modules/map');
 const World = require('@highcharts/map-collection/custom/world.geo.json');
-MapModule(Highcharts);
+HC_map(Highcharts);
 
 @Component({
   selector: 'app-worldmap',

@@ -2,12 +2,12 @@ declare var require: any;
 
 import { Component, OnInit, Input } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import MapModule from 'highcharts/modules/map';
 import { Observable } from 'rxjs';
 import {HomeService} from '../home.service';
 import {Response} from '../../response';
 import { HttpClient } from '@angular/common/http';
 import {StatestatsComponent} from '../../statestats/statestats.component';
+const HC_map = require('highcharts/modules/map');
 const andamannicobarislands = require('../../../assets/stateMap/andamannicobarislands.json');
 const andhrapradesh = require('../../../assets/stateMap/andhrapradesh.json');
 const arunachalpradesh = require('../../../assets/stateMap/arunachalpradesh.json');
@@ -46,7 +46,7 @@ const uttarakhand = require('../../../assets/stateMap/uttarakhand.json');
 const uttarpradesh = require('../../../assets/stateMap/uttarpradesh.json');
 const westbengal = require('../../../assets/stateMap/westbengal.json');
 
-MapModule(Highcharts);
+HC_map(Highcharts);
 
 @Component({
   selector: 'app-statemap',

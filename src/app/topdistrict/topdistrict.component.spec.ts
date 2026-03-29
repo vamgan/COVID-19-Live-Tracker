@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TopdistrictComponent } from './topdistrict.component';
 
@@ -6,7 +6,7 @@ describe('TopdistrictComponent', () => {
   let component: TopdistrictComponent;
   let fixture: ComponentFixture<TopdistrictComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TopdistrictComponent ]
     })

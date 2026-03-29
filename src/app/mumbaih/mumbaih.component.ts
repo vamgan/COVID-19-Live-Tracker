@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 const mumbai = require('../../assets/Mumbai.json');
+type GeoPositionLike = { coords: { longitude: number; latitude: number } };
 
 @Component({
   selector: 'app-mumbaih',
@@ -121,10 +122,7 @@ export class MumbaihComponent implements AfterViewInit {
     zoom: 15,
   };
 
-  marker = new google.maps.Marker({
-    position: this.coordinates,
-    map: this.map,
-  });
+  marker: google.maps.Marker;
 
   ngAfterViewInit() {
     this.mapInitializer();
@@ -133,6 +131,10 @@ export class MumbaihComponent implements AfterViewInit {
   mapInitializer() {
     this.map = new google.maps.Map(this.gmap.nativeElement,
       this.mapOptions);
+    this.marker = new google.maps.Marker({
+      position: this.coordinates,
+      map: this.map,
+    });
   }
 
   public populateMarker(data: any) {
@@ -160,7 +162,7 @@ export class MumbaihComponent implements AfterViewInit {
   }
   public getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position: Position) => {
+      navigator.geolocation.getCurrentPosition((position: GeoPositionLike) => {
         if (position) {
           this.long = +position.coords.longitude;
           this.lati = +position.coords.latitude;
